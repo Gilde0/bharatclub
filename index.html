@@ -1,400 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Play Wingo, Predict Color or Big/Small & Win Real Money | BharatClub</title>
-  <meta name="description" content="Come play Wingo on BharatClub! Predict color or choose big/small, and win real money instantly. Join now for an exciting, secure gaming experience!">
-  <meta name="keywords" content="BharatClub, Wingo, Color Prediction, Big Small Game, Earn Money, Play & Win, Online Gaming India">
-
-  <meta property="og:title" content="Bharatclub | Play Wingo, Predict Color or Big/Small & Win Real Money">
-  <meta property="og:description" content="Join BharatClub and play Wingo! Predict color or choose big/small to win real money instantly. A fun, secure, and rewarding experience.">
-  <meta property="og:url" content="https://bharatclubs.netlify.app/">
-  <meta property="og:image" content="https://bharatclubs.netlify.app/Logoname.jpg">
-  <meta property="og:type" content="website">
-
-  <link rel="icon" href="favicon.ico?v=2" type="image/x-icon">
-
-  <link rel="stylesheet" href="css/styles.css">
-
-<style>
-  body {
-    margin: 0;
-    background-color: #ff3b3b;
-    font-family: Arial, sans-serif;
-    color: white;
-    text-align: center;
-  }
-  header img {
-  height: 40px;  /* smaller height for a neat fit */
-  width: auto;   /* keep aspect ratio */
-  display: block; /* removes any inline spacing */
-}
-header {
-  background-color: #000;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.logo {
-  height: 40px;
-  width: auto;
-}
-  .logo-image {
-    height: 80%;
-    width: auto;
-    object-fit: contain;
-  }
-  .container {
-    max-width: 700px;
-    margin: 40px auto;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  }
-  .main-image {
-    width: 80%;
-    max-width: 400px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  h1 {
-    margin: 15px 0;
-  }
-  p {
-    font-size: 18px;
-    line-height: 1.5;
-    margin: 15px 0 30px;
-  }
-  .button-group {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .btn {
-    background-color: #ff3b3b;
-    color: white;
-    padding: 15px 35px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-    min-width: 140px;
-    text-align: center;
-  }
-  .btn:hover {
-    background-color: #cc3232;
-  }
-  #about {
-  padding: 40px 20px;
-  max-width: 800px;
-  margin: 0 auto 60px auto;
-  text-align: justify;
-  background-color: #ff3b3b;
-}
-#about h1 {
-  color: #0b3d91;
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 20px;
-}
-  .pros {
-    max-width: 700px;
-    margin: 50px auto 80px;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    text-align: left;
-    color: #f9f9f9;
-  }
-  .pros h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 50px;
-    border-bottom: 2px solid #ff3b3b;
-    padding-bottom: 8px;
-  }
-ul {
-  list-style-type: none !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-ul li {
-  list-style-type: none !important;
-}
-ul li::before {
-  content: none !important;
-}  
-#faq-section {
-  margin-top: 80px;
-  padding: 40px 20px;
-  background-color: #8b0000; 
-  border-top: 4px solid #0b3d91;
-  border-radius: 8px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  font-family: 'Poppins', sans-serif;
-}
-#faq-section h2 {
-  color: #ff3b3b;
-  margin-bottom: 30px;
-  text-align: left;
-}
-.faq-item {
-  margin-bottom: 25px;
-}
-.faq-item ol {
-  padding-left: 20px;
-}
-.faq-item li {
-  margin-bottom: 8px;
-}
-  .faq-item {
-  margin-bottom: 25px;
-}
-.faq-item h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  color: #ff3b3b;
-  text-align: justify;
-}
-.faq-item p,
-.faq-item ol,
-.faq-item li {
-  text-align: justify;
-}
-  #guide-section {
-  margin-top: 80px;
-  padding: 40px 20px;
-  background-color: #8b0000;
-  border-top: 4px solid #0b3d91;
-  border-radius: 8px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  font-family: 'Poppins', sans-serif;
-  color: white;
-}
-#guide-section h2 {
-  color: #ff3b3b;
-  margin-bottom: 30px;
-  text-align: left;
-}
-.guide-item {
-  margin-bottom: 25px;
-}
-.guide-item h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  color: #ff3b3b;
-  text-align: justify;
-}
-.guide-item p {
-  text-align: justify;
-}
-.btn.join-channel {
-  background-color: #8b0000; /* Same color as FAQ section background */
-  color: white;
-  padding: 15px 35px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 18px;
-  border-radius: 8px;
-  border: 2px solid #8b0000; /* Same color as the background and border */
-  transition: background-color 0.3s ease, border 0.3s ease;
-  display: inline-block;
-  min-width: 140px;
-  text-align: center;
-}
-.btn.join-channel:hover {
-  background-color: #cc3232; 
-  border: 2px solid #cc3232;
-}
-
-</style>
+  <meta name="description" content="Come play Wingo on BharatClub! Predict color or choose big/small, and win real money instantly. Join now for an exciting, secure gaming experience!" />
+  <meta name="keywords" content="BharatClub, Wingo, Color Prediction, Big Small Game, Earn Money, Play & Win, Online Gaming India" />
+  <meta property="og:title" content="Bharatclub | Play Wingo, Predict Color or Big/Small & Win Real Money" />
+  <meta property="og:description" content="Join BharatClub and play Wingo! Predict color or choose big/small to win real money instantly. A fun, secure, and rewarding experience." />
+  <meta property="og:url" content="https://bharatclubs.netlify.app/" />
+  <meta property="og:image" content="https://bharatclubs.netlify.app/Logoname.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.ico?v=2" type="image/x-icon" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Your existing styles (trimmed for brevity) */
+    body {
+      margin: 0;
+      background-color: #ff3b3b;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+    header {
+      background-color: #000;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      height: 40px;
+      width: auto;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    h1 {
+      margin: 15px 0;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 15px 0 30px;
+    }
+    #faq-section {
+      margin-top: 80px;
+      padding: 40px 20px;
+      background-color: #8b0000; 
+      border-top: 4px solid #0b3d91;
+      border-radius: 8px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      font-family: 'Poppins', sans-serif;
+    }
+    #faq-section h2 {
+      color: #ff3b3b;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    .faq-item {
+      margin-bottom: 25px;
+    }
+    .faq-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #ff3b3b;
+      text-align: justify;
+    }
+    .faq-item p,
+    .faq-item ol,
+    .faq-item li {
+      text-align: justify;
+    }
+    .faq-item ol {
+      padding-left: 20px;
+    }
+    .faq-item li {
+      margin-bottom: 8px;
+    }
+  </style>
 </head>
 <body>
-<header>
+  <header>
     <div class="header-container">
-      <img src="Logoname.jpg" alt="BharatClubs Logo" class="logo" style="height: 40px; width: auto;"/>
+      <img src="Logoname.jpg" alt="BharatClubs Logo" class="logo" />
       <div class="header-text">Play & Win Big Today!</div>
     </div>
   </header>
-<style>
-  header {
-    background-color: #000000;
-    height: 10vh;
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  }
-  .logo-image {
-    height: 80%;
-    margin-left: 10%;
-    object-fit: contain;
-  }
-</style>
 
-<div class="container">
-<img src="Logo.jpg" alt="BharatClubs color prediction platform preview" />
-  <h1>Welcome to BharatClub</h1>
-  <p>Come and join the fastest growing gaming & earning platform in India. Play games, earn rewards, and withdraw instantly.</p>
+  <div class="container">
+    <img src="Logo.jpg" alt="BharatClubs color prediction platform preview" />
+    <h1>Welcome to BharatClub</h1>
+    <p>Come and join the fastest growing gaming & earning platform in India. Play games, earn rewards, and withdraw instantly.</p>
 
-  <div class="button-group">
-    <a href="https://bharatclub.net/#/register?invitationCode=818553846140" target="_blank" class="btn">Register</a>
-    <a href="https://bharatclub.net/#/login" target="_blank" class="btn">Login</a>
-  </div>
-</div>
-
-<section id="about">
-  <h1>Welcome to BharatClub – India’s Trusted Color Prediction Platform</h1>
-  <p>BharatClub is a fast-growing online color prediction platform where you can play, predict, and win real money instantly. Designed for Indian users, our platform offers exciting prediction games that are easy to understand and fun to play. Whether you're a beginner or a regular gamer, BharatClub provides a secure, fair, and rewarding experience. With smooth transactions, responsive support, and a growing community, we aim to be your top choice for online entertainment and earning opportunities. Start playing today and enjoy the thrill of smart predictions!</p>
-</section>
-<section id="pros">
-    <section style="margin-top: 30px;">
-      <h2>Why Choose BharatClub?</h2>
-        <ul>
-        <li>✅ Instant Withdrawals</li>
-        <li>✅ Fair Game System</li>
-        <li>✅ 100% Secure & Verified</li>
-        <li>✅ Available 24/7</li>
-      </ul>
-    </section>
-<section id="faq-section">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-item">
-    <h3>Q1: How do I start playing?</h3>
-    <ol>
-      <li>Go to the homepage and click "Register".</li>
-      <li>Enter your phone number and create a password.</li>
-      <li>Verify with the OTP you receive.</li>
-      <li>Login and choose a game to start playing!</li>
-    </ol>
-  </div>
-<div class="faq-item">
-    <h3>Q2: How can I withdraw money?</h3>
-    <ol>
-      <li>Click on "Wallet" in your dashboard.</li>
-      <li>Select your preferred withdrawal method.</li>
-      <li>Enter amount and confirm.</li>
-      <li>Your money will be sent within minutes.</li>
-    </ol>
-</div>
-<div class="faq-item">
-  <h3>Q3: Is BharatClub safe and legal to use in India?</h3>
-  <p>Yes. BharatClub operates within the legal framework for online prediction games and uses secure payment systems to protect your data and money.</p>
-</div>
-<div class="faq-item">
-  <h3>Q4: How do I deposit money to start playing?</h3>
-  <ol>
-    <li>Login to your BharatClub account.</li>
-    <li>Click on the "Wallet" or "Deposit" option.</li>
-    <li>Select your preferred payment method (UPI, Paytm, etc.).</li>
-    <li>Enter the amount you wish to deposit.</li>
-    <li>Confirm the transaction to fund your wallet.</li>
-  </ol>
-</div>
-<div class="faq-item">
-  <h3>Q5: What happens if I lose a game?</h3>
-  <p>In games of chance like color prediction, there is always a risk of loss. If you lose a round, the amount you bet is deducted. Always play responsibly and never bet more than you can afford to lose.</p>
-</div>
-<div class="faq-item">
-  <h3>Q6: How do I play the color prediction game?</h3>
-  <ol>
-    <li>Log in to your BharatClub account.</li>
-    <li>Go to the "Lottery" section then go to the "Wingo" game.</li>
-    <li>Choose a color to bet on — usually Green, Red, or Violet.</li>
-    <li>Select your amount and confirm your prediction before the timer runs out.</li>
-    <li>Wait for the result. If the color you chose appears, you win based on the payout rate.</li>
-  </ol>
-</div>
-<div class="faq-item">
-  <h3>Q7: How do I play Wingo on Big or Small?</h3>
-  <p>To play Wingo on Big or Small, follow these steps:</p>
-  <ol>
-    <li>Log in to your BharatClub account.</li>
-    <li>Go to the "Lottery" section and select the "Wingo" game.</li>
-    <li>You will see options for "Big" or "Small" bets. "Big" means selecting the higher number, while "Small" refers to selecting the lower number.</li>
-    <li>Choose your bet and select the amount you want to wager.</li>
-    <li>Confirm your selection before the timer runs out.</li>
-    <li>Wait for the results! If you predicted correctly, you win based on the payout rate.</li>
-  </ol>
-</div>
-</section>
-<section id="guide-section">
-  <h2 style="color: #ff3b3b; margin-bottom: 30px;">Bharatclub Playing & Earning Guide</h2>
-<div class="faq-item">
-  <h3>Guide 1: How to play Wingo safely</h3>
-  <p>
-    If you're curious about Wingo, start by focusing on betting <strong>Big</strong> or <strong>Small</strong> — not colors or numbers. Why? Because the odds are slightly better. Simple, right?
-    <br><br>
-    Now you might say, “Isn’t that just a 50/50 guess?” Well, not exactly. There are prediction channels out there where people analyze patterns, trends, and previous outcomes to make smarter choices. They’re not magicians, but they do give useful insights.
-    <br><br>
-    That said, even the best prediction isn’t a guarantee. This isn't a mind-reading game — there’s always a bit of luck involved. So, take their advice, but don’t follow blindly. Use logic, manage your budget, and play responsibly. It’s fun... until you go broke betting on Violet three times in a row. 😅
-  </p>
-</div>
-  
-<div class="faq-item">
-  <h3>Guide 2: How to earn money with Wingo</h3>
-  <p>
-    You’ve probably heard of the “double your bet when you lose” method. Sounds smart, right? Well... not in Wingo.
-    <br><br>
-    Why? Because when you win, your payout isn’t exactly double — the platform deducts a small fee. So if you keep doubling, you might still lose more than you gain. Ouch.
-    <br><br>
-    Here’s a smarter trick: try increasing your bet to 3x after a loss, but do it wisely. Analyze the past results. For example, if several “Small” results appear in a row, it might be time to switch to “Big.” But also remember — patterns can break, and sometimes the game just likes to mess with your brain.
-    <br><br>
-    Feeling confused? Don’t worry — there are prediction channels out there where people analyze and share bets. Some are legit, some... not so much. Use your judgment. Trust your gut. And maybe keep a lucky coin nearby.  💰 
-  </p>
-</div>
-  
-<div class="faq-item">
-  <h3>Guide 3: How to earn money without playing</h3>
-  <p>
-    Don’t want to play? No problem. BharatClub has a referral system where you can earn by inviting others. Yes, that’s right — you can be the boss behind the scenes.
-    <br><br>
-    Just go to the <strong>Promotion</strong> tab in the app, and you’ll see your <strong>invitation code</strong>, a <strong>QR code</strong>, and a direct <strong>link</strong>. Share these with friends, family, or anyone who likes a bit of thrill.
-    <br><br>
-    When they sign up and play, you earn bonuses and commissions. Sounds simple? It is. But here's the catch: they have to be <strong>real, verified, active players</strong>. No ghosts allowed 👻.
-    <br><br>
-    And hey — confused about commission rules? You could read the FAQ... but let's be real, you probably won’t. So just click the “Join Channel” button below and talk to someone who actually reads that stuff. 😄
-  </p>
-</div>
-
-<div class="faq-item">
-  <h3>Guide 4: Work as an Agent for BharatClub</h3>
-  <p>
-    Want to step up your game? Join us as an <strong>Agent</strong>. You’ll earn daily salaries, bonuses, and ad funds — all for helping us bring in loyal, verified members.
-    <br><br>
-    Your job? Simple: promote the platform. You can use YouTube, Instagram, Telegram, Google Ads, Meta Ads, carrier pigeons — whatever works. Just bring in active users who actually play.
-    <br><br>
-    But wait! Don’t even think about fake accounts. We’re looking for quality, not quantity. Members must be <strong>verified and active</strong>. The better your performance, the better your rewards — and this is all tracked on a <strong>daily basis</strong>.
-    <br><br>
-    So if you're good at social media, love gaming, or just like earning cash online — this could be your perfect side hustle.
-  </p>
-</div>
-</section>
-</section>
-  </main>
-  <div class="button-group" style="margin-top: 40px; margin-bottom: 40px;">
-  <a href="https://t.me/+H_QX73zTud5jZTE9" target="_blank" class="btn join-channel">Join Channel</a>
+    <div class="button-group">
+      <a href="https://bharatclub.net/#/register?invitationCode=818553846140" target="_blank" class="btn">Register</a>
+      <a href="https://bharatclub.net/#/login" target="_blank" class="btn">Login</a>
+    </div>
   </div>
 
- <footer style="text-align: center; margin-top: 50px; padding: 20px; background-color: #000000; color: white;">
-  <p style="margin-bottom: 10px; font-weight: bold;">Play Responsibly</p>
-  <p>&copy; 2025 BharatClub. All rights reserved. Made by Dave</p>
-</footer>
+  <!-- FAQ Section that will be populated by JS -->
+  <section id="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <!-- FAQ items inserted here by JavaScript -->
+  </section>
 
-  </body>
-  </html>
+  <footer style="text-align: center; margin-top: 50px; padding: 20px; background-color: #000000; color: white;">
+    <p style="margin-bottom: 10px; font-weight: bold;">Play Responsibly</p>
+    <p>&copy; 2025 BharatClub. All rights reserved. Made by Dave</p>
+  </footer>
+
+  <script>
+    // FAQ data stored in JavaScript array of objects (JSON-like structure)
+    const faqData = [
+      {
+        question: "Q1: How do I start playing?",
+        answerList: [
+          "Go to the homepage and click \"Register\".",
+          "Enter your phone number and create a password.",
+          "Verify with the OTP you receive.",
+          "Login and choose a game to start playing!"
+        ]
+      },
+      {
+        question: "Q2: How can I withdraw money?",
+        answerList: [
+          "Click on \"Wallet\" in your dashboard.",
+          "Select your preferred withdrawal method.",
+          "Enter amount and confirm.",
+          "Your money will be sent within minutes."
+        ]
+      },
+      {
+        question: "Q3: Is BharatClub safe and legal to use in India?",
+        answerText: "Yes. BharatClub operates within the legal framework for online prediction games and uses secure payment systems to protect your data and money."
+      },
+      {
+        question: "Q4: How do I deposit money to start playing?",
+        answerList: [
+          "Login to your BharatClub account.",
+          "Click on the \"Wallet\" or \"Deposit\" option.",
+          "Select your preferred payment method (UPI, Paytm, etc.).",
+          "Enter the amount you wish to deposit.",
+          "Confirm the transaction to fund your wallet."
+        ]
+      },
+      {
+        question: "Q5: What happens if I lose a game?",
+        answerText: "In games of chance like color prediction, there is always a risk of loss. If you lose a round, the amount you bet is deducted. Always play responsibly and never bet more than you can afford to lose."
+      },
+      {
+        question: "Q6: How do I play the color prediction game?",
+        answerList: [
+          "Log in to your BharatClub account.",
+          "Go to the \"Lottery\" section then go to the \"Wingo\" game.",
+          "Choose a color to bet on — usually Green, Red, or Violet.",
+          "Select your amount and confirm your prediction before the timer runs out.",
+          "Wait for the result. If the color you chose appears, you win based on the payout rate."
+        ]
+      },
+      {
+        question: "Q7: How do I play Wingo on Big or Small?",
+        answerText: `To play Wingo on Big or Small, follow these steps:`,
+        answerList: [
+          "Log in to your BharatClub account.",
+          "Go to the \"Lottery\" section and select the \"Wingo\" game.",
+          "You will see options for \"Big\" or \"Small\" bets. \"Big\" means selecting the higher number, while \"Small\" refers to selecting the lower number.",
+          "Choose your bet and select the amount you want to wager.",
+          "Confirm your selection before the timer runs out.",
+          "Wait for the results! If you predicted correctly, you win based on the payout rate."
+        ]
+      }
+    ];
+
+    // Reference to the FAQ section container
+    const faqSection = document.getElementById('faq-section');
+
+    // Function to create and append FAQ items
+    function createFAQItem(faq) {
+      const faqItem = document.createElement('div');
+      faqItem.classList.add('faq-item');
+
+      // Question as h3
+      const question = document.createElement('h3');
+      question.textContent = faq.question;
+      faqItem.appendChild(question);
+
+      // If answerText present, add it as paragraph
+      if (faq.answerText) {
+        const answerParagraph = document.createElement('p');
+        answerParagraph.innerHTML = faq.answerText;
+        faqItem.appendChild(answerParagraph);
+      }
+
+      // If answerList present, add as ordered list
+      if (faq.answerList && faq.answerList.length > 0) {
+        const ol = document.createElement('ol');
+        faq.answerList.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          ol.appendChild(li);
+        });
+        faqItem.appendChild(ol);
+      }
+
+      faqSection.appendChild(faqItem);
+    }
+
+    // Populate the FAQ section on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      faqData.forEach(faq => createFAQItem(faq));
+    });
+  </script>
+</body>
+</html>
