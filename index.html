@@ -152,6 +152,34 @@
   </style>
 </head>
 <body>
+  <div id="ageGatePopup" style="position:fixed; top:0; left:0; right:0; bottom:0; 
+  background:rgba(0,0,0,0.85); color:#fff; display:flex; flex-direction:column; 
+  justify-content:center; align-items:center; z-index:9999;">
+  <h2>Are you 18 years or older?</h2>
+  <button id="yesBtn" style="padding:10px 20px; margin:10px; font-size:16px;">Yes</button>
+  <button id="noBtn" style="padding:10px 20px; margin:10px; font-size:16px;">No</button>
+</div>
+
+<script>
+  const ageGate = document.getElementById('ageGatePopup');
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+
+  // If already verified, hide the popup
+  if(localStorage.getItem('ageVerified') === 'true') {
+    ageGate.style.display = 'none';
+  }
+
+  yesBtn.addEventListener('click', () => {
+    localStorage.setItem('ageVerified', 'true'); // save confirmation
+    ageGate.style.display = 'none'; // hide popup
+  });
+
+  noBtn.addEventListener('click', () => {
+    alert('Sorry, you must be 18 or older to enter this site.');
+    window.location.href = 'https://www.google.com'; // redirect elsewhere
+  });
+</script>
   <header>
     <div class="header-container">
       <img src="Logoname.jpg" alt="BharatClubs Logo" class="logo" />
