@@ -371,6 +371,39 @@ body {
   
 <section id="faq-section">
     <h2>Frequently Asked Questions</h2>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q1: How do I get started with BharatClub?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visit the homepage and click \"Register\". Enter your phone number and create a secure password. Verify your account with the OTP you receive. Log in to explore the platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q2: How do I add funds to my BharatClub account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Log in to your account. Go to the \"Wallet\" or \"Deposit\" section. Select your preferred payment method (UPI, Paytm, etc.). Enter the amount you wish to add. Confirm the transaction to fund your wallet securely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q3: Is BharatClub safe and legal to use in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. BharatClub operates in compliance with applicable laws and uses secure payment systems to protect your data and transactions."
+      }
+    }
+    // Add more questions in the same format...
+  ]
+}
+</script>
 </section>
   
     <section id="guide-section">
@@ -461,69 +494,150 @@ body {
     </a>
   </p>
 </footer>
- <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I get started with BharatClub?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "<ol><li>Visit the homepage and click \"Register\".</li><li>Enter your phone number and create a secure password.</li><li>Verify your account with the OTP you receive.</li><li>Log in to explore the platform.</li></ol>"
+ <script>
+    const faqData = [
+      {
+        question: "Q1: How do I start playing?",
+        answerList: [
+          "Go to the homepage and click \"Register\".",
+          "Enter your phone number and create a password.",
+          "Verify with the OTP you receive.",
+          "Login and choose a game to start playing!"
+        ]
+      },
+      {
+        question: "Q2: How can I withdraw money?",
+        answerList: [
+          "Click on \"Wallet\" in your dashboard.",
+          "Select your preferred withdrawal method.",
+          "Enter amount and confirm.",
+          "Your money will be sent within minutes."
+        ]
+      },
+      {
+        question: "Q3: Is BharatClub safe and legal to use in India?",
+        answerText: "Yes. BharatClub operates within the legal framework for online prediction games and uses secure payment systems to protect your data and money."
+      },
+      {
+        question: "Q4: How do I deposit money to start playing?",
+        answerList: [
+          "Login to your BharatClub account.",
+          "Click on the \"Wallet\" or \"Deposit\" option.",
+          "Select your preferred payment method (UPI, Paytm, etc.).",
+          "Enter the amount you wish to deposit.",
+          "Confirm the transaction to fund your wallet."
+        ]
+      },
+      {
+        question: "Q5: What happens if I lose a game?",
+        answerText: "In games of chance like color prediction, there is always a risk of loss. If you lose a round, the amount you bet is deducted. Always play responsibly and never bet more than you can afford to lose."
+      },
+      {
+        question: "Q6: How do I play the color prediction game?",
+        answerList: [
+          "Log in to your BharatClub account.",
+          "Go to the \"Lottery\" section then go to the \"Wingo\" game.",
+          "Choose a color to bet on — usually Green, Red, or Violet.",
+          "Select your amount and confirm your prediction before the timer runs out.",
+          "Wait for the result. If the color you chose appears, you win based on the payout rate."
+        ]
+      },
+      {
+        question: "Q7: How do I play Wingo on Big or Small?",
+        answerText: `To play Wingo on Big or Small, follow these steps:`,
+        answerList: [
+          "Log in to your BharatClub account.",
+          "Go to the \"Lottery\" section and select the \"Wingo\" game.",
+          "You will see options for \"Big\" or \"Small\" bets. \"Big\" means selecting the higher number, while \"Small\" refers to selecting the lower number.",
+          "Choose your bet and select the amount you want to wager.",
+          "Confirm your selection before the timer runs out.",
+          "Wait for the results! If you predicted correctly, you win based on the payout rate."
+        ]
       }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I add funds to my BharatClub account?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "<ol><li>Log in to your account.</li><li>Go to the \"Wallet\" or \"Deposit\" section.</li><li>Select your preferred payment method (UPI, Paytm, etc.).</li><li>Enter the amount you wish to add.</li><li>Confirm the transaction to fund your wallet securely.</li></ol>"
+    ];
+
+   const faqData = [
+  {
+    question: "Q1: How do I get started with BharatClub?",
+    answerList: [
+      "Visit the homepage and click \"Register\".",
+      "Enter your phone number and create a secure password.",
+      "Verify your account with the OTP you receive.",
+      "Log in to explore the platform."
+    ]
+  },
+  {
+    question: "Q2: How do I add funds to my BharatClub account?",
+    answerList: [
+      "Log in to your account.",
+      "Go to the \"Wallet\" or \"Deposit\" section.",
+      "Select your preferred payment method (UPI, Paytm, etc.).",
+      "Enter the amount you wish to add.",
+      "Confirm the transaction to fund your wallet securely."
+    ]
+  },
+  {
+    question: "Q3: Is BharatClub safe and legal to use in India?",
+    answerText: "Yes. BharatClub operates in compliance with applicable laws and uses secure payment systems to protect your data and transactions."
+  },
+  {
+    question: "Q4: How can I withdraw funds from my account?",
+    answerList: [
+      "Navigate to the \"Wallet\" section in your dashboard.",
+      "Select your preferred withdrawal method.",
+      "Enter the amount and confirm.",
+      "Withdrawals are processed quickly and securely."
+    ]
+  },
+  {
+    question: "Q5: What support options are available if I need help?",
+    answerText: "Our customer support team is available via chat, email, and phone to assist you in multiple languages and ensure a smooth experience."
+  },
+  {
+    question: "Q6: How does BharatClub promote responsible use?",
+    answerList: [
+      "We provide tools to help users monitor and manage their activity.",
+      "Customizable limits and activity monitoring are available.",
+      "We encourage responsible engagement and provide resources for a healthy experience."
+    ]
+  },
+  {
+    question: "Q7: Can I access BharatClub on my mobile device?",
+    answerText: "Yes! BharatClub is fully optimized for mobile use on smartphones and tablets, supporting both Android and iOS devices for convenient access anytime, anywhere."
+  }
+];
+    const faqSection = document.getElementById('faq-section');
+
+    function createFAQItem(faq) {
+      const faqItem = document.createElement('div');
+      faqItem.classList.add('faq-item');
+
+      const question = document.createElement('h3');
+      question.textContent = faq.question;
+      faqItem.appendChild(question);
+
+      if (faq.answerText) {
+        const answerParagraph = document.createElement('p');
+        answerParagraph.innerHTML = faq.answerText;
+        faqItem.appendChild(answerParagraph);
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Is BharatClub safe and legal to use in India?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. BharatClub operates in compliance with applicable laws and uses secure payment systems to protect your data and transactions."
+
+      if (faq.answerList && faq.answerList.length > 0) {
+        const ol = document.createElement('ol');
+        faq.answerList.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          ol.appendChild(li);
+        });
+        faqItem.appendChild(ol);
       }
-    },
-    {
-      "@type": "Question",
-      "name": "How can I withdraw funds from my account?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "<ol><li>Navigate to the \"Wallet\" section in your dashboard.</li><li>Select your preferred withdrawal method.</li><li>Enter the amount and confirm.</li><li>Withdrawals are processed quickly and securely.</li></ol>"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What support options are available if I need help?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our customer support team is available via chat, email, and phone to assist you in multiple languages and ensure a smooth experience."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does BharatClub promote responsible use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "<ol><li>We provide tools to help users monitor and manage their activity.</li><li>Customizable limits and activity monitoring are available.</li><li>We encourage responsible engagement and provide resources for a healthy experience.</li></ol>"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I access BharatClub on my mobile device?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! BharatClub is fully optimized for mobile use on smartphones and tablets, supporting both Android and iOS devices for convenient access anytime, anywhere."
-      }
+
+      faqSection.appendChild(faqItem);
     }
-  ]
-}
-</script>
+
+    window.addEventListener('DOMContentLoaded', () => {
+      faqData.forEach(faq => createFAQItem(faq));
+    });
+  </script>
 </body>
 </html>
