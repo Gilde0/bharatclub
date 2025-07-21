@@ -13,6 +13,9 @@
   <meta property="og:type" content="website" />
   <link rel="icon" href="favicon.ico?v=2" type="image/x-icon" />
   <style>
+html {
+  scroll-behavior: smooth;
+}
     #age-gate-overlay {
   position: fixed;
   top: 0;
@@ -112,6 +115,32 @@ body {
 .get-help-button:hover {
   background-color: #d62828;
 }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
     .logo {
       height: 40px;
       width: auto;
@@ -284,6 +313,18 @@ body {
     </div>
     </div>
    </header>
+<div class="container" style="margin-top: 80px; padding: 20px 20px;">  
+   <nav>
+    <a href="#description-section" class="btn">About Bharatclub</a> 
+    <a href="#details-section" class="btn">Platform Details</a>
+    <a href="#testimonials-section" class="btn">What Our Users Say</a>
+    <a href="#security-section" class="btn">Security & Fairness</a>
+    <a href="#mobile-section" class="btn">Play Anywhere, Anytime</a>
+    <a href="#responsible-gaming" class="btn">Our Commitment to Responsible Gaming</a>
+    <a href="#faq-section" class="btn">Frequently Asked Questions</a>
+    <a href="#guide-section" class="btn">Bharatclub Playing & Earning Guide</a>
+  </nav>
+</div>
   <div class="container">
     <img src="Logo.jpg" alt="BharatClubs color prediction platform preview" />
     <h1>Welcome to BharatClub</h1>
@@ -296,8 +337,8 @@ body {
       <a href="https://t.me/bhtclubs" target="_blank" class="btn">Join Channel</a>
     </div>
   </div>
-
-<section id="description-section">
+  <div class="container" style="margin-top: 80px; padding: 20px 20px;">  
+  <section id="description-section">
   <h2>About BharatClub</h2>
   <p>
     BharatClub is a vibrant online platform dedicated to delivering engaging digital experiences designed to connect and entertain users across India. Our mission is to create a seamless, user-friendly environment where members can explore diverse interactive features in a safe and transparent manner. We foster a community built on trust, inclusivity, and respect, where every user feels valued and empowered.
@@ -322,7 +363,8 @@ body {
   
   <p>We value community feedback and use it to continuously refine our services. By fostering a transparent, user-first culture, BharatClub aims to become more than just a digital platform—it’s a space where connection, innovation, and growth thrive together.</p>
 </section>
-
+</div>
+<div class="container" style="margin-top: 80px; padding: 20px 20px;"> 
 <section id="testimonials-section" style="max-width: 800px; margin: 40px auto; background: rgba(0,0,0,0.6); border-radius: 12px; padding: 30px; color: white; font-family: 'Poppins', sans-serif;">
   <h2 style="color: #ff3b3b;">What Our Users Say</h2>
 <p>At BharatClub, our community’s voice shapes everything we do. We’re proud to hear from users who find value, enjoyment, and trust in our platform.</p>
@@ -368,7 +410,7 @@ body {
   
   <p>Our commitment goes beyond compliance—it is a core value that influences our design, policies, and interactions. By promoting responsible use, BharatClub ensures that every user’s experience is not only enjoyable but also sustainable and healthy over the long term.</p>
 </section>
-  
+</div>
 <section id="faq-section">
     <h2>Frequently Asked Questions</h2>
  <section id="faq-section">
