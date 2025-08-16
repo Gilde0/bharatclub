@@ -9,6 +9,12 @@
     html {
     scroll-behavior: smooth;
     }
+ header {
+  background-image: url('Banner.png');
+  background-size: cover;
+  background-position: center;
+  height: 180px; 
+}
      body { background-color: #ff3b3b; color: white; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; }
   h1,h2,h3 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
   h1 { font-size: 32px; }
@@ -60,9 +66,6 @@ function rejectAge() {
 </script>
 <header style="background-color:#000000;">
   <div class="header-container">
-    <div class="header-left">
-      <img src="Banner.png" alt="BharatClub Banner" />
-    </div>
     <button id="menu-btn" onclick="toggleMenu()">☰</button>
     <div id="nav-menu" class="nav-menu">
       <a href="#top-intro">Home</a>
@@ -237,7 +240,19 @@ function rejectAge() {
       "author": { "@type": "Person", "name": "Anjali S." },
       "reviewBody": "As an independent partner on BharatClub, I have found meaningful opportunities to build a flexible side income. The platform empowers me to grow both personally and professionally."
     }
-   
+   {
+  "@type": "Organization",
+  "@id": "https://bharatclubs.netlify.app/#organization",
+  "name": "BharatClub",
+  "url": "https://bharatclubs.netlify.app",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://bharatclubs.netlify.app/Logo.jpg"
+  },
+  "image": {
+    "@id": "https://bharatclubs.netlify.app/#hero-image"
+  },
+   }
   ]
 }
 </script>
