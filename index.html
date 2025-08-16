@@ -31,8 +31,6 @@
     var menu = document.getElementById('nav-menu');
     menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
   }
-
-  // Close menu on link click
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('#nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
@@ -55,17 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
 function acceptAge() {
   document.getElementById('age-gate').style.display = 'none';
 }
-
 function rejectAge() {
   alert('You must be 18+ to access this site.');
-  window.location.href = 'https://www.google.com'; // redirect if underage
+  window.location.href = 'https://www.google.com';
 }
 </script>
 <header style="background-color:#000000;">
   <div class="header-container">
     <div class="header-left">
-      <img src="Logoname.jpg" alt="BharatClubs Logo" />
-      <div class="header-text">Play & Win Big Today!</div>
+      <img src="Banner.png" alt="BharatClub Banner" />
     </div>
     <button id="menu-btn" onclick="toggleMenu()">☰</button>
     <div id="nav-menu" class="nav-menu">
@@ -247,3 +243,4 @@ function rejectAge() {
 </script>
 </body>
 </html>
+
