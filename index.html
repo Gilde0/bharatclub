@@ -38,6 +38,66 @@
   background-color: #ffdada;
   color: #ff3b3b;
 }
+.top-games-section {
+  background-color: #8B0000; /* Dark red */
+  padding: 40px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.section-title {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.games-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.game-box {
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 200px;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.game-image {
+  height: 140px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.game-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-title {
+  padding: 12px;
+  font-size: 1.1em;
+  font-weight: 600;
+  background-color: #fff;
+  color: #8B0000;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .game-box {
+    width: 90%;
+  }
+}
   body { background-color: #ff3b3b; color: white; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; }
   h1,h2,h3 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
   h1 { font-size: 32px; }
@@ -115,7 +175,33 @@ function rejectAge() {
       <a href="https://t.me/bhtclubs" target="_blank" class="btn">Join Channel</a>
   </div>
 </section>
+<section class="top-games-section">
+  <h2 class="section-title">Top Featured Games</h2>
+  <div class="games-container">
+    
+    <a href="/games/wingo/" class="game-box">
+      <div class="game-image">
+        <img src="/games/wingo/wingo.jpg" alt="Wingo">
+      </div>
+      <div class="game-title">Wingo</div>
+    </a>
 
+    <a href="/games/chickenroad2/" class="game-box">
+      <div class="game-image">
+        <img src="/games/chickenroad2/chickenroad2.jpg" alt="Chicken Road 2">
+      </div>
+      <div class="game-title">Chicken Road 2</div>
+    </a>
+
+    <a href="/games/aviator/" class="game-box">
+      <div class="game-image">
+        <img src="/games/aviator/aviator.jpg" alt="Aviator">
+      </div>
+      <div class="game-title">Aviator</div>
+    </a>
+
+  </div>
+</section>
 <section id="about-section" class="container">
   <h2>About BharatClub</h2>
   <p>BharatClub is India’s vibrant and inclusive online platform built to deliver rich, interactive digital entertainment experiences. Our platform brings people together through simple, engaging games and intuitive features that are designed to work flawlessly across smartphones, tablets, and desktops.</p>
