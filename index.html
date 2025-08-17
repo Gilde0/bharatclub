@@ -43,10 +43,15 @@
   padding: 40px 20px;
   text-align: center;
   color: #fff;
+  
+  /* Add these for better spacing and rounded look */
+  margin-top: 40px;        /* Creates space from above container */
+  border-radius: 20px;     /* Softer, more rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
 }
 
 .section-title {
-  font-size: 2em;
+  font-size: 2.2em;        /* Slightly bigger for emphasis */
   margin-bottom: 30px;
 }
 
@@ -60,7 +65,10 @@
 .game-box {
   background-color: #fff;
   color: #000;
-  border-radius: 10px;
+  
+  /* Increase corner rounding for each card */
+  border-radius: 15px;     
+  
   overflow: hidden;
   width: 200px;
   text-decoration: none;
@@ -89,10 +97,10 @@
   font-size: 1.1em;
   font-weight: 600;
   background-color: #fff;
-  color: #8B0000;
+  color: #ff3b3b;
   text-align: center;
 }
-
+    
 @media (max-width: 600px) {
   .game-box {
     width: 90%;
@@ -536,4 +544,5 @@ function rejectAge() {
 </script>
 </body>
 </html>
+
 
