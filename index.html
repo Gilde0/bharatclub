@@ -12,8 +12,11 @@
  header {
   background-image: url('banner.png');
   background-size: cover;
-  background-position: center;
-  height: 180px; 
+  background-position: center center;
+  min-height: 180px;
+  height: 180px;
+  width: 100%;
+  overflow: hidden;
 }
 .visit-link {
   font-weight: bold;
@@ -35,7 +38,7 @@
   background-color: #ffdada;
   color: #ff3b3b;
 }
-     body { background-color: #ff3b3b; color: white; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; }
+  body { background-color: #ff3b3b; color: white; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; }
   h1,h2,h3 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
   h1 { font-size: 32px; }
   h2 { font-size: 28px; }
@@ -102,7 +105,7 @@ function rejectAge() {
 </header>
 
 <section id="top-intro" class="container" style="text-align:center;">
-  <img src="bharatclublogo.jpg" alt="BharatClub" />
+  <img src="bharatclublogo.jpg" alt="BharatClub" width="200" height="200" loading="lazy/>
   <h1>Play & Earn on BharatClub (BHT Club Official)</h1>
   <p>BHT Club (or BHTCLB) is another popular name users use for BharatClub – it’s the same platform with the same secure gaming experience.</p>  
   <p>Come and join the fastest growing gaming & earning platform in India. Play games, earn rewards, and withdraw instantly.</p>
@@ -446,6 +449,7 @@ function rejectAge() {
 </script>
 </body>
 </html>
+
 
 
 
