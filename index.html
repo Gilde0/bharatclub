@@ -9,25 +9,43 @@
     html {
     scroll-behavior: smooth;
     }
- header {
+
+header {
   background-image: url('banner.png');
   background-size: cover;
   background-position: center center;
+  position: relative;
+  z-index: 1; /* lower than the button */
   min-height: 180px;
   height: 180px;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
+
 #menu-btn {
-  background: none;
-  border: none;
-  font-size: 30px;
-  color: #fff;
-  cursor: pointer;
-  position: fixed;  /* change from absolute */
-  right: 20px;
+  display: none;  /* hide initially */
+  position: fixed;
   top: 15px;
-  z-index: 1000; /* ensure it's above everything */
+  right: 15px;
+  font-size: 32px;
+  color: #fff;
+  background: rgba(0,0,0,0.3);
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.nav-menu {
+  display: none;
+  position: fixed; /* stays with button */
+  top: 60px;
+  right: 15px;
+  background: rgba(0,0,0,0.95);
+  padding: 12px;
+  border-radius: 8px;
+  z-index: 9998; /* just below the button */
 }
 
 .topgames-section {
@@ -55,10 +73,7 @@
 .game-box {
   background-color: #fff;
   color: #000;
-  
-  /* Increase corner rounding for each card */
   border-radius: 15px;     
-  
   overflow: hidden;
   width: 200px;
   text-decoration: none;
@@ -105,7 +120,6 @@
   .nav-toggle { display: none; }
   .nav-menu { display: none; position: absolute; right: 20px; top: 60px; background: rgba(0,0,0,0.6); border-radius: 8px; padding: 10px; }
   .nav-menu a { display: block; padding: 8px 12px; color: #fff; text-decoration: none; }
-  #menu-btn { background: none; border: none; font-size: 30px; color: #fff; cursor: pointer; position: absolute; right: 20px; top: 15px; }
   .btn { background-color: #ff3b3b; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; transition: 0.3s; font-size: 16px; }
   .btn:hover { background-color: #ff1f1f; }
   .container { background: rgba(0,0,0,0.6); border-radius: 12px; padding: 30px; margin-top: 50px; max-width: 800px; margin-left: auto; margin-right: auto; }
@@ -114,10 +128,10 @@
 </style>
 
 <script>
-  function toggleMenu() {
-    var menu = document.getElementById('nav-menu');
-    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-  }
+function toggleMenu() {
+  var menu = document.getElementById('nav-menu');
+  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+}
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('#nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
@@ -139,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 function acceptAge() {
   document.getElementById('age-gate').style.display = 'none';
+  document.getElementById('menu-btn').style.display = 'block'; // show hamburger
 }
 function rejectAge() {
   alert('You must be 18+ to access this site.');
@@ -180,26 +195,27 @@ function rejectAge() {
   <h2 class="section-title">Top Featured Games</h2>
   <div class="games-container">
     
-    <a href="/games/wingo/" class="game-box">
-      <div class="game-image">
-        <img src="/games/wingo/wingo.png" alt="Wingo">
-      </div>
-      <div class="game-title">Wingo</div>
-    </a>
+    <a href="https://wingo.bharatclub.net/" class="game-box">
+  <div class="game-image">
+    <img src="/games/wingo/wingo.png" alt="Wingo">
+  </div>
+  <div class="game-title">Wingo</div>
+</a>
 
-    <a href="/games/chickenroad2/" class="game-box">
-      <div class="game-image">
-        <img src="/games/chickenroad2/chickenroad2.jpg" alt="Chicken Road 2">
-      </div>
-      <div class="game-title">Chicken Road 2</div>
-    </a>
+<a href="https://chickenroad2.bharatclub.net/" class="game-box">
+  <div class="game-image">
+    <img src="/games/chickenroad2/chickenroad2.jpg" alt="Chicken Road 2">
+  </div>
+  <div class="game-title">Chicken Road 2</div>
+</a>
 
-    <a href="/games/aviator/" class="game-box">
-      <div class="game-image">
-        <img src="/games/aviator/aviator.jpg" alt="Aviator">
-      </div>
-      <div class="game-title">Aviator</div>
-    </a>
+<a href="https://aviator.bharatclub.net/" class="game-box">
+  <div class="game-image">
+    <img src="/games/aviator/aviator.jpg" alt="Aviator">
+  </div>
+  <div class="game-title">Aviator</div>
+</a>
+
 
   </div>
 </section>
@@ -267,10 +283,11 @@ function rejectAge() {
 
   <p>We strongly advise all users to set strict budgets, take regular breaks, and never treat gaming as a reliable source of income. Your health and safety will always matter more than any game.</p>
 
- <p>
+<p>
   For more resources and assistance, please 
-  <a href="https://gamblingaddiction.netlify.app/" target="_blank" class="visit-link">visit here</a>.
+  <a href="https://gamblingaddiction.netlify.app/" target="_blank" class="visit-link"><strong>here</strong></a>.
 </p>
+
 </section>
 
 
@@ -310,13 +327,12 @@ function rejectAge() {
   <p>
     <a href="#top-intro">Home</a> |
     <a href="#faq-section">FAQ</a> |
-    <a href="#guide-section">Guides</a>
-    <a href="terms.html">Terms & Condition</a>
+    <a href="#guide-section">Guides</a> |
+    <a href="terms.html">Terms & Conditions</a> |
     <a href="privacy.html">Privacy Policy</a>
   </p>
-  <p>Follow us: <a href="https://t.me/bhtclubs">Telegram</a></p>
+  <p>Follow us: <a href="https://t.me/bhtclubs" target="_blank">Telegram</a></p>
 </footer>
-<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -343,9 +359,7 @@ function rejectAge() {
       "@id": "https://bharatclubs.netlify.app/#website",
       "url": "https://bharatclubs.netlify.app/",
       "name": "BharatClub",
-      "publisher": {
-        "@id": "https://bharatclubs.netlify.app/#organization"
-      },
+      "publisher": { "@id": "https://bharatclubs.netlify.app/#organization" },
       "potentialAction": [
         {
           "@type": "SearchAction",
@@ -355,7 +369,7 @@ function rejectAge() {
         {
           "@type": "RegisterAction",
           "target": "https://bharatclubs.netlify.app/register",
-          "name": "Register Now on BharatClub"
+          "name": "Register on BharatClub"
         },
         {
           "@type": "JoinAction",
@@ -374,30 +388,27 @@ function rejectAge() {
       "@id": "https://bharatclubs.netlify.app/#homepage",
       "url": "https://bharatclubs.netlify.app/",
       "name": "BharatClub - Play and Earn",
-      "publisher": {
-        "@id": "https://bharatclubs.netlify.app/#organization"
+      "description": "BharatClub is a free-to-play Indian gaming platform where users can play games, earn rewards, and enjoy a secure, responsible play-to-earn experience.",
+      "about": {
+        "@type": "Thing",
+        "name": "Play-to-earn games in India",
+        "description": "Play online games and earn rewards on BharatClub"
       },
-      "dateModified": "2025-08-20"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://bharatclubs.netlify.app/#topgames-section",
-      "url": "https://bharatclubs.netlify.app/#topgames-section",
-      "name": "Top Featured Games - BharatClub",
-      "publisher": {
-        "@id": "https://bharatclubs.netlify.app/#organization"
-      },
-      "dateModified": "2025-08-20"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://bharatclubs.netlify.app/#guides-section",
-      "url": "https://bharatclubs.netlify.app/#guides-section",
-      "name": "Guides - BharatClub",
-      "publisher": {
-        "@id": "https://bharatclubs.netlify.app/#organization"
-      },
-      "dateModified": "2025-08-20"
+      "keywords": [
+        "BharatClub",
+        "play and earn",
+        "gaming rewards",
+        "free games India",
+        "earn money playing games",
+        "Telegram gaming community",
+        "Indian gaming platform",
+        "responsible gaming",
+        "gambling help"
+      ],
+      "publisher": { "@id": "https://bharatclubs.netlify.app/#organization" },
+      "isPartOf": { "@id": "https://bharatclubs.netlify.app/#website" },
+      "dateModified": "2025-08-21",
+      "inLanguage": "en"
     },
     {
       "@type": "FAQPage",
@@ -407,67 +418,29 @@ function rejectAge() {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How to register on BharatClub?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Click on the Register button and fill out the form to get started."
-          }
+          "name": "How do I register on BharatClub?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Click on the Register button and fill out the form to get started." }
         },
         {
           "@type": "Question",
           "name": "Is BharatClub free to join?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, BharatClub is free to join and play."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, BharatClub is free to join and play." }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I withdraw funds?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Navigate to Wallet, select your preferred withdrawal method, and follow instructions for a secure transaction." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does BharatClub promote responsible gaming?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We provide tools to monitor activity, set limits, and access resources for gambling-related help." }
         }
       ],
-      "author": {
-        "@type": "Organization",
-        "name": "BharatClub"
-      },
-      "potentialAction": {
-        "@type": "ReadAction",
-        "target": "https://bharatclubs.netlify.app/#faq-section"
-      },
-      "publisher": {
-        "@id": "https://bharatclubs.netlify.app/#organization"
-      },
-      "dateModified": "2025-08-20"
-    },
-    {
-      "@type": "Review",
-      "@id": "https://bharatclubs.netlify.app/#review1",
-      "reviewBody": "Great app to earn rewards while playing games!",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Ravi"
-      },
-      "mainEntityOfPage": {
-        "@id": "https://bharatclubs.netlify.app/#reviews"
-      }
-    },
-    {
-      "@type": "Review",
-      "@id": "https://bharatclubs.netlify.app/#review2",
-      "reviewBody": "Very engaging platform with good rewards.",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "4",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Sneha"
-      },
-      "mainEntityOfPage": {
-        "@id": "https://bharatclubs.netlify.app/#reviews"
-      }
+      "author": { "@type": "Organization", "name": "BharatClub" },
+      "potentialAction": { "@type": "ReadAction", "target": "https://bharatclubs.netlify.app/#faq-section" },
+      "publisher": { "@id": "https://bharatclubs.netlify.app/#organization" },
+      "dateModified": "2025-08-21"
     },
     {
       "@type": "SoftwareApplication",
@@ -487,40 +460,51 @@ function rejectAge() {
         "category": "free",
         "description": "BharatClub is free to use and play."
       }
-},
-{
-  "@type": "BreadcrumbList",
-  "@id": "https://bharatclubs.netlify.app/#breadcrumb",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://bharatclubs.netlify.app/"
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Games",
-      "item": "https://bharatclubs.netlify.app/#topgames-section"
+      "@type": "Review",
+      "@id": "https://bharatclubs.netlify.app/#review1",
+      "reviewBody": "Great app to earn rewards while playing games!",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Person", "name": "Ravi" },
+      "itemReviewed": { "@id": "https://bharatclubs.netlify.app/#app" }
     },
     {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Guides",
-      "item": "https://bharatclubs.netlify.app/#guides-section"
+      "@type": "Review",
+      "@id": "https://bharatclubs.netlify.app/#review2",
+      "reviewBody": "Very engaging platform with good rewards.",
+      "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
+      "author": { "@type": "Person", "name": "Sneha" },
+      "itemReviewed": { "@id": "https://bharatclubs.netlify.app/#app" }
     },
     {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "FAQ",
-      "item": "https://bharatclubs.netlify.app/#faq-section"
+      "@type": "BreadcrumbList",
+      "@id": "https://bharatclubs.netlify.app/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bharatclubs.netlify.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Games", "item": "https://bharatclubs.netlify.app/#topgames-section" },
+        { "@type": "ListItem", "position": 3, "name": "Guides", "item": "https://bharatclubs.netlify.app/#guide-section" },
+        { "@type": "ListItem", "position": 4, "name": "FAQ", "item": "https://bharatclubs.netlify.app/#faq-section" }
+      ]
+    },
+    {
+      "@type": "EducationalOccupationalProgram",
+      "@id": "https://bharatclubs.netlify.app/#responsible-gaming",
+      "name": "Responsible Gaming & Gambling Support",
+      "educationalLevel": "All Users",
+      "about": {
+        "@type": "Thing",
+        "name": "Gambling Addiction Support",
+        "description": "Provides information and links for users to get help with gambling addiction."
+      },
+      "url": "https://gamblingaddiction.netlify.app/",
+      "potentialAction": {
+        "@type": "ReadAction",
+        "target": "https://gamblingaddiction.netlify.app/"
+      }
     }
-  ]
-}
   ]
 }
 </script>
 </body>
 </html>
-
