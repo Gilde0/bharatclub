@@ -38,7 +38,7 @@
   background-color: #ffdada;
   color: #ff3b3b;
 }
-.top-games-section {
+.topgames-section {
   background-color: #8B0000; /* Dark red */
   padding: 40px 20px;
   text-align: center;
@@ -160,7 +160,7 @@ function rejectAge() {
     <button id="menu-btn" onclick="toggleMenu()">☰</button>
     <div id="nav-menu" class="nav-menu">
       <a href="#top-intro">Home</a>
-      <a href="#top-games-section">Top Games</a>
+      <a href="#topgames-section">Top Featured Games</a>
       <a href="#about-section">About BharatClub</a>
       <a href="#details-section">Platform Details</a>
       <a href="#testimonials-section">What Our Users Say</a>
@@ -186,7 +186,7 @@ function rejectAge() {
       <a href="https://t.me/bhtclubs" target="_blank" class="btn">Join Channel</a>
   </div>
 </section>
-<section class="top-games-section">
+<section class="topgames-section">
   <h2 class="section-title">Top Featured Games</h2>
   <div class="games-container">
     
@@ -543,11 +543,22 @@ function rejectAge() {
         "@id": "https://bharatclubs.netlify.app/#organization"
       }
     }
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Your App Name",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "100"
+  }
+}
   ]
 }
 </script>
 </body>
 </html>
+
 
 
 
