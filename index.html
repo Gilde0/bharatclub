@@ -118,7 +118,6 @@ header {
   h3 { font-size: 20px; }
   p { font-size: 16px; }
   .nav-toggle { display: none; }
-  .nav-menu { display: none; position: absolute; right: 20px; top: 60px; background: rgba(0,0,0,0.6); border-radius: 8px; padding: 10px; }
   .nav-menu a { display: block; padding: 8px 12px; color: #fff; text-decoration: none; }
   .btn { background-color: #ff3b3b; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; transition: 0.3s; font-size: 16px; }
   .btn:hover { background-color: #ff1f1f; }
@@ -163,7 +162,9 @@ function rejectAge() {
 <header style="background-color:#000000;">
   <div class="header-container">
     <button id="menu-btn" onclick="toggleMenu()">☰</button>
-    <div id="nav-menu" class="nav-menu">
+  </div>
+</header>
+ <div id="nav-menu" class="nav-menu">
       <a href="#top-intro">Home</a>
       <a href="#topgames-section">Top Featured Games</a>
       <a href="#about-section">About BharatClub</a>
@@ -176,9 +177,7 @@ function rejectAge() {
       <a href="#guide-section">Guides</a>
       <a href="terms.html">Terms</a>
       <a href="privacy.html" class="active">Privacy Policy</a>
-    </div>
-  </div>
-</header>
+ </div>
 
 <section id="top-intro" class="container" style="text-align: center;">
   <img src="bharatclublogo.jpg" alt="BharatClub" width="200" height="200" loading="lazy" />
@@ -507,3 +506,4 @@ function rejectAge() {
 </script>
 </body>
 </html>
+
