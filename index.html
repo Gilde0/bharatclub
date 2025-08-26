@@ -1,3 +1,4 @@
+about the top featured game logo image
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,21 +87,15 @@ header {
 }
 
 .game-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
-  height: auto;
-  max-height: 180px;
+  height: 140px;
   overflow: hidden;
+  background-color: #f0f0f0;
 }
 
 .game-image img {
-  max-width: 100%;
-  max-height: 160px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .game-title {
@@ -113,16 +108,9 @@ header {
 }
     
 @media (max-width: 600px) {
-  .game-image img {
-    max-height: 100px;
+  .game-box {
+    width: 90%;
   }
-}
-
-@media (min-width: 1200px) {
-  .game-image img {
-    max-height: 200px;
-  }
-}
 }
   body { background-color: #ff3b3b; color: white; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; }
   h1,h2,h3 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -519,5 +507,4 @@ function rejectAge() {
 </script>
 </body>
 </html>
-
-
+can you check how do I keep it on a limit of how big or small it is based on desktop and mobile view and when they zoom in our out. I want them to be on a limit so that it is now super huge or super small
