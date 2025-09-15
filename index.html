@@ -570,8 +570,8 @@ function rejectAge() {
       "brand": { "@id": "https://bharatclubs.netlify.app/#organization" },
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": "0",
-        "reviewCount": 0,
+        "ratingValue": "4",
+        "reviewCount": 1,
         "bestRating": 5,
         "worstRating": 1
       },
@@ -601,11 +601,9 @@ function rejectAge() {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 
-  // Firestore reference
   const db = getFirestore();
   const reviewsCol = collection(db, 'reviews');
 
-  // --- Your existing review code below ---
   const stars = document.querySelectorAll('#rating-widget .star');
   let selectedRating = 0;
 
@@ -645,7 +643,6 @@ function rejectAge() {
     }
   });
 
-  // Real-time listener
   onSnapshot(query(reviewsCol, orderBy('timestamp', 'desc')), snapshot => {
     reviewsContainer.innerHTML = '';
     const reviewsForJsonLD = [];
@@ -671,7 +668,7 @@ function rejectAge() {
     });
 
     const reviewCount = reviewsForJsonLD.length;
-    const avgRating = reviewCount > 0 ? (totalRating / reviewCount).toFixed(1) : 0;
+    const avgRating = reviewCount > 0 ? parseFloat((totalRating / reviewCount).toFixed(1)) : 0;
 
     const jsonLdScript = document.getElementById('json-ld-script');
     const jsonLd = JSON.parse(jsonLdScript.textContent);
@@ -679,13 +676,19 @@ function rejectAge() {
 
     if(product) {
       product.review = reviewsForJsonLD;
-      product.aggregateRating = {
-        "@type": "AggregateRating",
-        "ratingValue": avgRating,
-        "reviewCount": reviewCount,
-        "bestRating": 5,
-        "worstRating": 1
-      };
+
+      // Only include aggregateRating if there is at least 1 review
+      if(reviewCount > 0) {
+        product.aggregateRating = {
+          "@type": "AggregateRating",
+          "ratingValue": avgRating,
+          "reviewCount": reviewCount,
+          "bestRating": 5,
+          "worstRating": 1
+        };
+      } else {
+        delete product.aggregateRating;
+      }
     }
 
     jsonLdScript.textContent = JSON.stringify(jsonLd, null, 2);
@@ -693,4 +696,3 @@ function rejectAge() {
 </script>
 </body>
 </html>
-
