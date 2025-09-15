@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BharatClub (BHT Club Official) – Play Wingo & Earn Real Money Online in India</title>
-  <meta name="description" content="BharatClub – also known as BHT Club or BHTCLB – is India’s trusted play-to-earn platform for Wingo and color prediction games with instant UPI withdrawals." />
+  <title>BHT Club – BharatClub Official Site | Login & Play Wingo</title>
+  <meta name="description" content="BHT Club (BharatClub Official) is India’s trusted gaming site. Login to play Wingo & color games, enjoy daily rewards, and withdraw instantly via UPI." />
   <style>
     html {
     scroll-behavior: smooth;
@@ -124,10 +124,6 @@ header {
   footer { background-color:#000000; color:white; text-align:center; padding:20px; margin-top:50px; }
   footer a { color:white; text-decoration:underline; margin:0 10px; }
 
-/* ===== Limits + spacing tweaks for Top Featured Games only ===== */
-
-/* Constrain the topgames section so it never gets too large or too small.
-   Keeps it centered while preserving the existing background/color. */
 #topgames-section {
   max-width: 1000px;   /* maximum width of the whole section */
   min-width: 320px;    /* minimum width for very small screens */
@@ -139,8 +135,6 @@ header {
   padding-bottom: 40px; 
 }
 
-/* Slight upward nudge of the title so it occupies the empty space above it.
-   This does not change the font, color or size — only vertical placement. */
 #topgames-section .section-title {
   margin-top: 0;
   margin-bottom: 30px;
@@ -148,7 +142,6 @@ header {
   transform: translateY(-10px);
 }
 
-/* Constrain the inner games container so the three boxes remain within expected bounds */
 #topgames-section .games-container {
   max-width: 820px;    /* overall width for the row of game boxes */
   min-width: 280px;
@@ -262,21 +255,21 @@ function rejectAge() {
     
     <a href="/games/wingo/index.html" class="game-box">
   <div class="game-image">
-    <img src="/games/wingo/wingo.png" alt="Wingo">
+    <img src="/games/wingo/wingo.png" alt="Wingo" loading="lazy">
   </div>
   <div class="game-title">Wingo</div>
 </a>
 
 <a href="/games/chickenroad2/index.html" class="game-box">
   <div class="game-image">
-    <img src="/games/chickenroad2/chickenroad2.jpg" alt="Chicken Road 2">
+    <img src="/games/chickenroad2/chickenroad2.jpg" alt="Chicken Road 2" loading="lazy">
   </div>
   <div class="game-title">Chicken Road 2</div>
 </a>
 
 <a href="/games/aviator/index.html" class="game-box">
   <div class="game-image">
-    <img src="/games/aviator/aviator.jpg" alt="Aviator">
+    <img src="/games/aviator/aviator.jpg" alt="Aviator" loading="lazy">
   </div>
   <div class="game-title">Aviator</div>
 </a>
@@ -413,6 +406,24 @@ function rejectAge() {
     <p>Join our team as a trusted partner and enjoy daily earnings, bonuses, and marketing support — all for helping us grow a genuine community.<br><br>Your job? Simple: promote the platform. You can use YouTube, Instagram, Telegram, Google Ads, Meta Ads — whatever works. Just bring in active users who actually play.<br><br>But wait! Don’t even think about fake accounts. We’re looking for quality, not quantity. Members must be verified and active. The better your performance, the better your rewards — and this is all tracked on a daily basis.<br><br>If you’re skilled with social media, passionate about gaming, or looking for a flexible way to earn online, this opportunity is for you.</p>
   </div>
 </section>
+  <section id="reviews" style="margin:2rem; padding:1.5rem; border:1px solid #ddd; border-radius:10px;">
+  <h2>Leave a Review</h2>
+  <div id="rating-widget" style="font-size:2rem; cursor:pointer;">
+    <span class="star">☆</span>
+    <span class="star">☆</span>
+    <span class="star">☆</span>
+    <span class="star">☆</span>
+    <span class="star">☆</span>
+  </div>
+  <textarea id="review-text" placeholder="Write your feedback..." style="width:100%; margin-top:1rem; padding:0.5rem; border-radius:5px; border:1px solid #ccc;"></textarea>
+  <button id="submit-review" style="margin-top:1rem; padding:0.5rem 1rem; background:#007bff; color:#fff; border:none; border-radius:5px; cursor:pointer;">
+    Submit Review
+  </button>
+  <div id="review-list" style="margin-top:2rem;">
+    <h3>What others say:</h3>
+    <ul id="reviews-container" style="list-style:none; padding:0;"></ul>
+  </div>
+</section>
 
 <footer>
   <p>&copy; 2025 BharatClub. All Rights Reserved.</p>
@@ -426,7 +437,7 @@ function rejectAge() {
   <p>Follow us: <a href="https://t.me/bhtclubs" target="_blank">Telegram</a></p>
 </footer>
 
-<script type="application/ld+json">
+<script type="application/ld+json" id="json-ld-script">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -478,37 +489,37 @@ function rejectAge() {
       ]
     },
     {
-     "@type": "WebPage",
-  "@id": "https://bharatclubs.netlify.app/#homepage",
-  "url": "https://bharatclubs.netlify.app/",
-  "name": "BharatClub (BHT Club Official) - Play and Earn",
-  "description": "BharatClub, also known as BHT Club or BHT Clubs, is a free-to-play Indian gaming platform where users can play games, earn rewards, and enjoy a secure, responsible play-to-earn experience.",
-  "alternateName": ["BHT Club", "BHT Clubs", "BHTClub"],
-  "keywords": [
-    "BHT Club games",
-    "BHT Club platform",
-    "BHT Club login",
-    "BHT Club register",
-    "BHT Club bonus",
-    "BHT Club agent recruitment",
-    "BHT Clubs gaming",
-    "BHT Clubs download",
-    "BharatClub games",
-    "BharatClub login",
-    "BharatClub register",
-    "BharatClub promotion"
-  ],
-  "about": {
-    "@type": "Thing",
-    "name": "Play-to-earn games",
-    "description": "Online play-to-earn gaming platforms in India where users can win rewards."
-  },
-  "publisher": { "@id": "https://bharatclubs.netlify.app/#organization" },
-  "isPartOf": { "@id": "https://bharatclubs.netlify.app/#website" },
-  "dateModified": "2025-08-21",
-  "inLanguage": "en",
-  "image": "https://bharatclubs.netlify.app/banner.jpg"
-},
+      "@type": "WebPage",
+      "@id": "https://bharatclubs.netlify.app/#homepage",
+      "url": "https://bharatclubs.netlify.app/",
+      "name": "BharatClub (BHT Club Official) - Play and Earn",
+      "description": "BharatClub, also known as BHT Club or BHT Clubs, is a free-to-play Indian gaming platform where users can play games, earn rewards, and enjoy a secure, responsible play-to-earn experience.",
+      "alternateName": ["BHT Club", "BHT Clubs", "BHTClub"],
+      "keywords": [
+        "BHT Club games",
+        "BHT Club platform",
+        "BHT Club login",
+        "BHT Club register",
+        "BHT Club bonus",
+        "BHT Club agent recruitment",
+        "BHT Clubs gaming",
+        "BHT Clubs download",
+        "BharatClub games",
+        "BharatClub login",
+        "BharatClub register",
+        "BharatClub promotion"
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Play-to-earn games",
+        "description": "Online play-to-earn gaming platforms in India where users can win rewards."
+      },
+      "publisher": { "@id": "https://bharatclubs.netlify.app/#organization" },
+      "isPartOf": { "@id": "https://bharatclubs.netlify.app/#website" },
+      "dateModified": "2025-08-21",
+      "inLanguage": "en",
+      "image": "https://bharatclubs.netlify.app/banner.jpg"
+    },
     {
       "@type": "FAQPage",
       "@id": "https://bharatclubs.netlify.app/#faq-section",
@@ -550,11 +561,135 @@ function rejectAge() {
         { "@type": "ListItem", "position": 3, "name": "Guides", "item": "https://bharatclubs.netlify.app/#guide-section" },
         { "@type": "ListItem", "position": 4, "name": "FAQ", "item": "https://bharatclubs.netlify.app/#faq-section" }
       ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://bharatclubs.netlify.app/#product",
+      "name": "BharatClub Platform",
+      "description": "Play games and earn rewards on BharatClub.",
+      "brand": { "@id": "https://bharatclubs.netlify.app/#organization" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "0",
+        "reviewCount": 0,
+        "bestRating": 5,
+        "worstRating": 1
+      },
+      "review": []
     }
   ]
 }
 </script>
+
+<script type="module">
+  // Firebase Initialization
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+  import { getFirestore, collection, addDoc, query, orderBy, serverTimestamp, onSnapshot } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBdaQY4L4xQIy-Dyl8Tqntxi3dFhh50Bns",
+    authDomain: "bharatclub-rating.firebaseapp.com",
+    projectId: "bharatclub-rating",
+    storageBucket: "bharatclub-rating.firebasestorage.app",
+    messagingSenderId: "602055039598",
+    appId: "1:602055039598:web:e509acc2c4806f1822247f",
+    measurementId: "G-M2S2LZ6MX1"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  // Firestore reference
+  const db = getFirestore();
+  const reviewsCol = collection(db, 'reviews');
+
+  // --- Your existing review code below ---
+  const stars = document.querySelectorAll('#rating-widget .star');
+  let selectedRating = 0;
+
+  stars.forEach((star, idx) => {
+    star.addEventListener('click', () => {
+      selectedRating = idx + 1;
+      stars.forEach((s, i) => s.textContent = i < selectedRating ? '★' : '☆');
+    });
+  });
+
+  const submitBtn = document.getElementById('submit-review');
+  const reviewText = document.getElementById('review-text');
+  const reviewsContainer = document.getElementById('reviews-container');
+
+  submitBtn.addEventListener('click', async () => {
+    const comment = reviewText.value.trim();
+    if(selectedRating === 0 || comment === '') {
+      alert('Please select a rating and write your review.');
+      return;
+    }
+
+    try {
+      await addDoc(reviewsCol, {
+        username: 'Anonymous',
+        comment: comment,
+        rating: selectedRating,
+        timestamp: serverTimestamp()
+      });
+
+      alert('Review submitted!');
+      reviewText.value = '';
+      selectedRating = 0;
+      stars.forEach(s => s.textContent = '☆');
+    } catch(e) {
+      console.error(e);
+      alert('Failed to submit review.');
+    }
+  });
+
+  // Real-time listener
+  onSnapshot(query(reviewsCol, orderBy('timestamp', 'desc')), snapshot => {
+    reviewsContainer.innerHTML = '';
+    const reviewsForJsonLD = [];
+    let totalRating = 0;
+
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      const li = document.createElement('li');
+      li.style.borderBottom = '1px solid #ccc';
+      li.style.padding = '8px 0';
+      li.textContent = '★'.repeat(data.rating) + ' - ' + data.comment;
+      reviewsContainer.appendChild(li);
+
+      reviewsForJsonLD.push({
+        "@type": "Review",
+        "author": { "@type": "Person", "name": data.username || "Anonymous" },
+        "reviewBody": data.comment,
+        "reviewRating": { "@type": "Rating", "ratingValue": data.rating, "bestRating": 5 },
+        "datePublished": data.timestamp ? data.timestamp.toDate().toISOString() : new Date().toISOString()
+      });
+
+      totalRating += data.rating;
+    });
+
+    const reviewCount = reviewsForJsonLD.length;
+    const avgRating = reviewCount > 0 ? (totalRating / reviewCount).toFixed(1) : 0;
+
+    const jsonLdScript = document.getElementById('json-ld-script');
+    const jsonLd = JSON.parse(jsonLdScript.textContent);
+    const product = jsonLd['@graph'].find(item => item['@type'] === 'Product');
+
+    if(product) {
+      product.review = reviewsForJsonLD;
+      product.aggregateRating = {
+        "@type": "AggregateRating",
+        "ratingValue": avgRating,
+        "reviewCount": reviewCount,
+        "bestRating": 5,
+        "worstRating": 1
+      };
+    }
+
+    jsonLdScript.textContent = JSON.stringify(jsonLd, null, 2);
+  });
+</script>
 </body>
 </html>
-
-
