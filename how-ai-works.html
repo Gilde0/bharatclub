@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BharatClub AI Guide – Smart Gaming Assistance</title>
+  <meta name="description" content="Discover how BharatClub uses Artificial Intelligence (AI) to guide players with strategies, probability insights, and responsible gaming reminders.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ff3b3b;
+      color: #fff;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: #ffdede; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+ header {
+    background: url('banner.png') center/cover no-repeat;
+    min-height: 60px;              /* reduced height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 15px;             /* less padding */
+  }
+ header h1,
+header p {
+  visibility: hidden;
+}
+
+
+    #menu-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      font-size: 28px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+      z-index: 1001;
+      transition: background 0.2s ease;
+    }
+    #menu-btn:hover { background: rgba(0,0,0,0.9); }
+
+    .nav-menu {
+      display: none;
+      position: fixed;
+      top: 60px;
+      right: 15px;
+      background: rgba(0,0,0,0.95);
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 1000;
+      min-width: 200px;
+    }
+    .nav-menu a {
+      display: block;
+      padding: 12px 16px;
+      font-size: 16px;
+      color: #fff;
+      transition: background 0.2s ease;
+    }
+    .nav-menu a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .container {
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      padding: 40px;
+      margin: 50px auto;
+      max-width: 900px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      padding-bottom: 6px;
+    }
+    h3 { font-size: 20px; margin: 20px 0 10px; }
+    p { margin-bottom: 16px; }
+    ul, ol { margin: 10px 0 20px 20px; }
+    li { margin-bottom: 10px; }
+
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 60px;
+    }
+    footer a { color: #fff; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 28px; }
+      header p { font-size: 16px; }
+      .container { padding: 20px; margin: 30px 15px; }
+      h2 { font-size: 22px; }
+      h3 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <button id="menu-btn">☰</button>
+  <nav class="nav-menu" id="navMenu">
+    <a href="/index.html">Home</a>
+    <a href="/how-ai-works">AI information page</a>
+    <a href="/games/wingo/index.html">Wingo</a>
+    <a href="/games/chickenroad2/index.html">Chicken Road 2</a>
+    <a href="/games/aviator/index.html">Aviator</a>
+  </nav>
+ <header>
+    <h1>BharatClub AI Assistance</h1>
+    <p>Smarter guidance, better choices, safer play.</p>
+  </header>
+  <main class="container">
+    <section id="intro">
+      <h2>What is AI on BharatClub?</h2>
+      <p>At BharatClub, we believe in combining technology with entertainment. That’s why our platform integrates <strong>Artificial Intelligence (AI)</strong> to make your gaming journey smarter, safer, and more enjoyable. Unlike myths that AI “controls outcomes,” our system is built only to <strong>assist and guide</strong> you while keeping fairness intact.</p>
+      <p>The AI provides <em>real-time insights, strategy recommendations, probability awareness, and responsible gaming reminders</em>. These tools ensure that every player, whether beginner or experienced, can make better decisions while playing.</p>
+    </section>
+
+    <section id="features">
+      <h2>How AI Helps Players</h2>
+      <ul>
+        <li><strong>Strategy Suggestions:</strong> Quick tips to help you make smarter moves.</li>
+        <li><strong>Probability Awareness:</strong> Understand general chances before acting.</li>
+        <li><strong>Responsible Gaming Alerts:</strong> Timely reminders to take breaks.</li>
+        <li><strong>Personal Insights:</strong> See trends in your play to track progress.</li>
+        <li><strong>Onboarding Help:</strong> Easy AI guidance for new players.</li>
+      </ul>
+    </section>
+
+    <section id="how-it-works">
+      <h2>How Does the AI Work?</h2>
+      <ol>
+        <li><strong>Real-Time Feedback:</strong> Smart tips while you play.</li>
+        <li><strong>Probability Highlights:</strong> Insights before making a move.</li>
+        <li><strong>Behavioral Monitoring:</strong> Helps prevent overplaying.</li>
+        <li><strong>Non-Biased Suggestions:</strong> Equal support for all players.</li>
+      </ol>
+    </section>
+
+    <section id="responsibility">
+      <h2>Responsible Use of AI</h2>
+      <p>While AI guidance is helpful, it is not a guarantee of winning. Games on BharatClub are based on both <strong>skill and chance</strong>, and outcomes can never be fully predicted. The AI should be seen as a <em>guide, not a shortcut</em>.</p>
+    </section>
+
+    <section id="benefits">
+      <h2>Why AI Makes BharatClub Better</h2>
+      <ul>
+        <li><strong>User-Friendly:</strong> Simplifies play for newcomers.</li>
+        <li><strong>Educational:</strong> Helps you learn faster.</li>
+        <li><strong>Fair:</strong> Never influences outcomes.</li>
+        <li><strong>Safe:</strong> Supports responsible play.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 BharatClub. All rights reserved. | <a href="/privacy">Privacy</a></p>
+  </footer>
+
+  <script>
+    // Toggle nav menu
+    const menuBtn = document.getElementById('menu-btn');
+    const navMenu = document.getElementById('navMenu');
+    menuBtn.addEventListener('click', () => {
+      navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
+</body>
+</html>
