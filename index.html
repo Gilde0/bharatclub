@@ -159,7 +159,7 @@ header {
 }
 
 #topgames-section .game-box {
-  width: 220px; 
+  width: 220px;
   min-width: 160px;
   max-width: 260px;
   overflow: hidden;
@@ -196,6 +196,22 @@ header {
 #top-intro p {
   font-size: 16px; /* change paragraph size here */
 }
+  
+    .get-help-btn {
+      display: inline-block;
+      background-color: #28a745;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .get-help-btn:hover {
+      transform: translateY(-3px); /* slight pop up */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* subtle shadow */
+    }
 
 </style>
 
@@ -376,20 +392,29 @@ function rejectAge() {
   <p>Our commitment goes beyond compliance—it is a core value that influences our design, policies, and interactions. By promoting responsible use, BharatClub ensures that every user’s experience is not only enjoyable but also sustainable and healthy over the long term.</p>
 </section>
 
-  <section id="get-help-section" class="container">
+<section id="get-help-section" class="container">
   <h2>Get Help & Support</h2>
-  <p>If you or someone you know is struggling with excessive gaming or gambling-related behavior, it’s important to take action early and seek support. BharatClub encourages healthy entertainment habits, and we do not want gaming to negatively affect anyone’s life, finances, or mental well-being.</p>
+  <p>
+    If you or someone you know is struggling with excessive gaming or gambling-related behavior, it’s important to take action early and seek support. BharatClub encourages healthy entertainment habits, and we do not want gaming to negatively affect anyone’s life, finances, or mental well-being.
+  </p>
+  <p>
+    Signs that you might need help include gambling beyond your means, feeling stressed or anxious about losses, hiding your activity from loved ones, or finding it difficult to stop even when you know it’s causing harm. If you recognize these patterns, please don’t ignore them — help is available and you are not alone.
+  </p>
+  <p>
+    To support our users, we provide resources and links to organizations and support systems that specialize in gambling addiction help. These services can offer professional advice, counseling, financial guidance, and emotional support. Taking the first step toward help is a sign of strength — not weakness.
+  </p>
+  <p>
+    We strongly advise all users to set strict budgets, take regular breaks, and never treat gaming as a reliable source of income. Your health and safety will always matter more than any game.
+  </p>
 
-  <p>Signs that you might need help include gambling beyond your means, feeling stressed or anxious about losses, hiding your activity from loved ones, or finding it difficult to stop even when you know it’s causing harm. If you recognize these patterns, please don’t ignore them — help is available and you are not alone.</p>
+  <!-- CTA Button centered with hover effect -->
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="https://gamblingaddiction.netlify.app/" target="_blank" class="get-help-btn">
+      Get Help
+    </a>
+  </div>
+</section>
 
-  <p>To support our users, we provide resources and links to organizations and support systems that specialize in gambling addiction help. These services can offer professional advice, counseling, financial guidance, and emotional support. Taking the first step toward help is a sign of strength — not weakness.</p>
-
-  <p>We strongly advise all users to set strict budgets, take regular breaks, and never treat gaming as a reliable source of income. Your health and safety will always matter more than any game.</p>
-<p>
-  For more resources and assistance, please 
-  <a href="https://gamblingaddiction.netlify.app/" target="_blank" class="visit-link"><strong>here</strong></a>.
-</p>
-  </section>
 
 <section id="faq-section" class="container">
   <h2>Frequently Asked Questions</h2>
@@ -726,6 +751,7 @@ function rejectAge() {
 </script>
 </body>
 </html>
+
 
 
 
