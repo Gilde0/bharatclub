@@ -22,7 +22,7 @@ header {
   background-size: cover;
   background-position: center center;
   position: relative;
-  z-index: 1; /* lower than the button */
+  z-index: 1; 
   min-height: 180px;
   height: 180px;
   width: 100%;
@@ -597,119 +597,135 @@ function rejectAge() {
 </script>
 
 <script type="module">
-  // Firebase Initialization
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
-  import { getFirestore, collection, addDoc, query, orderBy, serverTimestamp, onSnapshot } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+  let db, reviewsCol;
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyBdaQY4L4xQIy-Dyl8Tqntxi3dFhh50Bns",
-    authDomain: "bharatclub-rating.firebaseapp.com",
-    projectId: "bharatclub-rating",
-    storageBucket: "bharatclub-rating.firebasestorage.app",
-    messagingSenderId: "602055039598",
-    appId: "1:602055039598:web:e509acc2c4806f1822247f",
-    measurementId: "G-M2S2LZ6MX1"
-  };
+  async function loadFirebase() {
+    const { initializeApp } = await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js");
+    const { getAnalytics } = await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js");
+    const { getFirestore, collection, addDoc, query, orderBy, serverTimestamp, onSnapshot } = await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js");
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+    const firebaseConfig = {
+      apiKey: "AIzaSyBdaQY4L4xQIy-Dyl8Tqntxi3dFhh50Bns",
+      authDomain: "bharatclub-rating.firebaseapp.com",
+      projectId: "bharatclub-rating",
+      storageBucket: "bharatclub-rating.firebasestorage.app",
+      messagingSenderId: "602055039598",
+      appId: "1:602055039598:web:e509acc2c4806f1822247f",
+      measurementId: "G-M2S2LZ6MX1"
+    };
 
-  const db = getFirestore();
-  const reviewsCol = collection(db, 'reviews');
+    const app = initializeApp(firebaseConfig);
+    getAnalytics(app);
+    db = getFirestore();
+    reviewsCol = collection(db, 'reviews');
 
-  const stars = document.querySelectorAll('#rating-widget .star');
-  let selectedRating = 0;
+    setupReviews(); // call the function to handle ratings & reviews
+  }
 
-  stars.forEach((star, idx) => {
-    star.addEventListener('click', () => {
-      selectedRating = idx + 1;
-      stars.forEach((s, i) => s.textContent = i < selectedRating ? '★' : '☆');
-    });
-  });
-
-  const submitBtn = document.getElementById('submit-review');
-  const reviewText = document.getElementById('review-text');
-  const reviewsContainer = document.getElementById('reviews-container');
-
-  submitBtn.addEventListener('click', async () => {
-    const comment = reviewText.value.trim();
-    if(selectedRating === 0 || comment === '') {
-      alert('Please select a rating and write your review.');
-      return;
+  // Only load Firebase when user scrolls near the reviews section
+  const reviewsSection = document.getElementById('reviews-container');
+  const observer = new IntersectionObserver((entries) => {
+    if(entries[0].isIntersecting){
+      loadFirebase();
+      observer.disconnect(); // stop observing
     }
+  }, { threshold: 0.1 });
 
-    try {
-      await addDoc(reviewsCol, {
-        username: 'Anonymous',
-        comment: comment,
-        rating: selectedRating,
-        timestamp: serverTimestamp()
+  observer.observe(reviewsSection);
+
+  function setupReviews() {
+    const stars = document.querySelectorAll('#rating-widget .star');
+    let selectedRating = 0;
+
+    stars.forEach((star, idx) => {
+      star.addEventListener('click', () => {
+        selectedRating = idx + 1;
+        stars.forEach((s, i) => s.textContent = i < selectedRating ? '★' : '☆');
       });
-
-      alert('Review submitted!');
-      reviewText.value = '';
-      selectedRating = 0;
-      stars.forEach(s => s.textContent = '☆');
-    } catch(e) {
-      console.error(e);
-      alert('Failed to submit review.');
-    }
-  });
-
-  onSnapshot(query(reviewsCol, orderBy('timestamp', 'desc')), snapshot => {
-    reviewsContainer.innerHTML = '';
-    const reviewsForJsonLD = [];
-    let totalRating = 0;
-
-    snapshot.forEach(doc => {
-      const data = doc.data();
-      const li = document.createElement('li');
-      li.style.borderBottom = '1px solid #ccc';
-      li.style.padding = '8px 0';
-      li.textContent = '★'.repeat(data.rating) + ' - ' + data.comment;
-      reviewsContainer.appendChild(li);
-
-      reviewsForJsonLD.push({
-        "@type": "Review",
-        "author": { "@type": "Person", "name": data.username || "Anonymous" },
-        "reviewBody": data.comment,
-        "reviewRating": { "@type": "Rating", "ratingValue": data.rating, "bestRating": 5 },
-        "datePublished": data.timestamp ? data.timestamp.toDate().toISOString() : new Date().toISOString()
-      });
-
-      totalRating += data.rating;
     });
 
-    const reviewCount = reviewsForJsonLD.length;
-    const avgRating = reviewCount > 0 ? parseFloat((totalRating / reviewCount).toFixed(1)) : 0;
+    const submitBtn = document.getElementById('submit-review');
+    const reviewText = document.getElementById('review-text');
 
-    const jsonLdScript = document.getElementById('json-ld-script');
-    const jsonLd = JSON.parse(jsonLdScript.textContent);
-    const product = jsonLd['@graph'].find(item => item['@type'] === 'Product');
-
-    if(product) {
-      product.review = reviewsForJsonLD;
-
-      // Only include aggregateRating if there is at least 1 review
-      if(reviewCount > 0) {
-        product.aggregateRating = {
-          "@type": "AggregateRating",
-          "ratingValue": avgRating,
-          "reviewCount": reviewCount,
-          "bestRating": 5,
-          "worstRating": 1
-        };
-      } else {
-        delete product.aggregateRating;
+    submitBtn.addEventListener('click', async () => {
+      const comment = reviewText.value.trim();
+      if(selectedRating === 0 || comment === '') {
+        alert('Please select a rating and write your review.');
+        return;
       }
-    }
 
-    jsonLdScript.textContent = JSON.stringify(jsonLd, null, 2);
-  });
+      try {
+        await addDoc(reviewsCol, {
+          username: 'Anonymous',
+          comment: comment,
+          rating: selectedRating,
+          timestamp: serverTimestamp()
+        });
+
+        alert('Review submitted!');
+        reviewText.value = '';
+        selectedRating = 0;
+        stars.forEach(s => s.textContent = '☆');
+      } catch(e) {
+        console.error(e);
+        alert('Failed to submit review.');
+      }
+    });
+
+    // Listen for reviews
+    const reviewsContainer = document.getElementById('reviews-container');
+    onSnapshot(query(reviewsCol, orderBy('timestamp', 'desc')), snapshot => {
+      reviewsContainer.innerHTML = '';
+      const reviewsForJsonLD = [];
+      let totalRating = 0;
+
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        const li = document.createElement('li');
+        li.style.borderBottom = '1px solid #ccc';
+        li.style.padding = '8px 0';
+        li.textContent = '★'.repeat(data.rating) + ' - ' + data.comment;
+        reviewsContainer.appendChild(li);
+
+        reviewsForJsonLD.push({
+          "@type": "Review",
+          "author": { "@type": "Person", "name": data.username || "Anonymous" },
+          "reviewBody": data.comment,
+          "reviewRating": { "@type": "Rating", "ratingValue": data.rating, "bestRating": 5 },
+          "datePublished": data.timestamp ? data.timestamp.toDate().toISOString() : new Date().toISOString()
+        });
+
+        totalRating += data.rating;
+      });
+
+      const reviewCount = reviewsForJsonLD.length;
+      const avgRating = reviewCount > 0 ? parseFloat((totalRating / reviewCount).toFixed(1)) : 0;
+
+      const jsonLdScript = document.getElementById('json-ld-script');
+      const jsonLd = JSON.parse(jsonLdScript.textContent);
+      const product = jsonLd['@graph'].find(item => item['@type'] === 'Product');
+
+      if(product) {
+        product.review = reviewsForJsonLD;
+        if(reviewCount > 0) {
+          product.aggregateRating = {
+            "@type": "AggregateRating",
+            "ratingValue": avgRating,
+            "reviewCount": reviewCount,
+            "bestRating": 5,
+            "worstRating": 1
+          };
+        } else {
+          delete product.aggregateRating;
+        }
+      }
+
+      jsonLdScript.textContent = JSON.stringify(jsonLd, null, 2);
+    });
+  }
 </script>
 </body>
 </html>
+
 
 
