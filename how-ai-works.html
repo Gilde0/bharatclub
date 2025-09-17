@@ -3,173 +3,223 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BharatClub AI Guide – Smart Gaming Assistance</title>
-  <meta name="description" content="Discover how BharatClub uses Artificial Intelligence (AI) to guide players with strategies, probability insights, and responsible gaming reminders.">
+  <title>BharatClub AI Guide – Smart Gaming Assistance & Tips</title>
+  <meta name="description" content="Learn how BharatClub AI guides players with strategies, probability insights, responsible gaming reminders, and real-time tips for games like Wingo, Aviator, and Chicken Road 2.">
+  <meta name="keywords" content="BharatClub AI, AI guide, gaming strategies, responsible gaming, Wingo tips, Aviator guide, Chicken Road 2 tips, online gaming AI, probability insights">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://bharatclubs.netlify.app/how-ai-works",
+        "url": "https://bharatclubs.netlify.app/how-ai-works",
+        "name": "BharatClub AI Guide – Smart Gaming Assistance",
+        "description": "Discover how BharatClub uses AI to guide players with strategies, probability insights, and responsible gaming reminders.",
+        "inLanguage": "en",
+        "breadcrumb": { "@id": "https://bharatclubs.netlify.app/how-ai-works#breadcrumb" },
+        "publisher": { "@id": "https://bharatclubs.netlify.app/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://bharatclubs.netlify.app/how-ai-works#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bharatclubs.netlify.app/" },
+          { "@type": "ListItem", "position": 2, "name": "AI Guide", "item": "https://bharatclubs.netlify.app/how-ai-works" }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://bharatclubs.netlify.app/#organization",
+        "name": "BharatClub",
+        "url": "https://bharatclubs.netlify.app/",
+        "logo": "https://bharatclubs.netlify.app/logo.png",
+        "sameAs": [
+          "https://www.facebook.com/bharatclub",
+          "https://www.twitter.com/bharatclub"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is BharatClub AI free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All features of BharatClub AI are free for registered players. Access tips, probability insights, and responsible gaming alerts without any cost." } },
+          { "@type": "Question", "name": "Does AI guarantee wins?", "acceptedAnswer": { "@type": "Answer", "text": "No. The AI only provides guidance. Outcomes depend on both skill and chance. Use AI tips to make smarter decisions, not to guarantee wins." } },
+          { "@type": "Question", "name": "Can beginners benefit from BharatClub AI?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely! Beginners get guidance on strategies, probabilities, and responsible play, helping them learn faster and enjoy games confidently." } },
+          { "@type": "Question", "name": "Does AI affect fairness?", "acceptedAnswer": { "@type": "Answer", "text": "No. AI guidance does not influence game outcomes. Its sole purpose is to assist players and enhance their experience responsibly." } },
+          { "@type": "Question", "name": "How do I access AI tips while playing?", "acceptedAnswer": { "@type": "Answer", "text": "Start any game on BharatClub. The AI automatically provides strategy tips, probability alerts, and responsible gaming reminders during play." } }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: #ff3b3b;
-      color: #fff;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      line-height: 1.7;
-    }
-
+  html {
+  scroll-behavior: smooth;
+}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #ff3b3b; color: #fff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.7; }
     a { color: #ffdede; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
- header {
-    background: url('banner.png') center/cover no-repeat;
-    min-height: 60px;              /* reduced height */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px 15px;             /* less padding */
-  }
- header h1,
-header p {
-  visibility: hidden;
-}
+    /* Header */
+    header {
+      background: url('banner.webp') center/cover no-repeat;
+      min-height: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px 15px;
+      position: relative;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
 
-
+    /* Navigation */
     #menu-btn {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      font-size: 28px;
-      background: rgba(0,0,0,0.7);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 8px 12px;
-      cursor: pointer;
-      z-index: 1001;
+      position: fixed; top: 15px; right: 15px; font-size: 28px;
+      background: rgba(0,0,0,0.7); color: #fff; border: none;
+      border-radius: 6px; padding: 8px 12px; cursor: pointer; z-index: 1001;
       transition: background 0.2s ease;
     }
     #menu-btn:hover { background: rgba(0,0,0,0.9); }
 
     .nav-menu {
-      display: none;
-      position: fixed;
-      top: 60px;
-      right: 15px;
-      background: rgba(0,0,0,0.95);
-      border-radius: 8px;
-      overflow: hidden;
-      z-index: 1000;
+      display: none; position: fixed; top: 60px; right: 15px;
+      background: rgba(0,0,0,0.95); border-radius: 8px; overflow: hidden; z-index: 1000;
       min-width: 200px;
     }
-    .nav-menu a {
-      display: block;
-      padding: 12px 16px;
-      font-size: 16px;
-      color: #fff;
-      transition: background 0.2s ease;
-    }
-    .nav-menu a:hover {
-      background: rgba(255,255,255,0.1);
+    .nav-menu a { display: block; padding: 12px 16px; font-size: 16px; color: #fff; transition: background 0.2s ease; }
+    .nav-menu a:hover { background: rgba(255,255,255,0.1); }
+
+    /* Main container */
+    main.container {
+      background: rgba(0,0,0,0.6); border-radius: 12px; padding: 40px; margin: 50px auto;
+      max-width: 900px; box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
 
-    .container {
-      background: rgba(0,0,0,0.6);
-      border-radius: 12px;
-      padding: 40px;
-      margin: 50px auto;
-      max-width: 900px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    }
-
-    h2 {
-      font-size: 26px;
-      margin-bottom: 15px;
-      border-bottom: 2px solid rgba(255,255,255,0.2);
-      padding-bottom: 6px;
-    }
+    h2 { font-size: 26px; margin-bottom: 15px; border-bottom: 2px solid rgba(255,255,255,0.2); padding-bottom: 6px; }
     h3 { font-size: 20px; margin: 20px 0 10px; }
-    p { margin-bottom: 16px; }
-    ul, ol { margin: 10px 0 20px 20px; }
+    p, ul, ol { margin-bottom: 16px; }
+    ul, ol { margin-left: 20px; }
     li { margin-bottom: 10px; }
 
-    footer {
-      background: #000;
-      color: #aaa;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      margin-top: 60px;
-    }
+    /* Footer */
+    footer { background: #000; color: #aaa; text-align: center; padding: 20px; font-size: 14px; margin-top: 60px; }
     footer a { color: #fff; }
 
+    /* Responsive */
     @media (max-width: 600px) {
-      header h1 { font-size: 28px; }
-      header p { font-size: 16px; }
-      .container { padding: 20px; margin: 30px 15px; }
+      main.container { padding: 20px; margin: 30px 15px; }
       h2 { font-size: 22px; }
       h3 { font-size: 18px; }
     }
+
+    /* FAQ */
+    #faq { margin-top: 40px; padding: 20px; background: rgba(0,0,0,0.6); border-radius: 12px; }
+    #faq h2 { font-size: 26px; margin-bottom: 20px; color: #fff; }
+    #faq .faq-item { margin-bottom: 20px; }
+    #faq h3 { font-size: 20px; margin-bottom: 8px; color: #ffdede; cursor: pointer; }
+    #faq p { font-size: 16px; color: #fff; line-height: 1.6; display: none; }
   </style>
 </head>
 <body>
+
   <button id="menu-btn">☰</button>
   <nav class="nav-menu" id="navMenu">
     <a href="/index.html">Home</a>
-    <a href="/how-ai-works">AI information page</a>
+    <a href="/how-ai-works">AI Info Page</a>
     <a href="/games/wingo/index.html">Wingo</a>
     <a href="/games/chickenroad2/index.html">Chicken Road 2</a>
     <a href="/games/aviator/index.html">Aviator</a>
   </nav>
- <header>
-    <h1>BharatClub AI Assistance</h1>
-    <p>Smarter guidance, better choices, safer play.</p>
+
+  <header>
+    <h1 class="sr-only">BharatClub AI Assistance</h1>
+    <p class="sr-only">Smarter guidance, better choices, safer play.</p>
+    <img src="banner.webp" alt="BharatClub AI Smart Gaming Banner" style="width:100%; border-radius:12px;">
   </header>
+
   <main class="container">
+
     <section id="intro">
-      <h2>What is AI on BharatClub?</h2>
-      <p>At BharatClub, we believe in combining technology with entertainment. That’s why our platform integrates <strong>Artificial Intelligence (AI)</strong> to make your gaming journey smarter, safer, and more enjoyable. Unlike myths that AI “controls outcomes,” our system is built only to <strong>assist and guide</strong> you while keeping fairness intact.</p>
-      <p>The AI provides <em>real-time insights, strategy recommendations, probability awareness, and responsible gaming reminders</em>. These tools ensure that every player, whether beginner or experienced, can make better decisions while playing.</p>
+      <h2>What is BharatClub AI?</h2>
+      <p>BharatClub AI is a smart assistant designed to help players make informed decisions while playing online games such as <a href="/games/wingo/index.html">Wingo</a>, <a href="/games/aviator/index.html">Aviator</a>, and <a href="/games/chickenroad2/index.html">Chicken Road 2</a>. It provides <strong>strategy recommendations, probability awareness, responsible gaming alerts</strong>, and real-time insights to enhance your gaming experience.</p>
+      <p>Our AI never influences game outcomes; it is a <strong>guide, not a shortcut</strong>. Every suggestion is designed to help you play smarter and enjoy the game responsibly.</p>
     </section>
 
     <section id="features">
-      <h2>How AI Helps Players</h2>
+      <h2>Key Features of BharatClub AI</h2>
       <ul>
-        <li><strong>Strategy Suggestions:</strong> Quick tips to help you make smarter moves.</li>
-        <li><strong>Probability Awareness:</strong> Understand general chances before acting.</li>
-        <li><strong>Responsible Gaming Alerts:</strong> Timely reminders to take breaks.</li>
-        <li><strong>Personal Insights:</strong> See trends in your play to track progress.</li>
-        <li><strong>Onboarding Help:</strong> Easy AI guidance for new players.</li>
+        <li><strong>Real-Time Strategy Tips:</strong> Get actionable advice while playing.</li>
+        <li><strong>Probability Insights:</strong> Understand chances before making a move.</li>
+        <li><strong>Responsible Gaming Alerts:</strong> Timely reminders to take breaks and avoid fatigue.</li>
+        <li><strong>Progress Tracking:</strong> Monitor your performance and identify trends.</li>
+        <li><strong>Beginner Onboarding:</strong> Simple guidance for new players.</li>
       </ul>
     </section>
 
     <section id="how-it-works">
-      <h2>How Does the AI Work?</h2>
+      <h2>How Does BharatClub AI Work?</h2>
       <ol>
-        <li><strong>Real-Time Feedback:</strong> Smart tips while you play.</li>
-        <li><strong>Probability Highlights:</strong> Insights before making a move.</li>
-        <li><strong>Behavioral Monitoring:</strong> Helps prevent overplaying.</li>
-        <li><strong>Non-Biased Suggestions:</strong> Equal support for all players.</li>
+        <li><strong>Monitoring Game Play:</strong> AI observes patterns to provide smart recommendations.</li>
+        <li><strong>Real-Time Probability Highlights:</strong> Alerts you about optimal strategies.</li>
+        <li><strong>Behavioral Monitoring:</strong> Encourages breaks to promote responsible gaming.</li>
+        <li><strong>Non-Biased Guidance:</strong> AI provides equal support to all players.</li>
       </ol>
     </section>
 
     <section id="responsibility">
       <h2>Responsible Use of AI</h2>
-      <p>While AI guidance is helpful, it is not a guarantee of winning. Games on BharatClub are based on both <strong>skill and chance</strong>, and outcomes can never be fully predicted. The AI should be seen as a <em>guide, not a shortcut</em>.</p>
+      <p>BharatClub AI is a tool to help you play smarter, not a guaranteed way to win. Always remember that games are a mix of skill and luck. Use AI insights responsibly and enjoy gaming safely.</p>
     </section>
 
     <section id="benefits">
-      <h2>Why AI Makes BharatClub Better</h2>
+      <h2>Benefits of Using BharatClub AI</h2>
       <ul>
-        <li><strong>User-Friendly:</strong> Simplifies play for newcomers.</li>
-        <li><strong>Educational:</strong> Helps you learn faster.</li>
-        <li><strong>Fair:</strong> Never influences outcomes.</li>
-        <li><strong>Safe:</strong> Supports responsible play.</li>
+        <li><strong>User-Friendly:</strong> Simplifies gameplay for beginners.</li>
+        <li><strong>Educational:</strong> Learn strategies and probability faster.</li>
+        <li><strong>Fair:</strong> AI never manipulates game outcomes.</li>
+        <li><strong>Safe:</strong> Encourages responsible gaming practices.</li>
+        <li><strong>Improved Results:</strong> Make informed decisions and enjoy better gaming experiences.</li>
       </ul>
     </section>
+
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>Is BharatClub AI free to use?</h3>
+        <p>Yes! All features of BharatClub AI are free for registered players. Access tips, probability insights, and responsible gaming alerts without any cost.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does AI guarantee wins?</h3>
+        <p>No. The AI only provides guidance. Outcomes depend on both skill and chance. Use AI tips to make smarter decisions, not to guarantee wins.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can beginners benefit from BharatClub AI?</h3>
+        <p>Absolutely! Beginners get guidance on strategies, probabilities, and responsible play, helping them learn faster and enjoy games confidently.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does AI affect fairness?</h3>
+        <p>No. AI guidance does not influence game outcomes. Its sole purpose is to assist players and enhance their experience responsibly.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I access AI tips while playing?</h3>
+        <p>Start any game on BharatClub. The AI automatically provides strategy tips, probability alerts, and responsible gaming reminders during play.</p>
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -183,6 +233,16 @@ header p {
     menuBtn.addEventListener('click', () => {
       navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
     });
+
+    // FAQ toggle
+    const faqs = document.querySelectorAll('#faq h3');
+    faqs.forEach(faq => {
+      faq.addEventListener('click', () => {
+        const answer = faq.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
   </script>
+
 </body>
 </html>
