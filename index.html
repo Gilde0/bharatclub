@@ -718,119 +718,115 @@ function rejectAge() {
 </script>
 
 <script type="module">
-  // Firebase Imports
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
-  import { getFirestore, collection, addDoc, query, orderBy, serverTimestamp, onSnapshot } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+  window.addEventListener('load', async () => {
+    const [
+      { initializeApp },
+      { getAnalytics },
+      { getFirestore, collection, addDoc, query, orderBy, serverTimestamp, onSnapshot }
+    ] = await Promise.all([
+      import("https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js"),
+      import("https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js"),
+      import("https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js")
+    ]);
 
-  // Firebase Config
-  const firebaseConfig = {
-    apiKey: "AIzaSyBdaQY4L4xQIy-Dyl8Tqntxi3dFhh50Bns",
-    authDomain: "bharatclub-rating.firebaseapp.com",
-    projectId: "bharatclub-rating",
-    storageBucket: "bharatclub-rating.firebasestorage.app",
-    messagingSenderId: "602055039598",
-    appId: "1:602055039598:web:e509acc2c4806f1822247f",
-    measurementId: "G-M2S2LZ6MX1"
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyBdaQY4L4xQIy-Dyl8Tqntxi3dFhh50Bns",
+      authDomain: "bharatclub-rating.firebaseapp.com",
+      projectId: "bharatclub-rating",
+      storageBucket: "bharatclub-rating.firebasestorage.app",
+      messagingSenderId: "602055039598",
+      appId: "1:602055039598:web:e509acc2c4806f1822247f",
+      measurementId: "G-M2S2LZ6MX1"
+    };
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    
+    const db = getFirestore();
+    const reviewsCol = collection(db, 'reviews');
 
-  // Init Firebase
-  const app = initializeApp(firebaseConfig);
-  getAnalytics(app);
-  const db = getFirestore();
-  const reviewsCol = collection(db, 'reviews');
+    const stars = document.querySelectorAll('#rating-widget .star');
+    const submitBtn = document.getElementById('submit-review');
+    const reviewText = document.getElementById('review-text');
+    const reviewsContainer = document.getElementById('reviews-container');
+    let selectedRating = 0;
 
-  // Elements
-  const stars = document.querySelectorAll('#rating-widget .star');
-  const submitBtn = document.getElementById('submit-review');
-  const reviewText = document.getElementById('review-text');
-  const reviewsContainer = document.getElementById('reviews-container');
-  let selectedRating = 0;
-
-  // Rating widget
-  stars.forEach((star, idx) => {
-    star.addEventListener('click', () => {
-      selectedRating = idx + 1;
-      stars.forEach((s, i) => s.textContent = i < selectedRating ? '★' : '☆');
-    });
-  });
-
-  // Submit review
-  submitBtn.addEventListener('click', async () => {
-    const comment = reviewText.value.trim();
-    if (selectedRating === 0 || comment === '') {
-      alert('Please select a rating and write your review.');
-      return;
-    }
-    try {
-      await addDoc(reviewsCol, {
-        username: 'Anonymous',
-        comment,
-        rating: selectedRating,
-        timestamp: serverTimestamp()
+    stars.forEach((star, idx) => {
+      star.addEventListener('click', () => {
+        selectedRating = idx + 1;
+        stars.forEach((s, i) => s.textContent = i < selectedRating ? '★' : '☆');
       });
-
-      alert('Review submitted!');
-      reviewText.value = '';
-      selectedRating = 0;
-      stars.forEach(s => s.textContent = '☆');
-    } catch (e) {
-      console.error(e);
-      alert('Failed to submit review.');
-    }
-  });
-
-  // Live reviews display + JSON-LD update
-  onSnapshot(query(reviewsCol, orderBy('timestamp', 'desc')), snapshot => {
-    reviewsContainer.innerHTML = '';
-    const reviewsForJsonLD = [];
-    let totalRating = 0;
-
-    snapshot.forEach(doc => {
-      const data = doc.data();
-      const li = document.createElement('li');
-      li.style.borderBottom = '1px solid #ccc';
-      li.style.padding = '8px 0';
-      li.textContent = '★'.repeat(data.rating) + ' - ' + data.comment;
-      reviewsContainer.appendChild(li);
-
-      reviewsForJsonLD.push({
-        "@type": "Review",
-        "author": { "@type": "Person", "name": data.username || "Anonymous" },
-        "reviewBody": data.comment,
-        "reviewRating": { "@type": "Rating", "ratingValue": data.rating, "bestRating": 5 },
-        "datePublished": data.timestamp ? data.timestamp.toDate().toISOString() : new Date().toISOString()
-      });
-
-      totalRating += data.rating;
     });
 
-    // JSON-LD injection
-    const reviewCount = reviewsForJsonLD.length;
-    const avgRating = reviewCount > 0 ? parseFloat((totalRating / reviewCount).toFixed(1)) : 0;
-    const jsonLdScript = document.getElementById('json-ld-script');
-    const jsonLd = JSON.parse(jsonLdScript.textContent);
-    const product = jsonLd['@graph'].find(item => item['@type'] === 'Product');
-
-    if (product) {
-      product.review = reviewsForJsonLD;
-      if (reviewCount > 0) {
-        product.aggregateRating = {
-          "@type": "AggregateRating",
-          "ratingValue": avgRating,
-          "reviewCount": reviewCount,
-          "bestRating": 5,
-          "worstRating": 1
-        };
-      } else {
-        delete product.aggregateRating;
+    submitBtn.addEventListener('click', async () => {
+      const comment = reviewText.value.trim();
+      if (selectedRating === 0 || comment === '') {
+        alert('Please select a rating and write your review.');
+        return;
       }
-    }
-    jsonLdScript.textContent = JSON.stringify(jsonLd, null, 2);
+      try {
+        await addDoc(reviewsCol, {
+          username: 'Anonymous',
+          comment,
+          rating: selectedRating,
+          timestamp: serverTimestamp()
+        });
+        alert('Review submitted!');
+        reviewText.value = '';
+        selectedRating = 0;
+        stars.forEach(s => s.textContent = '☆');
+      } catch (e) {
+        console.error(e);
+        alert('Failed to submit review.');
+      }
+    });
+
+    onSnapshot(query(reviewsCol, orderBy('timestamp', 'desc')), snapshot => {
+      reviewsContainer.innerHTML = '';
+      const reviewsForJsonLD = [];
+      let totalRating = 0;
+
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        const li = document.createElement('li');
+        li.style.borderBottom = '1px solid #ccc';
+        li.style.padding = '8px 0';
+        li.textContent = '★'.repeat(data.rating) + ' - ' + data.comment;
+        reviewsContainer.appendChild(li);
+
+        reviewsForJsonLD.push({
+          "@type": "Review",
+          "author": { "@type": "Person", "name": data.username || "Anonymous" },
+          "reviewBody": data.comment,
+          "reviewRating": { "@type": "Rating", "ratingValue": data.rating, "bestRating": 5 },
+          "datePublished": data.timestamp ? data.timestamp.toDate().toISOString() : new Date().toISOString()
+        });
+
+        totalRating += data.rating;
+      });
+
+      const reviewCount = reviewsForJsonLD.length;
+      const avgRating = reviewCount > 0 ? parseFloat((totalRating / reviewCount).toFixed(1)) : 0;
+      const jsonLdScript = document.getElementById('json-ld-script');
+      const jsonLd = JSON.parse(jsonLdScript.textContent);
+      const product = jsonLd['@graph'].find(item => item['@type'] === 'Product');
+
+      if (product) {
+        product.review = reviewsForJsonLD;
+        if (reviewCount > 0) {
+          product.aggregateRating = {
+            "@type": "AggregateRating",
+            "ratingValue": avgRating,
+            "reviewCount": reviewCount,
+            "bestRating": 5,
+            "worstRating": 1
+          };
+        } else {
+          delete product.aggregateRating;
+        }
+      }
+      jsonLdScript.textContent = JSON.stringify(jsonLd, null, 2);
+    });
   });
 </script>
 </body>
 </html>
-
-
-
