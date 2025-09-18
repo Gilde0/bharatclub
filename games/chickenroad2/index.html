@@ -185,14 +185,32 @@
     .cta-buttons .btn-play:hover { background-color: #e02a00; }
     .cta-buttons .btn-support { background-color: #0088cc; color: #fff; }
     .cta-buttons .btn-support:hover { background-color: #0077b6; }
-    .hamburger-container { position: fixed; top: 20px; right: 20px; z-index: 9999; }
-    .hamburger-icon { font-size: 30px; background-color: #8B0000; color: #fff; padding: 10px 15px; border-radius: 8px; cursor: pointer; user-select: none; box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: background-color 0.3s; }
-    .hamburger-icon:hover { background-color: #a30000; }
-    .hamburger-menu { display: none; flex-direction: column; background-color: #1a1a1a; border-radius: 10px; margin-top: 10px; box-shadow: 0 6px 12px rgba(0,0,0,0.5); overflow: hidden; }
-    .hamburger-menu a { color: #fff; text-decoration: none; padding: 12px 20px; border-bottom: 1px solid #333; transition: background-color 0.2s; }
-    .hamburger-menu a:hover { background-color: #8B0000; }
-    .hamburger-menu.show { display: flex; }
-
+   .hamburger-container { position:fixed; top:20px; right:20px; z-index:1000; }
+    .hamburger-icon { font-size:28px; background:rgba(0,0,0,0.7); color:#fff; padding:8px 12px; border-radius:6px; cursor:pointer; user-select:none; transition:background 0.3s; }
+    .hamburger-icon:hover { background:rgba(0,0,0,0.9); }
+    .hamburger-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  z-index: 999;
+}
+    .hamburger-menu a { color:#fff; text-decoration:none; padding:12px 20px; border-bottom:1px solid #333; transition:background 0.2s; }
+    .hamburger-menu a:hover { background:#8B0000; font-weight: bold; }
+    .hamburger-menu a.active {
+  background: #ff2e00;
+  font-weight: bold; }
+    .hamburger-menu.show {
+  max-height: 500px;
+}
 .telegram-cta {
   text-align: center;
   margin: 40px 0;
@@ -221,6 +239,9 @@
 </head>
 <body>
   <header>
+  <div class="hamburger-container">
+    <div class="hamburger-icon" aria-label="Menu" onclick="toggleMenu()">☰</div>
+  </div>
     <h1>BHT Club Chicken Road 2</h1>
   </header>
 
@@ -310,11 +331,11 @@
     </div>
   </main>
 
- <div class="hamburger-menu" id="hamburgerMenu">
+<nav class="hamburger-menu" id="hamburgerMenu" role="navigation">
   <a href="/index.html">Home</a>
   <a href="/games/wingo/index.html">Wingo</a>
-  <a href="/games/aviator/index.html">Aviator</a>
-  <a href="/games/chickenroad2/index.html" class="active">Chicken Road 2</a>
+  <a href="/games/aviator/index.html" class="active">Aviator</a>
+  <a href="/games/chickenroad2/index.html">Chicken Road 2</a>
   <a href="/games/slots/index.html">Slot Online</a>
   <a href="/games/sports/index.html">Sport Betting</a>
   <a href="/games/casino/index.html">Casino Games</a>
@@ -322,7 +343,7 @@
   <a href="/games/fishing/index.html">Fishing</a>
   <a href="/games/cricket/index.html">Cricket</a>
   <a href="/games/minesweeper/index.html">Minesweeper</a>
-</div>
+</nav>
 
   <script>
     function toggleMenu() { document.getElementById("hamburgerMenu").classList.toggle("show"); }
@@ -335,6 +356,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
