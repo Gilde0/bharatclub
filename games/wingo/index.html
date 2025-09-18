@@ -2,349 +2,197 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wingo - Bharat Clubs</title>
+  <title>BHT Club Wingo - Bharat Clubs</title>
+  <meta name="description" content="Play BHT Club Wingo online, a fast-paced skill-based game. Enjoy daily challenges, streak bonuses, secure deposits, and compete with Indian players for top rewards." />
+  <meta name="keywords" content="BHT Club Wingo, Bharat Clubs, skill-based online game, daily bonuses, leaderboard, Indian players, online gaming community" />
+  <meta name="robots" content="index, follow" />
+  
+  <meta property="og:title" content="BHT Club Wingo - Bharat Clubs" />
+  <meta property="og:description" content="Play BHT Club Wingo online! Fast-paced skill-based gameplay, daily challenges, and a vibrant Indian gaming community." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tinyurl.com/bhtclubs" />
+  <meta property="og:image" content="https://www.bhdfiejand.com/assets/wingo.webp" />
+  <meta property="og:site_name" content="Bharat Clubs" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BHT Club Wingo - Bharat Clubs" />
+  <meta name="twitter:description" content="Play BHT Club Wingo online! Fast-paced skill-based gameplay, daily challenges, and a vibrant Indian gaming community." />
+  <meta name="twitter:image" content="https://www.bhdfiejand.com/assets/wingo.webp" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "BHT Club Wingo - Bharat Clubs",
+        "url": "https://tinyurl.com/bhtclubs",
+        "description": "Play BHT Club Wingo online, a fast-paced skill-based game with daily challenges, streak rewards, and an active Indian gaming community.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Bharat Clubs",
+          "logo": { "@type": "ImageObject", "url": "https://bharatclubs.netlify.app/logo.webp" }
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "BHT Club Wingo",
+        "url": "https://tinyurl.com/bhtclubs",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web",
+        "description": "BHT Club Wingo is a fast-paced skill-based online game with daily bonuses, challenges, and a vibrant Indian gaming community.",
+        "author": { "@type": "Organization", "name": "Bharat Clubs" },
+        "publisher": { "@type": "Organization", "name": "Bharat Clubs", "logo": { "@type": "ImageObject", "url": "https://bharatclubs.netlify.app/logo.webp" } }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is BHT Club Wingo legal in India?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Wingo is a skill-based game and complies with Indian gaming regulations in most states." } },
+          { "@type": "Question", "name": "How do I start playing?", "acceptedAnswer": { "@type": "Answer", "text": "Click the 'Play Now' button, register with BHT Club, and start predicting multipliers!" } },
+          { "@type": "Question", "name": "What is the minimum deposit?", "acceptedAnswer": { "@type": "Answer", "text": "You can start with as little as ₹10 to join the fun." } },
+          { "@type": "Question", "name": "How fast are withdrawals?", "acceptedAnswer": { "@type": "Answer", "text": "Withdrawals are processed instantly once wins are confirmed." } },
+          { "@type": "Question", "name": "Is support available?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Contact us anytime via Telegram for assistance." } },
+          { "@type": "Question", "name": "How do daily challenges work?", "acceptedAnswer": { "@type": "Answer", "text": "Complete daily multiplier prediction challenges to earn extra bonuses and streak rewards." } }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
- body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #ff3b3b;
-  color: #fff;
-  font-size: 18px;
-}
-    header {
-      background-color: #8B0000;
-      padding: 20px;
-      text-align: center;
-      border-radius: 0 0 15px 15px;
-      box-shadow: 0 4px 8px rgba(139,0,0,0.6);
-      flex-shrink: 0;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-      letter-spacing: 2px;
-      font-weight: 700;
-    }
-main {
-  flex: 1 0 auto; /* grow and shrink, take remaining space */
-  padding: 40px 20px;
-  max-width: 900px;
-  margin: 30px auto;
-  background-color: #8B0000;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(139,0,0,0.7);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-    .game-logo {
-      max-width: 320px;
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-      margin-bottom: 30px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .description {
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin-bottom: 10px;
-      max-width: 700px;
-      text-align: left;
-      white-space: pre-line;
-    }
-    .btn-play {
-      background-color: #ff2e00;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.2em;
-      padding: 15px 50px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 6px 12px rgba(255, 46, 0, 0.6);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      display: inline-block;
-      margin: 20px auto; /* Center horizontally */
-    }
-    .btn-play:hover {
-      background-color: #e02a00;
-      box-shadow: 0 8px 16px rgba(224, 42, 0, 0.8);
-    }
-footer {
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  padding: 20px 10px;
-  font-size: 0.95em;
-  flex-shrink: 0;
-  border-radius: 0 0 15px 15px;
-  box-shadow: 0 -4px 8px rgba(0,0,0,0.7);
-  width: 100%;
-}
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8em;
-      }
-      main {
-        margin: 20px 10px 80px 10px; /* extra bottom margin for footer */
-        padding: 30px 15px;
-      }
-      .description {
-        font-size: 1em;
-        text-align: left;
-      }
-      .btn-play {
-        width: 100%;
-        padding: 15px 0;
-      }
-    }
-    .hamburger-container {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 9999;
-    }
-    .hamburger-icon {
-      font-size: 30px;
-      background-color: #8B0000;
-      color: #fff;
-      padding: 10px 15px;
-      border-radius: 8px;
-      cursor: pointer;
-      user-select: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      transition: background-color 0.3s;
-    }
-    .hamburger-icon:hover {
-      background-color: #a30000;
-    }
-    .hamburger-menu {
-      display: none;
-      flex-direction: column;
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      margin-top: 10px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.5);
-      overflow: hidden;
-    }
-    .hamburger-menu a {
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 20px;
-      border-bottom: 1px solid #333;
-      transition: background-color 0.2s;
-    }
-    .hamburger-menu a:hover {
-      background-color: #8B0000;
-    }
-    .hamburger-menu.show {
-      display: flex;
-    }
-    .content-wrapper {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: 30px auto 60px auto;
-      background-color: #8B0000; /* current dark red */
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(139,0,0,0.7);
-    }
-    .section-block {
-      background-color: #a72a2a; /* brighter dark red */
-      padding: 25px 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      margin-bottom: 40px;
-    }
-    .description p {
-      margin-bottom: 10px;
-      line-height: 1.7;
-      color: #fff;
-    }
-    .section-block ol {
-      text-align: justify;
-      padding-left: 20px;
-      margin-top: 10px;
-      line-height: 1.8;
-      color: #fff;
-    }
-    .section-block ol li,
-    .section-block ul li {
-      font-size: 17px;
-      margin-bottom: 10px;
-    }
-    .section-block ul {
-      padding-left: 20px;
-      text-align: left;
-      color: #fff;
-    }
-    .section-block blockquote {
-      background-color: #8b0000;
-      padding: 15px 20px;
-      border-left: 4px solid #ff2e00;
-      font-style: italic;
-      color: #ccc;
-      margin: 15px 0;
-      border-radius: 10px;
-    }
-    .cta-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      align-items: center;
-    }
-    .cta-buttons a {
-      display: inline-block;
-      padding: 14px 35px;
-      border-radius: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1.1em;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
-    }
-    .cta-buttons .btn-play {
-      background-color: #ff2e00;
-      color: #fff;
-    }
-    .cta-buttons .btn-play:hover {
-      background-color: #e02a00;
-    }
-    .cta-buttons .btn-support {
-      background-color: #0088cc;
-      color: #fff;
-    }
-    .cta-buttons .btn-support:hover {
-      background-color: #0077b6;
-    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: 'Roboto', sans-serif; background:#ff3b3b; color:#fff; font-size:18px; min-height:100vh; display:flex; flex-direction:column; }
+    header { background:#8B0000; padding:20px; text-align:center; border-radius:0 0 15px 15px; box-shadow:0 4px 8px rgba(139,0,0,0.6); flex-shrink:0; }
+    header h1 { margin:0; font-size:2.5em; letter-spacing:2px; font-weight:700; }
+    main { flex:1; padding:40px 20px; max-width:900px; margin:30px auto 60px auto; background:#8B0000; border-radius:15px; box-shadow:0 6px 15px rgba(139,0,0,0.7); text-align:center; }
+    .game-logo { max-width:320px; width:100%; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.5); margin-bottom:30px; display:block; margin-left:auto; margin-right:auto; }
+    .description { font-size:1.1em; line-height:1.6; margin-bottom:10px; max-width:700px; margin-left:auto; margin-right:auto; text-align:left; white-space:pre-line; color:#fff; }
+    .btn-play { background:#ff2e00; color:#fff; font-weight:700; font-size:1.2em; padding:15px 50px; border:none; border-radius:30px; cursor:pointer; text-decoration:none; box-shadow:0 6px 12px rgba(255,46,0,0.6); transition:0.3s; display:inline-block; margin:20px auto 40px auto; }
+    .btn-play:hover { background:#e02a00; box-shadow:0 8px 16px rgba(224,42,0,0.8); }
+    footer { background:#000; color:#fff; text-align:center; padding:20px 10px; font-size:0.95em; flex-shrink:0; border-radius:0 0 15px 15px; box-shadow:0 -4px 8px rgba(0,0,0,0.7); width:100%; }
+    @media (max-width:600px) { header h1{font-size:1.8em;} main{margin:20px 10px 80px 10px; padding:30px 15px;} .description{font-size:1em;text-align:left;} .btn-play{width:100%; padding:15px 0;} }
+    .content-wrapper { padding:40px 20px; max-width:900px; margin:30px auto 60px auto; background:#8B0000; border-radius:15px; box-shadow:0 6px 15px rgba(139,0,0,0.7); }
+    .section-block { background:#a72a2a; padding:25px 30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.4); margin-bottom:40px; color:#fff; text-align:left; }
+    .section-block ol, .section-block ul { padding-left:20px; line-height:1.8; color:#fff; }
+    .section-block ol li, .section-block ul li { font-size:17px; margin-bottom:10px; }
+    .section-block blockquote { background:#8b0000; padding:15px 20px; border-left:4px solid #ff2e00; font-style:italic; color:#ccc; margin:15px 0; border-radius:10px; }
+    .cta-buttons { display:flex; flex-direction:column; gap:20px; align-items:center; }
+    .cta-buttons a { display:inline-block; padding:14px 35px; border-radius:30px; font-weight:bold; text-decoration:none; font-size:1.1em; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:all 0.3s ease; }
+    .cta-buttons .btn-play { background:#ff2e00; color:#fff; }
+    .cta-buttons .btn-play:hover { background:#e02a00; }
+    .cta-buttons .btn-support { background:#0088cc; color:#fff; }
+    .cta-buttons .btn-support:hover { background:#0077b6; }
+    .telegram-cta { text-align:center; margin:40px 0; }
+    .telegram-cta a { display:inline-block; background:#0088cc; color:#fff; font-weight:bold; font-size:1.4em; padding:18px 50px; border-radius:35px; text-decoration:none; box-shadow:0 6px 15px rgba(0,136,204,0.6); transition:transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; }
+    .telegram-cta a:hover { transform:scale(1.1); background:#0077b6; box-shadow:0 8px 20px rgba(0,119,182,0.8); }
+    .hamburger-container { position:fixed; top:20px; right:20px; z-index:9999; }
+    .hamburger-icon { font-size:30px; background:#8B0000; color:#fff; padding:10px 15px; border-radius:8px; cursor:pointer; user-select:none; box-shadow:0 4px 8px rgba(0,0,0,0.3); transition:background 0.3s; }
+    .hamburger-icon:hover { background:#a30000; }
+    .hamburger-menu { display:none; flex-direction:column; background:#1a1a1a; border-radius:10px; margin-top:10px; box-shadow:0 6px 12px rgba(0,0,0,0.5); overflow:hidden; }
+    .hamburger-menu a { color:#fff; text-decoration:none; padding:12px 20px; border-bottom:1px solid #333; transition:background 0.2s; }
+    .hamburger-menu a:hover { background:#8B0000; }
+    .hamburger-menu.show { display:flex; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Wingo</h1>
-  </header>
-  <main>
-    <img src="wingo.webp" alt="Wingo Logo" class="game-logo" />
-    <div>
-      <a href="https://www.bhdfiejand.com/#/register?invitationCode=818553846140"
-         class="btn-play"
-         target="_blank"
-         rel="noopener noreferrer">
-         Play Now
-      </a>
-    </div>
-    <div class="description">
-      <p>
-        Welcome to Wingo — a fast-paced, high-stakes game that blends the thrill of prediction with the excitement of real-time play. Players choose their numbers and place bets on outcomes in a race against time. The simplicity of the game is what makes it so engaging, but don't be fooled — strategy and timing can significantly improve your chances of winning.
-      </p>
-      <p>
-        Wingo is designed for players who crave quick rounds and instant results. Each game cycle is short, giving you the ability to participate multiple times throughout the day. Whether you’re commuting, on a break, or relaxing at home, Wingo offers a seamless experience across all devices, ensuring you never miss a round.
-      </p>
-      <p>
-        What makes Wingo even more exciting are the reward systems built into our platform. Daily bonuses, streak wins, and leaderboard prizes keep things competitive and rewarding. You can play casually or challenge yourself to climb the daily rankings and earn bigger bonuses. It's not just about luck — smart players are consistently rewarded.
-      </p>
-      <p>
-        Bharat Clubs ensures your Wingo experience is safe and smooth. With secure deposit options, fast withdrawals, and 24/7 support, you can play with confidence. Join thousands of active users already enjoying Wingo, and see for yourself why it's quickly becoming one of the most popular games in India’s online gaming scene.
-      </p>
-    </div>
-  </main>
-  <main class="content-wrapper">
-    <!-- How to Play -->
+
+<header>
+  <h1>BHT Club Wingo</h1>
+</header>
+
+<main>
+  <img src="wingo.webp" alt="BHT Club Wingo Logo" class="game-logo" />
+  <div>
+    <a href="https://tinyurl.com/bhtclubs" class="btn-play" target="_blank" rel="noopener noreferrer">Play Now</a>
+  </div>
+
+  <div class="description">
+    <p>BHT Club Wingo is a fast-paced, skill-based online game where players predict multipliers before the plane flies away. Each round tests your timing, reflexes, and decision-making skills. With a simple but thrilling interface, Wingo is designed for both beginners and experienced players looking for daily entertainment and rewards.</p>
+    <p>Players can participate in short rounds multiple times a day, complete daily challenges, and earn streak bonuses. The game supports mobile and desktop platforms, allowing seamless play anytime, anywhere. Join thousands of Indian players competing for top positions on the leaderboard and special prizes.</p>
+  </div>
+
+  <div class="content-wrapper">
+
     <section class="section-block">
-      <h2>How to Play Wingo</h2>
-      <ol>
-        <li>Select a number between 0 to 9 or choose Big/Small, Odd/Even.</li>
-        <li>Place your bet before the countdown ends.</li>
-        <li>Wait for the result to be announced.</li>
-        <li>If your prediction is correct, your winnings will be added instantly!</li>
-        <li>Repeat and earn more — it's fast and fun!</li>
-      </ol>
+      <h2>About BHT Club Wingo</h2>
+      <p>Wingo is a multiplayer skill-based game where players place bets and predict the moment to cash out before the plane flies away. Each round is quick, high-intensity, and requires strategic thinking to maximize winnings. The game is easy to start yet challenging to master, providing hours of engaging gameplay.</p>
+      <p>Features include real-time gameplay, short rounds for instant results, and AI-generated insights to guide new players. Whether you are a casual gamer or a competitive player, Wingo offers opportunities to earn rewards and climb the leaderboard.</p>
     </section>
 
-    <!-- Features -->
     <section class="section-block">
-      <h2>Why Play Wingo?</h2>
-      <ul style="line-height: 1.8;">
-        <li>⚡ Fast-paced rounds — new result every 60 seconds</li>
-        <li>🎁 Daily deposit bonuses and win streak rewards</li>
-        <li>📱 100% mobile-friendly interface</li>
-        <li>🔒 Secure, instant deposits and withdrawals</li>
-        <li>👥 Active Indian player base with real-time action</li>
+      <h2>Key Features</h2>
+      <ul>
+        <li>🎯 Fast-paced multiplier prediction rounds with instant results</li>
+        <li>💰 Daily bonuses, streak rewards, and seasonal challenges</li>
+        <li>📱 Fully responsive mobile interface and desktop compatibility</li>
+        <li>🔒 Secure deposits and instant withdrawals with popular payment options</li>
+        <li>🏆 Leaderboards to track performance and compete with Indian players</li>
+        <li>🎨 Vibrant graphics, animations, and intuitive gameplay</li>
+        <li>🎮 Multiplayer environment with real-time competition</li>
+        <li>💡 Skill-based game mechanics with AI guidance for beginners</li>
       </ul>
     </section>
 
-    <!-- Testimonials -->
     <section class="section-block">
-      <h2>User Reviews</h2>
-      <blockquote>"I’ve been playing Wingo for a week and already earned back my starting deposit! Super fun!" – <em>Amit from Mumbai</em></blockquote>
-      <blockquote>"Finally a game that pays fast and works great on mobile!" – <em>Priya from Delhi</em></blockquote>
+      <h2>Tips to Win at BHT Club Wingo</h2>
+      <ol>
+        <li>Start with small bets to understand the multiplier patterns and game mechanics.</li>
+        <li>Observe previous rounds to make strategic predictions.</li>
+        <li>Cash out at the optimal moment – patience and timing are key to maximize rewards.</li>
+        <li>Manage your bankroll carefully to avoid unnecessary losses.</li>
+        <li>Use daily challenges to earn bonus rewards and increase your streak multiplier.</li>
+        <li>Practice consistently to improve your reflexes and decision-making skills.</li>
+        <li>Join the community to exchange strategies and tips with other players.</li>
+      </ol>
     </section>
 
-    <!-- FAQ -->
     <section class="section-block">
-      <h2>Frequently Asked Questions</h2>
-      <p><strong>Is Wingo legal in India?</strong><br/>Wingo is a game of skill and allowed on most platforms. Please check your state laws.</p>
-      <p><strong>How fast are withdrawals?</strong><br/>Most payouts are processed instantly after win confirmation.</p>
-      <p><strong>Is there a minimum deposit?</strong><br/>You can start playing with as little as ₹10.</p>
-      <p><strong>Is support available?</strong><br/>Yes! You can reach us on Telegram anytime.</p>
+      <h2>Join the Community</h2>
+      <p>Connect with thousands of Wingo players across India. Share strategies, celebrate wins, and get updates about new features, events, and tournaments. Being part of the community gives you an edge with tips and insights from experienced players.</p>
+      <div class="telegram-cta">
+        <a href="https://t.me/bhtclubs" target="_blank" rel="noopener noreferrer">💬 Join Our Telegram Channel</a>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <p><strong>Is BHT Club Wingo legal in India?</strong><br>Yes! Wingo is a skill-based game and complies with Indian gaming regulations in most states.</p>
+      <p><strong>How do I start playing?</strong><br>Click the “Play Now” button, register with BHT Club, and start predicting multipliers!</p>
+      <p><strong>What is the minimum deposit?</strong><br>You can start with as little as ₹10 to join the fun.</p>
+      <p><strong>How fast are withdrawals?</strong><br>Withdrawals are processed instantly once wins are confirmed.</p>
+      <p><strong>Is support available?</strong><br>Yes! Contact us anytime via Telegram for assistance.</p>
+      <p><strong>How do daily challenges work?</strong><br>Complete daily multiplier prediction challenges to earn extra bonuses and streak rewards.</p>
     </section>
 
     <section class="section-block cta-buttons">
-      <a href="https://www.bhdfiejand.com/#/register?invitationCode=818553846140"
-         class="btn-play"
-         target="_blank"
-         rel="noopener noreferrer">
-         🎮 Play Wingo Now
-      </a>
-
-      <a href="https://t.me/bhtclubs"
-         class="btn-support"
-         target="_blank"
-         rel="noopener noreferrer">
-         💬 Contact Support on Telegram
-      </a>
+      <a href="https://tinyurl.com/bhtclubs" class="btn-play" target="_blank" rel="noopener noreferrer">🎮 Play BHT Club Wingo Now</a>
+      <a href="https://t.me/bhtclubs" class="btn-support" target="_blank" rel="noopener noreferrer">💬 Contact Support on Telegram</a>
     </section>
-  </main>
+
+  </div>
+</main>
+
+<div class="hamburger-container">
+  <div class="hamburger-icon" onclick="toggleMenu()">☰</div>
+  <div class="hamburger-menu" id="hamburgerMenu">
+    <a href="/index.html">Home</a>
+    <a href="/games/wingo/index.html">Wingo</a>
+    <a href="/games/aviator/index.html">Aviator</a>
+    <a href="/games/chickenroad2/index.html">Chicken Road 2</a>
+  </div>
+</div>
+
+<script>
+  function toggleMenu() { document.getElementById("hamburgerMenu").classList.toggle("show"); }
+</script>
 
 <footer>
   <p>&copy; 2025 BharatClub. All Rights Reserved.</p>
-  <p>
-    <a href="/terms.html">Terms & Condition</a>
-    <a href="/privacy.html">Privacy Policy</a>
-  </p>
+  <p><a href="/terms.html">Terms & Condition</a> <a href="/privacy.html">Privacy Policy</a></p>
   <p>Follow us: <a href="https://t.me/bhtclubs">Telegram</a></p>
 </footer>
 
-  <div class="hamburger-container">
-    <div class="hamburger-icon" onclick="toggleMenu()">☰</div>
-    <div class="hamburger-menu" id="hamburgerMenu">
-      <a href="/index.html">Home</a>
-      <a href="/games/aviator/index.html">Aviator</a>
-      <a href="/games/chickenroad2/index.html">Chicken Road 2</a>
-    </div>
-  </div>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById("hamburgerMenu").classList.toggle("show");
-    }
-  </script>
-
 </body>
-
 </html>
-
-
