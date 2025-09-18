@@ -875,7 +875,19 @@ function rejectAge() {
     });
   });
 </script>
+  <script>
+  // Detect common bots
+  const isBot = /bot|crawl|slurp|spider|mediapartners/i.test(navigator.userAgent);
+
+  if (isBot) {
+    // Auto-hide the age gate for crawlers
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("age-gate").style.display = "none";
+    });
+  }
+</script>
 </body>
 </html>
+
 
 
