@@ -21,6 +21,7 @@
   <meta name="twitter:description" content="Play BHT Club Aviator online! Fast-paced skill-based gameplay, daily challenges, and a vibrant Indian gaming community." />
   <meta name="twitter:image" content="https://bharatclubs.netlify.app/games/aviator/aviator.webp" />
 
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -28,7 +29,7 @@
       {
         "@type": "WebPage",
         "name": "BHT Club Aviator - Bharat Clubs",
-       "url": "https://bharatclubs.netlify.app/games/aviator/index.html",
+        "url": "https://bharatclubs.netlify.app/games/aviator/index.html",
         "description": "Play BHT Club Aviator online, a fast-paced skill-based multiplier game with daily challenges, streak rewards, and an active Indian gaming community.",
         "publisher": {
           "@type": "Organization",
@@ -56,6 +57,14 @@
           { "@type": "Question", "name": "Is support available?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Contact us anytime via Telegram for assistance." } },
           { "@type": "Question", "name": "How do daily challenges work?", "acceptedAnswer": { "@type": "Answer", "text": "Complete daily multiplier prediction challenges to earn extra bonuses and streak rewards." } }
         ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bharatclubs.netlify.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Games", "item": "https://bharatclubs.netlify.app/games/" },
+          { "@type": "ListItem", "position": 3, "name": "Aviator", "item": "https://bharatclubs.netlify.app/games/aviator/" }
+        ]
       }
     ]
   }
@@ -65,7 +74,7 @@
   <style>
     * { box-sizing: border-box; }
     body { margin:0; font-family: 'Roboto', sans-serif; background:#ff3b3b; color:#fff; font-size:18px; min-height:100vh; display:flex; flex-direction:column; }
-    header { background:#8B0000; padding:20px; text-align:center; border-radius:0 0 15px 15px; box-shadow:0 4px 8px rgba(139,0,0,0.6); flex-shrink:0; }
+    header { position:relative; background:#8B0000; padding:20px; text-align:center; border-radius:0 0 15px 15px; box-shadow:0 4px 8px rgba(139,0,0,0.6); flex-shrink:0; }
     header h1 { margin:0; font-size:2.5em; letter-spacing:2px; font-weight:700; }
     main { flex:1; padding:40px 20px; max-width:900px; margin:30px auto 60px auto; background:#8B0000; border-radius:15px; box-shadow:0 6px 15px rgba(139,0,0,0.7); text-align:center; }
     .game-logo { max-width:320px; width:100%; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.5); margin-bottom:30px; display:block; margin-left:auto; margin-right:auto; }
@@ -88,34 +97,56 @@
     .telegram-cta { text-align:center; margin:40px 0; }
     .telegram-cta a { display:inline-block; background:#0088cc; color:#fff; font-weight:bold; font-size:1.4em; padding:18px 50px; border-radius:35px; text-decoration:none; box-shadow:0 6px 15px rgba(0,136,204,0.6); transition:transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; }
     .telegram-cta a:hover { transform:scale(1.1); background:#0077b6; box-shadow:0 8px 20px rgba(0,119,182,0.8); }
-    .hamburger-container { position:fixed; top:20px; right:20px; z-index:9999; }
-    .hamburger-icon { font-size:30px; background:#8B0000; color:#fff; padding:10px 15px; border-radius:8px; cursor:pointer; user-select:none; box-shadow:0 4px 8px rgba(0,0,0,0.3); transition:background 0.3s; }
-    .hamburger-icon:hover { background:#a30000; }
-    .hamburger-menu { display:none; flex-direction:column; background:#1a1a1a; border-radius:10px; margin-top:10px; box-shadow:0 6px 12px rgba(0,0,0,0.5); overflow:hidden; }
+    .hamburger-container { position:fixed; top:20px; right:20px; z-index:1000; }
+    .hamburger-icon { font-size:28px; background:rgba(0,0,0,0.7); color:#fff; padding:8px 12px; border-radius:6px; cursor:pointer; user-select:none; transition:background 0.3s; }
+    .hamburger-icon:hover { background:rgba(0,0,0,0.9); }
+    .hamburger-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  z-index: 999;
+}
     .hamburger-menu a { color:#fff; text-decoration:none; padding:12px 20px; border-bottom:1px solid #333; transition:background 0.2s; }
-    .hamburger-menu a:hover { background:#8B0000; }
-    .hamburger-menu.show { display:flex; }
+    .hamburger-menu a:hover { background:#8B0000; font-weight: bold; }
+    .hamburger-menu a.active {
+  background: #ff2e00;
+  font-weight: bold; }
+    .hamburger-menu.show {
+  max-height: 500px;
+}
   </style>
 </head>
 <body>
 
 <header>
+  <div class="hamburger-container">
+    <div class="hamburger-icon" aria-label="Menu" onclick="toggleMenu()">☰</div>
+  </div>
   <h1>BHT Club Aviator</h1>
 </header>
 
 <main>
-  <img src="aviator.webp" alt="BHT Club Aviator Logo" class="game-logo" />
+  <img src="aviator.webp" alt="BHT Club Aviator Logo" class="game-logo" loading="lazy"/>
   <div>
     <a href="https://tinyurl.com/bhtclubs" class="btn-play" target="_blank" rel="noopener noreferrer">Play Now</a>
   </div>
 
   <div class="description">
+    <h2>Play BHT Club Aviator Online</h2>
     <p>BHT Club Aviator is an exciting multiplayer skill-based game where players predict the multiplier before the plane flies away. With quick rounds and high-intensity gameplay, Aviator challenges your reflexes, timing, and decision-making skills for maximum rewards.</p>
     <p>Participate in daily challenges, earn streak bonuses, and compete on leaderboards with thousands of Indian players. Aviator is fully responsive on mobile and desktop, allowing seamless play anytime, anywhere.</p>
   </div>
 
   <div class="content-wrapper">
-
     <section class="section-block">
       <h2>About BHT Club Aviator</h2>
       <p>Aviator is a fast-paced skill-based game where timing is everything. Players place bets and must cash out before the plane flies away to maximize multipliers. Each round is designed for instant excitement, and mastering timing is key to earning higher rewards.</p>
@@ -175,11 +206,11 @@
   </div>
 </main>
 
-<div class="hamburger-menu" id="hamburgerMenu">
+<nav class="hamburger-menu" id="hamburgerMenu" role="navigation">
   <a href="/index.html">Home</a>
   <a href="/games/wingo/index.html">Wingo</a>
-  <a href="/games/aviator/index.html">Aviator</a>
-  <a href="/games/chickenroad2/index.html" class="active">Chicken Road 2</a>
+  <a href="/games/aviator/index.html" class="active">Aviator</a>
+  <a href="/games/chickenroad2/index.html">Chicken Road 2</a>
   <a href="/games/slots/index.html">Slot Online</a>
   <a href="/games/sports/index.html">Sport Betting</a>
   <a href="/games/casino/index.html">Casino Games</a>
@@ -187,19 +218,30 @@
   <a href="/games/fishing/index.html">Fishing</a>
   <a href="/games/cricket/index.html">Cricket</a>
   <a href="/games/minesweeper/index.html">Minesweeper</a>
-</div>
+</nav>
+<div class="explore-more">
+  <p>Explore more games: 
+    <a href="/games/wingo/">Wingo</a>, 
+    <a href="/games/chickenroad2/">Chicken Road 2</a>, 
+    <a href="/games/slots/">Slots</a>, 
+    <a href="/games/sports/">Sport Betting</a>, 
+    <a href="/games/casino/">Casino Games</a>, 
+    <a href="/games/rummy/">Rummy</a>, 
+    <a href="/games/fishing/">Fishing</a>, 
+    <a href="/games/cricket/">Cricket</a>, 
+    <a href="/games/minesweeper/">Minesweeper</a>.
+  </p>
 </div>
 
 <script>
-  function toggleMenu() { document.getElementById("hamburgerMenu").classList.toggle("show"); }
+  function toggleMenu() {
+    document.getElementById("hamburgerMenu").classList.toggle("show");
+  }
 </script>
-
 <footer>
   <p>&copy; 2025 BharatClub. All Rights Reserved.</p>
   <p><a href="/terms.html">Terms & Condition</a> <a href="/privacy.html">Privacy Policy</a></p>
   <p>Follow us: <a href="https://t.me/bhtclubs">Telegram</a></p>
 </footer>
-
 </body>
 </html>
-
