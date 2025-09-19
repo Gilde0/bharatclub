@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.google-analytics.com">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-51PLFQPFC6"></script>
+  
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -65,6 +66,22 @@ header {
   height: 180px;
   width: 100%;
   overflow: visible;
+}
+
+#site-search { position: fixed; top: 15px; left: 15px; z-index: 10001; display:flex; gap:8px; align-items:center; background: rgba(255,255,255,0.95); padding:8px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.2); }
+#site-search input[type="search"] { width:260px; padding:8px 10px; border-radius:8px; border:1px solid #ddd; font-size:14px; }
+#site-search button { padding:8px 10px; border-radius:8px; border:none; cursor:pointer; background:#ff3b3b; color:#fff; font-weight:600; }
+#searchResults { position:fixed; top:56px; left:15px; z-index:10001; width:360px; max-height:56vh; overflow:auto; background:#fff; color:#000; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.2); display:none; }
+#searchResults ul { margin:0; padding:8px; list-style:none; }
+.search-result { padding:8px; border-bottom:1px solid #eee; cursor:pointer; }
+.search-result:hover { background:#f6f6f6; }
+.search-result .snippet { font-size:13px; color:#333; margin-top:6px; }
+.search-result strong { font-size:14px; display:block; color:#222; }
+.no-results { padding:12px; color:#666; }
+mark { background: #fff59d; padding:0 2px; border-radius:2px; }
+@media (max-width:600px){
+  #site-search { left:12px; right:12px; width:auto; }
+  #searchResults { left:12px; right:12px; width:auto; }
 }
 
 #menu-btn {
@@ -306,6 +323,14 @@ function rejectAge() {
     <button id="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 </header>
+<div id="site-search" role="search" aria-label="Site search">
+  <input id="searchBox" type="search" placeholder="Search the site (Try Wingo) — press / to focus" aria-label="Search">
+  <button id="searchBtn" aria-label="Search">Search</button>
+</div>
+<div id="searchResults" role="listbox" aria-label="Search results"></div>
+
+</section>
+
  <div id="nav-menu" class="nav-menu">
       <a href="#top-intro">Home</a>
       <a href="#topgames-section">Top Featured Games</a>
@@ -558,7 +583,7 @@ function rejectAge() {
       "url": "https://bharatclubs.netlify.app/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://bharatclubs.netlify.app/logo.png"
+        "url": "https://bharatclubs.netlify.app/Bharat-Club-Logo.jpg"
       },
       "sameAs": [
         "https://t.me/bhtclubs"
@@ -604,7 +629,7 @@ function rejectAge() {
       "url": "https://bharatclubs.netlify.app/",
       "name": "BharatClub (BHT Club Official) - Play and Earn",
       "description": "BharatClub, also known as BHT Club or BHT Clubs, is a free-to-play Indian gaming platform where users can play games, earn rewards, and enjoy a secure, responsible play-to-earn experience.",
-      "alternateName": ["BHT Club", "BHT Clubs", "BHTClub"],
+      "alternateName": "BHT Club, BHT Clubs, BHTClub",
       "keywords": [
         "BHT Club games",
         "BHT Club platform",
@@ -630,95 +655,100 @@ function rejectAge() {
       "inLanguage": "en",
       "image": "https://bharatclubs.netlify.app/banner.webp"
     },
-{
-  "@type": "FAQPage",
-  "@id": "https://bharatclubs.netlify.app/#faq-section",
-  "url": "https://bharatclubs.netlify.app/#faq-section",
-  "name": "BharatClub FAQ",
-  "mainEntity": [
     {
-      "@type": "Question",
-      "name": "How do I get started with BharatClub?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Visit the homepage and click Register. Enter your phone number and create a secure password. Verify your account with the OTP you receive. Log in to explore the platform."
-      }
+      "@type": "FAQPage",
+      "@id": "https://bharatclubs.netlify.app/#faq-section",
+      "url": "https://bharatclubs.netlify.app/#faq-section",
+      "name": "BharatClub FAQ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I get started with BharatClub?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Visit the homepage and click Register. Enter your phone number and create a secure password. Verify your account with the OTP you receive. Log in to explore the platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I add funds to my BharatClub account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Log in to your account. Go to the Wallet or Deposit section. Select your preferred payment method (UPI, Paytm, etc.). Enter the amount you wish to add. Confirm the transaction to fund your wallet securely."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is BharatClub safe and legal to use in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. BharatClub operates in compliance with applicable laws and uses secure payment systems to protect your data and transactions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I withdraw funds from my account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Navigate to the Wallet section in your dashboard. Select your preferred withdrawal method. Enter the amount and confirm. Withdrawals are processed quickly and securely."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What support options are available if I need help?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our customer support team is available via chat, email, and phone to assist you in multiple languages and ensure a smooth experience."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does BharatClub promote responsible use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide tools to help users monitor and manage their activity. Customizable limits and activity monitoring are available. We encourage responsible engagement and provide resources for a healthy experience."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I access BharatClub on my mobile device?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! BharatClub is fully optimized for mobile use on smartphones and tablets, supporting both Android and iOS devices for convenient access anytime, anywhere."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there any AI on the BharatClub platform?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. BharatClub uses Artificial Intelligence (AI) to assist players with guidance and insights. The AI provides quick game statistics, probability awareness, and responsible gaming reminders. It does not predict or control outcomes — instead, it helps players make smarter and safer choices."
+          }
+        }
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "BharatClub"
+      },
+      "potentialAction": {
+        "@type": "ReadAction",
+        "target": "https://bharatclubs.netlify.app/#faq-section"
+      },
+      "publisher": {
+        "@id": "https://bharatclubs.netlify.app/#organization"
+      },
+      "dateModified": "2025-09-18"
     },
-    {
-      "@type": "Question",
-      "name": "How do I add funds to my BharatClub account?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Log in to your account. Go to the Wallet or Deposit section. Select your preferred payment method (UPI, Paytm, etc.). Enter the amount you wish to add. Confirm the transaction to fund your wallet securely."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is BharatClub safe and legal to use in India?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. BharatClub operates in compliance with applicable laws and uses secure payment systems to protect your data and transactions."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can I withdraw funds from my account?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Navigate to the Wallet section in your dashboard. Select your preferred withdrawal method. Enter the amount and confirm. Withdrawals are processed quickly and securely."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What support options are available if I need help?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our customer support team is available via chat, email, and phone to assist you in multiple languages and ensure a smooth experience."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does BharatClub promote responsible use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We provide tools to help users monitor and manage their activity. Customizable limits and activity monitoring are available. We encourage responsible engagement and provide resources for a healthy experience."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I access BharatClub on my mobile device?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! BharatClub is fully optimized for mobile use on smartphones and tablets, supporting both Android and iOS devices for convenient access anytime, anywhere."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there any AI on the BharatClub platform?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. BharatClub uses Artificial Intelligence (AI) to assist players with guidance and insights. The AI provides quick game statistics, probability awareness, and responsible gaming reminders. It does not predict or control outcomes — instead, it helps players make smarter and safer choices."
-      }
-    }
-  ],
-  "author": {
-    "@type": "Organization",
-    "name": "BharatClub"
-  },
-  "potentialAction": {
-    "@type": "ReadAction",
-    "target": "https://bharatclubs.netlify.app/#faq-section"
-  },
-  "publisher": {
-    "@id": "https://bharatclubs.netlify.app/#organization"
-  },
-  "dateModified": "2025-09-18"
-},
     {
       "@type": "BreadcrumbList",
       "@id": "https://bharatclubs.netlify.app/#breadcrumb",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bharatclubs.netlify.app/" },
+        { 
+          "@type": "ListItem", 
+          "position": 1, 
+          "name": "Home", 
+          "item": "https://bharatclubs.netlify.app/" 
+        }
       ]
     },
     {
@@ -729,14 +759,13 @@ function rejectAge() {
       "brand": { "@id": "https://bharatclubs.netlify.app/#organization" },
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": "4",
-        "reviewCount": 1,
+        "ratingValue": "5",
+        "reviewCount": 3,
         "bestRating": 5,
         "worstRating": 1
-      },
-      "review": []
+      }
     },
-  {
+    {
       "@type": "BlogPosting",
       "headline": "What is BHT Club? My Review & First Impressions",
       "url": "https://bhtclubgame.wordpress.com/2025/09/05/what-is-bht-club-my-review-first-impressions/",
@@ -758,6 +787,162 @@ function rejectAge() {
     }
   ]
 }
+</script>
+
+<script>
+const synonyms = {
+  "register": ["signup", "sign up", "join", "create account"],
+  "login": ["sign in", "log in", "enter"],
+  "deposit": ["add money", "top up", "recharge", "fund"],
+  "withdraw": ["cashout", "payout", "redeem"],
+  "bht": ["bharatclub", "club"],
+  "wingo": ["game", "lottery", "play wingo"],
+  "Frequently Asked Questions": ["FAQ", "faq", "questions"]
+};
+function expandQuery(query) {
+  let terms = [query];
+  for (let key in synonyms) {
+    if (query.includes(key)) {
+      terms = terms.concat(synonyms[key]);
+    }
+    synonyms[key].forEach(s => {
+      if (query.includes(s)) {
+        terms.push(key);
+        terms = terms.concat(synonyms[key]);
+      }
+    });
+  }
+  return [...new Set(terms.map(t => t.toLowerCase()))];
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('searchBox');
+  const btn = document.getElementById('searchBtn');
+  const resultsBox = document.getElementById('searchResults');
+
+  const escapeHtml = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+  const nodeSelectors = 'h1,h2,h3,p,li,a,.game-title,.game-box';
+  const rawNodes = Array.from(document.querySelectorAll(nodeSelectors))
+    .filter(n => n && n.innerText && n.innerText.trim().length > 0);
+
+  const nodes = rawNodes.map(n => {
+    let title = '';
+    if (/H[1-6]/.test(n.tagName)) title = n.innerText.trim();
+    else if (n.classList && n.classList.contains('game-title')) title = n.innerText.trim();
+    else if (n.closest && n.closest('section')) {
+      const secHead = n.closest('section').querySelector('h2, h1');
+      if (secHead) title = secHead.innerText.trim();
+    }
+    if (!title) title = (n.innerText.trim().slice(0,50));
+    return { el: n, text: n.innerText.trim(), title: title };
+  });
+
+  document.querySelectorAll('#nav-menu a').forEach(a => {
+    if (a.innerText && a.innerText.trim()) nodes.push({ el: a, text: a.innerText.trim(), title: a.innerText.trim() });
+  });
+
+  try {
+    const jsonLdEl = document.getElementById('json-ld-script');
+    if (jsonLdEl) {
+      const j = JSON.parse(jsonLdEl.textContent);
+      if (j && j['@graph']) {
+        const wp = j['@graph'].find(x => x['@type']==='WebPage' || x['@type']==='WebSite');
+        if (wp && wp.keywords) {
+          const kw = Array.isArray(wp.keywords) ? wp.keywords.join(' ') : String(wp.keywords);
+          nodes.push({ el: document.body, text: kw, title: 'Page keywords' });
+        }
+      }
+    }
+  } catch(e) { /* ignore JSON-LD parse errors */ }
+
+function findMatches(query) {
+  const queries = expandQuery(query);
+  const matches = nodes.map(n => {
+    const t = n.text.toLowerCase();
+    let idx = -1;
+    let matchedTerm = "";
+    queries.forEach(q => {
+      const i = t.indexOf(q);
+      if (i >= 0 && (idx === -1 || i < idx)) {
+        idx = i;
+        matchedTerm = q;
+      }
+    });
+    return idx >= 0 ? { node: n, index: idx, term: matchedTerm } : null;
+  }).filter(Boolean)
+    .sort((a,b) => (a.index - b.index) || (a.node.text.length - b.node.text.length))
+    .slice(0, 40);
+  return matches;
+}
+
+  function renderResults(matches, q) {
+    resultsBox.style.display = matches.length ? 'block' : 'none';
+    resultsBox.innerHTML = '';
+    if (!matches.length) {
+      resultsBox.innerHTML = '<div class="no-results">No results found</div>';
+      return;
+    }
+    const ul = document.createElement('ul');
+    matches.forEach(m => {
+      const li = document.createElement('li');
+      li.className = 'search-result';
+      li.tabIndex = 0;
+      const text = m.node.text;
+      const start = Math.max(0, m.index - 40);
+      const snippet = escapeHtml(text.substring(start, start + 140));
+      const qEsc = escapeHtml(q);
+      const highlighted = snippet.replace(new RegExp(qEsc, 'ig'), match => `<mark>${match}</mark>`);
+      li.innerHTML = `<strong>${escapeHtml(m.node.title)}</strong><div class="snippet">${highlighted}...</div>`;
+      li.addEventListener('click', () => {
+        try { m.node.el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(e){}
+        const prev = m.node.el.style.backgroundColor;
+        m.node.el.style.transition = 'background-color 0.25s';
+        m.node.el.style.backgroundColor = '#fff59d';
+        setTimeout(()=> m.node.el.style.backgroundColor = prev || '', 3500);
+        resultsBox.style.display = 'none';
+      });
+      li.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') li.click(); });
+      ul.appendChild(li);
+    });
+    resultsBox.appendChild(ul);
+  }
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    if (!q) { resultsBox.style.display = 'none'; resultsBox.innerHTML = ''; return; }
+    const matches = findMatches(q);
+    renderResults(matches, q);
+  });
+
+  btn.addEventListener('click', () => {
+    const q = input.value.trim();
+    if (!q) { input.focus(); return; }
+    const matches = findMatches(q);
+    renderResults(matches, q);
+    if (matches.length) {
+      try { matches[0].node.el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(e){}
+      const el = matches[0].node.el;
+      const prev = el.style.backgroundColor;
+      el.style.backgroundColor = '#fff59d';
+      setTimeout(()=> el.style.backgroundColor = prev || '', 3500);
+    }
+  });
+
+  window.addEventListener('keydown', e => {
+    if (e.key === '/' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+      e.preventDefault();
+      input.focus();
+    }
+  });
+
+  document.addEventListener('click', (ev) => {
+    if (!document.getElementById('site-search').contains(ev.target) && !resultsBox.contains(ev.target)) {
+      resultsBox.style.display = 'none';
+    }
+  });
+
+});
 </script>
 
 <script type="module">
