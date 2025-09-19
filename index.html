@@ -751,20 +751,25 @@ function rejectAge() {
         }
       ]
     },
-    {
-      "@type": "Product",
-      "@id": "https://bharatclubs.netlify.app/#product",
-      "name": "BharatClub Platform",
-      "description": "Play games and earn rewards on BharatClub.",
-      "brand": { "@id": "https://bharatclubs.netlify.app/#organization" },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": 3,
-        "bestRating": 5,
-        "worstRating": 1
-      }
-    },
+  {
+  "@type": "Product",
+  "@id": "https://bharatclubs.netlify.app/#product",
+  "name": "BharatClub Platform",
+  "description": "Play games and earn rewards on BharatClub.",
+  "brand": { "@id": "https://bharatclubs.netlify.app/#organization" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": 3,
+    "bestRating": 5,
+    "worstRating": 1
+  },
+  "potentialAction": {
+    "@type": "DownloadAction",
+    "target": "https://bharatclubs.netlify.app/download.html",
+    "name": "Download BharatClub APK"
+  }
+},
     {
       "@type": "BlogPosting",
       "headline": "What is BHT Club? My Review & First Impressions",
@@ -1066,3 +1071,4 @@ function findMatches(query) {
 </script>
 </body>
 </html>
+
