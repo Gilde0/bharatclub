@@ -49,11 +49,11 @@
 }
 
 .yes-btn {
-  background-color: #28a745; /* Green for yes */
+  background-color: #28a745;
 }
 
 .no-btn {
-  background-color: #ff3b3b; /* Red for no */
+  background-color: #ff3b3b;
 }
 header {
   background-image: url('banner.webp');
@@ -68,7 +68,7 @@ header {
 }
 
 #menu-btn {
-  display: none;  /* hide initially */
+  display: none;
   position: fixed;
   top: 15px;
   right: 15px;
@@ -84,23 +84,23 @@ header {
 
 .nav-menu {
   display: none;
-  position: fixed; /* stays with button */
+  position: fixed;
   top: 60px;
   right: 15px;
   background: rgba(0,0,0,0.95);
   padding: 12px;
   border-radius: 8px;
-  z-index: 9998; /* just below the button */
+  z-index: 9998;
 }
 
 .topgames-section {
-  background-color: #8B0000; /* Dark red */
+  background-color: #8B0000;
   padding: 40px 20px;
   text-align: center;
   color: #fff;
-  margin-top: 40px;        /* Creates space from above container */
-  border-radius: 20px;     /* Softer, more rounded corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  margin-top: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .section-title {
@@ -164,36 +164,34 @@ header {
   p { font-size: 16px; }
   .nav-toggle { display: none; }
   .nav-menu a { display: block; padding: 8px 12px; color: #fff; text-decoration: none; }
-  .btn { background-color: #ff3b3b; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; transition: 0.3s; font-size: 16px; }
-  .btn:hover { background-color: #ff1f1f; }
+  .btn { background-color: #ff3b3b; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; transition: 0.3s; font-size: 16px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .btn:hover { transform: scale(1.1); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
   .container { background: rgba(0,0,0,0.6); border-radius: 12px; padding: 30px; margin-top: 50px; max-width: 800px; margin-left: auto; margin-right: auto; }
   footer { background-color:#000000; color:white; text-align:center; padding:20px; margin-top:50px; }
   footer a { color:white; text-decoration:underline; margin:0 10px; }
 
 #topgames-section {
-  max-width: 1000px;   /* maximum width of the whole section */
-  min-width: 320px;    /* minimum width for very small screens */
+  max-width: 1000px;
+  min-width: 320px; 
   margin-left: auto;
   margin-right: auto;
-  /* keep the existing visual spacing but reduce top padding so the title sits higher
-     without touching the top border (still leaves breathing room) */
-  padding-top: 18px;   /* was 40px before on .topgames-section; this brings the title higher */
+
+  padding-top: 18px; 
   padding-bottom: 40px; 
 }
 
 #topgames-section .section-title {
   margin-top: 0;
   margin-bottom: 30px;
-  /* a small negative translate moves it up a bit without touching the container's top */
   transform: translateY(-10px);
 }
 
 #topgames-section .games-container {
-  max-width: 820px;    /* overall width for the row of game boxes */
+  max-width: 820px;
   min-width: 280px;
   margin-left: auto;
   margin-right: auto;
-  gap: 24px;           /* keep consistent spacing but slightly tighter on small screens */
+  gap: 24px;
 }
 
 #topgames-section .game-box {
@@ -261,8 +259,8 @@ header {
     }
 
     .get-help-btn:hover {
-      transform: translateY(-3px); /* slight pop up */
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* subtle shadow */
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
 
 </style>
@@ -327,6 +325,7 @@ function rejectAge() {
   <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
       <a href="https://tinyurl.com/bhtclubs" target="_blank" class="btn">Register</a>
       <a href="https://tinyurl.com/bhtclubs" target="_blank" class="btn">Login</a>
+      <a href="https://bharatclubs.netlify.app/download.html" target="_blank" class="btn">Download</a>
       <a href="https://t.me/bhtclubs" target="_blank" class="btn">Join Channel</a>
   </div>
   <p>BHT Club (or BHTCLB) is another popular name users use for BharatClub – it’s the same platform with the same secure gaming experience.</p>  
@@ -713,16 +712,13 @@ function rejectAge() {
   "publisher": {
     "@id": "https://bharatclubs.netlify.app/#organization"
   },
-  "dateModified": "2025-09-17"
+  "dateModified": "2025-09-18"
 },
     {
       "@type": "BreadcrumbList",
       "@id": "https://bharatclubs.netlify.app/#breadcrumb",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bharatclubs.netlify.app/" },
-        { "@type": "ListItem", "position": 2, "name": "Games", "item": "https://bharatclubs.netlify.app/#topgames-section" },
-        { "@type": "ListItem", "position": 3, "name": "Guides", "item": "https://bharatclubs.netlify.app/#guide-section" },
-        { "@type": "ListItem", "position": 4, "name": "FAQ", "item": "https://bharatclubs.netlify.app/#faq-section" }
       ]
     },
     {
@@ -876,11 +872,8 @@ function rejectAge() {
   });
 </script>
   <script>
-  // Detect common bots
   const isBot = /bot|crawl|slurp|spider|mediapartners/i.test(navigator.userAgent);
-
   if (isBot) {
-    // Auto-hide the age gate for crawlers
     document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("age-gate").style.display = "none";
     });
@@ -888,8 +881,3 @@ function rejectAge() {
 </script>
 </body>
 </html>
-
-
-
-
-
