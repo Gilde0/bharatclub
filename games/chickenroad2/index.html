@@ -137,9 +137,11 @@ main { flex: 1; padding: 40px 20px; max-width: 900px; margin: 30px auto 60px aut
 .game-logo { max-width: 320px; width: 100%; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); margin-bottom: 30px; display: block; margin-left: auto; margin-right: auto; }
 .description { font-size: 1.1em; line-height: 1.6; margin-bottom: 10px; max-width: 700px; margin-left:auto;margin-right:auto; text-align: left; white-space: pre-line; color:#fff; }
 footer { background-color: #000; color: #fff; text-align: center; padding: 20px 10px; font-size: 0.95em; flex-shrink: 0; border-radius: 0 0 15px 15px; box-shadow: 0 -4px 8px rgba(0,0,0,0.7); width: 100%; }
+
 .section-block { background-color: #a72a2a; padding: 25px 30px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); margin-bottom: 40px; color: #fff; text-align: left; border-bottom: 2px solid #ff2e00; }
 .section-block ol, .section-block ul { padding-left: 20px; line-height: 1.8; color: #fff; }
 .section-block ol li, .section-block ul li { font-size: 17px; margin-bottom: 10px; }
+
 table { width: 100%; border-collapse: collapse; margin-top: 20px; }
 table th, table td { border: 1px solid #fff; padding: 10px; text-align: center; }
 table th { background-color: #ff2e00; }
@@ -151,6 +153,7 @@ table td { background-color: #8B0000; }
 .btn-play:hover { background-color: #e02a00; transform: scale(1.1); box-shadow: 0 8px 16px rgba(224,42,0,0.8); }
 .btn-support { background-color: #0088cc; box-shadow: 0 6px 12px rgba(0,136,204,0.6); }
 .btn-support:hover { background-color: #0077b6; transform: scale(1.1); box-shadow: 0 8px 16px rgba(0,119,182,0.8); }
+
 .hamburger-container { position: fixed; top: 20px; right: 20px; z-index: 1000; }
 .hamburger-icon { font-size: 28px; background: rgba(0,0,0,0.7); color: #fff; padding: 8px 12px; border-radius: 6px; cursor: pointer; user-select: none; transition: background 0.3s, transform 0.3s; }
 .hamburger-icon:hover { background: rgba(0,0,0,0.9); transform: scale(1.1); }
@@ -162,6 +165,7 @@ table td { background-color: #8B0000; }
 .hamburger-menu::-webkit-scrollbar { width: 6px; }
 .hamburger-menu::-webkit-scrollbar-thumb { background-color: rgba(255,255,255,0.3); border-radius: 3px; }
 .hamburger-icon.open { transform: rotate(90deg); }
+
 .step { margin: 40px 0; text-align: center; }
 .step h3 { color: #ff3b3b; margin-bottom: 10px; }
 .phone-frame { position: relative; display: inline-block; background: #000; border-radius: 40px; padding: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.25); width: 340px; }
@@ -169,7 +173,8 @@ table td { background-color: #8B0000; }
 .phone-notch { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 120px; height: 18px; background: #222; border-radius: 12px; }
 .step-note { font-size: 14px; color: #666; margin-top: 8px; }
 .related-list { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-.related-list article { background: #8B0000; padding: 15px; border-radius: 12px; text-align: center; width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.4); border-bottom: 2px solid #ff2e00; }
+.related-list article { background: #8B0000; padding: 15px; border-radius: 12px; text-align: center; width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.4); border-bottom: 2px solid #ff2e00; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.related-list article:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
 .related-list img { max-width: 100%; border-radius: 12px; margin-bottom: 10px; }
 .related-list h3 { margin: 0 0 5px 0; color:#ffebcd; }
 .related-list p { margin:0; color:#fff; font-size: 0.95em; }
@@ -190,6 +195,7 @@ table th, table td { padding: 6px; }
 .section-block ol li, .section-block ul li { font-size: 0.9em; }
 .btn { font-size: 1em; }
 }
+
 </style>
 </head>
 <body>
