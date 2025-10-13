@@ -431,27 +431,31 @@ function rejectAge() { alert('You must be 18+ to access this site.'); window.loc
 {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://bharatclubs.netlify.app/#about-section",
-      "name": "BHT Club",
-      "url": "https://bharatclubs.netlify.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://bharatclubs.netlify.app/bharatclublogo.webp"
-      },
-      "sameAs": [
-        "https://t.me/bhtclubs"
-      ],
-      "interactionStatistic": {
-        "@type": "InteractionCounter",
-        "interactionType": { "@type": "JoinAction" },
-        "userInteractionCount": 15000
-      }
-    },
+{
+  "@type": "Organization",
+  "@id": "https://bharatclubs.netlify.app/#about-section",
+  "name": "BHT Club",
+  "url": "https://bharatclubs.netlify.app/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://bharatclubs.netlify.app/bharatclublogo.webp"
+  },
+  "sameAs": [
+    "https://t.me/bhtclubs"
+  ],
+  "interactionStatistic": {
+    "@type": "InteractionCounter",
+    "interactionType": { "@type": "JoinAction" },
+    "userInteractionCount": 15000
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bharatclubs.netlify.app/"
+  }
+},
     {
       "@type": "WebSite",
-      "@id": "https://bharatclubs.netlify.app/",
+      "@id": "https://bharatclubs.netlify.app/#website",
       "url": "https://bharatclubs.netlify.app/",
       "name": "BHT Club",
       "publisher": { "@id": "https://bharatclubs.netlify.app/#about-section" },
@@ -476,14 +480,18 @@ function rejectAge() { alert('You must be 18+ to access this site.'); window.loc
           "target": "https://t.me/bhtclub",
           "name": "Contact BHT Club Community Support"
         }
-      ]
+      ],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bharatclubs.netlify.app/"
+      }
     },
     {
       "@type": "WebPage",
-      "@id": "https://bharatclubs.netlify.app/#top-intro",
+      "@id": "https://bharatclubs.netlify.app/#webpage",
       "url": "https://bharatclubs.netlify.app/",
       "name": "BHT Club (Bharatclub Official) - Play and Earn",
-      "description": "BHT Club is just an shorten name for BharatClub, is a free-to-play Indian gaming platform where users can play games, earn rewards, and enjoy a secure, responsible play-to-earn experience.",
+      "description": "BHT Club is just an shorten name for BharatClub, a free-to-play Indian gaming platform where users can play games, earn rewards, and enjoy a secure, responsible play-to-earn experience.",
       "alternateName": "BHT Club, BHT Clubs, BHTClub",
       "keywords": [
         "BHT Club games",
@@ -493,7 +501,7 @@ function rejectAge() { alert('You must be 18+ to access this site.'); window.loc
         "BHT Club bonus",
         "BHT Club agent recruitment",
         "BHT Clubs gaming",
-        "BHT Clubs download",
+        "BHT Clubs download"
       ],
       "about": {
         "@type": "Thing",
@@ -501,16 +509,24 @@ function rejectAge() { alert('You must be 18+ to access this site.'); window.loc
         "description": "Online play-to-earn gaming platforms in India where users can win rewards."
       },
       "publisher": { "@id": "https://bharatclubs.netlify.app/#about-section" },
-      "isPartOf": { "@id": "https://bharatclubs.netlify.app/" },
-      "dateModified": "2025-10-01",
+      "isPartOf": { "@id": "https://bharatclubs.netlify.app/#website" },
+      "dateModified": "2025-10-14",
       "inLanguage": "en",
-      "image": "https://bharatclubs.netlify.app/banner.webp"
+      "image": "https://bharatclubs.netlify.app/banner.webp",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bharatclubs.netlify.app/"
+      }
     },
     {
       "@type": "FAQPage",
       "@id": "https://bharatclubs.netlify.app/#faq-section",
       "url": "https://bharatclubs.netlify.app/#faq-section",
       "name": "BHT Club FAQ",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bharatclubs.netlify.app/"
+      },
       "mainEntity": [
         {
           "@type": "Question",
@@ -530,7 +546,7 @@ function rejectAge() { alert('You must be 18+ to access this site.'); window.loc
         },
         {
           "@type": "Question",
-          "name": "Is BHT CLub safe and legal to use in India?",
+          "name": "Is BHT Club safe and legal to use in India?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes. BHT Club operates in compliance with applicable laws and uses secure payment systems to protect your data and transactions."
@@ -573,22 +589,17 @@ function rejectAge() { alert('You must be 18+ to access this site.'); window.loc
           "name": "Is there any AI on the games that BHT Club provide?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. We uses Artificial Intelligence (AI) on the games called Wingo to assist players with guidance and insights. The AI provides quick game statistics, probability awareness, and responsible gaming reminders. It does not predict or control outcomes — instead, it helps players make smarter and safer choices."
+            "text": "Yes. We use Artificial Intelligence (AI) in the Wingo game to assist players with guidance and insights. The AI provides quick game statistics, probability awareness, and responsible gaming reminders. It does not predict or control outcomes — it simply helps players make smarter and safer choices."
           }
         }
       ],
-      "author": {
-        "@type": "Organization",
-        "name": "BHT Club"
-      },
+      "author": { "@id": "https://bharatclubs.netlify.app/#about-section" },
+      "publisher": { "@id": "https://bharatclubs.netlify.app/#about-section" },
       "potentialAction": {
         "@type": "ReadAction",
         "target": "https://bharatclubs.netlify.app/#faq-section"
       },
-      "publisher": {
-        "@id": "https://bharatclubs.netlify.app/#about-us"
-      },
-      "dateModified": "2025-10-01"
+      "dateModified": "2025-10-14"
     },
     {
       "@type": "BreadcrumbList",
@@ -602,44 +613,58 @@ function rejectAge() { alert('You must be 18+ to access this site.'); window.loc
         }
       ]
     },
-  {
-  "@type": "Product",
-  "@id": "https://bharatclubs.netlify.app/#top-intro",
-  "name": "BHT Club App",
-  "description": "Play games and earn rewards with BHT Club App on your phone.",
-  "brand": { "@id": "https://bharatclubs.netlify.app/#about-section" },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": 4,
-    "bestRating": 5,
-    "worstRating": 1
-  },
-  "potentialAction": {
-    "@type": "DownloadAction",
-    "target": "https://bharatclubs.netlify.app/download.html",
-    "name": "Download BHT Club App"
-  }
-},
+    {
+      "@type": "Product",
+      "@id": "https://bharatclubs.netlify.app/#product",
+      "name": "BHT Club App",
+      "description": "Play games and earn rewards with the BHT Club App on your phone.",
+      "brand": { "@id": "https://bharatclubs.netlify.app/#about-section" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": 4,
+        "bestRating": 5,
+        "worstRating": 1
+      },
+      "potentialAction": {
+        "@type": "DownloadAction",
+        "target": "https://bharatclubs.netlify.app/download.html",
+        "name": "Download BHT Club App"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bharatclubs.netlify.app/download.html"
+      }
+    },
     {
       "@type": "BlogPosting",
+      "@id": "https://bharatclubs.netlify.app/#blog1",
       "headline": "What is BHT Club? My Review & First Impressions",
       "url": "https://bhtclubgame.wordpress.com/2025/09/05/what-is-bht-club-my-review-first-impressions/",
       "image": "https://bharatclubs.netlify.app/bharatclublogo.webp",
       "datePublished": "2025-09-05",
-      "author": { "@type": "Organization", "name": "BHT Club" },
+      "author": { "@id": "https://bharatclubs.netlify.app/#about-section" },
       "publisher": { "@id": "https://bharatclubs.netlify.app/#about-section" },
-      "description": "A detailed first look at BHT Club (BharatClub), exploring features, user experience, and first impressions."
+      "description": "A detailed first look at BHT Club (BharatClub), exploring features, user experience, and first impressions.",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bhtclubgame.wordpress.com/2025/09/05/what-is-bht-club-my-review-first-impressions/"
+      }
     },
     {
       "@type": "BlogPosting",
+      "@id": "https://bharatclubs.netlify.app/#blog2",
       "headline": "How to Play Wingo on BHT Club (Beginner’s Guide)",
       "url": "https://bhtclubgame.wordpress.com/2025/09/05/how-to-play-wingo-on-bht-club-beginners-guide/",
       "image": "https://bharatclubs.netlify.app/games/wingo/wingo.webp",
       "datePublished": "2025-09-05",
-      "author": { "@type": "Organization", "name": "BHT Club" },
+      "author": { "@id": "https://bharatclubs.netlify.app/#about-section" },
       "publisher": { "@id": "https://bharatclubs.netlify.app/#about-section" },
-      "description": "Step-by-step guide for beginners on how to play Wingo on BHT Club (Bharatclub), including tips for safe and responsible play."
+      "description": "Step-by-step guide for beginners on how to play Wingo on BHT Club (Bharatclub), including tips for safe and responsible play.",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://bhtclubgame.wordpress.com/2025/09/05/how-to-play-wingo-on-bht-club-beginners-guide/"
+      }
     }
   ]
 }
@@ -921,3 +946,4 @@ function findMatches(query) {
 </script>
 </body>
 </html>
+
