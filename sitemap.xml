@@ -8,109 +8,108 @@
   </url>
 
   <url>
-    <loc>https://bharatclubs.netlify.app/games.html</loc>
+    <loc>https://bharatclubs.netlify.app/games/</loc>
     <lastmod>2025-10-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://bharatclubs.netlify.app/privacy.html</loc>
+    <loc>https://bharatclubs.netlify.app/privacy</loc>
     <lastmod>2025-09-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://bharatclubs.netlify.app/payments.html</loc>
+    <loc>https://bharatclubs.netlify.app/payments</loc>
     <lastmod>2025-10-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bharatclubs.netlify.app/terms.html</loc>
+    <loc>https://bharatclubs.netlify.app/terms</loc>
     <lastmod>2025-09-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://bharatclubs.netlify.app/games/wingo/index.html</loc>
+    <loc>https://bharatclubs.netlify.app/games/wingo/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://bharatclubs.netlify.app/games/chickenroad2/</loc>
     <lastmod>2025-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://bharatclubs.netlify.app/games/chickenroad2/index.html</loc>
-    <lastmod>2025-10-02</lastmod>
+    <loc>https://bharatclubs.netlify.app/games/aviator/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+   <url>
+    <loc>https://bharatclubs.netlify.app/games/casino/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+   <url>
+    <loc>https://bharatclubs.netlify.app/games/cricket/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+   <url>
+    <loc>https://bharatclubs.netlify.app/games/fishing/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+   <url>
+    <loc>https://bharatclubs.netlify.app/games/mines/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+   <url>
+    <loc>https://bharatclubs.netlify.app/games/rummy/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+   <url>
+    <loc>https://bharatclubs.netlify.app/games/slot/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+   <url>
+    <loc>https://bharatclubs.netlify.app/games/sports/</loc>
+    <lastmod>2025-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://bharatclubs.netlify.app/games/aviator/index.html</loc>
-    <lastmod>2025-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-   <url>
-    <loc>https://bharatclubs.netlify.app/games/Casino/index.html</loc>
-    <lastmod>2025-09-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-   <url>
-    <loc>https://bharatclubs.netlify.app/games/Cricket/index.html</loc>
-    <lastmod>2025-09-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-   <url>
-    <loc>https://bharatclubs.netlify.app/games/Fishing/index.html</loc>
-    <lastmod>2025-09-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-   <url>
-    <loc>https://bharatclubs.netlify.app/games/Mines/index.html</loc>
-    <lastmod>2025-09-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-   <url>
-    <loc>https://bharatclubs.netlify.app/games/Rummy/index.html</loc>
-    <lastmod>2025-09-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-   <url>
-    <loc>https://bharatclubs.netlify.app/games/Slot/index.html</loc>
-    <lastmod>2025-09-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-   <url>
-    <loc>https://bharatclubs.netlify.app/games/Sports/index.html</loc>
-    <lastmod>2025-09-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://bharatclubs.netlify.app/how-ai-works.html</loc>
+    <loc>https://bharatclubs.netlify.app/how-ai-works</loc>
     <lastmod>2025-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 </urlset>
-
 
