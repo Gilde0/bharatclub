@@ -22,12 +22,232 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.google-analytics.com">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-51PLFQPFC6"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-51PLFQPFC6');
-  </script>
+<script type="module">
+  // --- Google Analytics 4 ---
+  (function(){
+    const gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-51PLFQPFC6";
+    document.head.appendChild(gtagScript);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-51PLFQPFC6');
+  })();
+
+  // --- Ahrefs Analytics ---
+  (function(){
+    const ahrefsScript = document.createElement('script');
+    ahrefsScript.async = true;
+    ahrefsScript.src = "https://analytics.ahrefs.com/analytics.js";
+    ahrefsScript.setAttribute("data-key","bq6qIwydQuDh/f6aKZVPkQ");
+    document.head.appendChild(ahrefsScript);
+  })();
+
+  // --- Age-gate & Bot detection ---
+  const isBot = /bot|crawl|slurp|spider|mediapartners/i.test(navigator.userAgent);
+  document.addEventListener('DOMContentLoaded', () => {
+    const ageGate = document.getElementById('age-gate');
+    const menuBtn = document.getElementById('menu-btn');
+    if (isBot && ageGate) ageGate.style.display = "none";
+    if (menuBtn) menuBtn.style.display = "block";
+
+    window.acceptAge = function() { if(ageGate) ageGate.style.display = 'none'; if(menuBtn) menuBtn.style.display='block'; }
+    window.rejectAge = function() { alert('You must be 18+ to access this site.'); window.location.href='https://www.google.com'; }
+  });
+
+  // --- Hamburger Menu ---
+  window.toggleMenu = function() {
+    const menu = document.getElementById('nav-menu');
+    const icon = document.getElementById('menu-btn');
+    if(menu && icon){
+      menu.classList.toggle('show');
+      icon.classList.toggle('open');
+      icon.setAttribute('aria-expanded', menu.classList.contains('show'));
+    }
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        const menu = document.getElementById('nav-menu');
+        const icon = document.getElementById('menu-btn');
+        if(menu) menu.classList.remove('show');
+        if(icon) icon.classList.remove('open');
+      });
+    });
+  });
+
+  // --- In-page Search with Synonyms ---
+  const synonyms = {
+    "register": ["signup","sign up","join","create account"],
+    "login": ["sign in","log in","enter"],
+    "deposit": ["add money","top up","recharge","fund"],
+    "withdraw": ["cashout","payout","redeem"],
+    "bht": ["bharatclub","club"],
+    "wingo": ["game","lottery","play wingo"],
+    "Frequently Asked Questions":["FAQ","faq","questions"]
+  };
+  function expandQuery(query){
+    let terms = [query];
+    for(let key in synonyms){
+      if(query.includes(key)) terms = terms.concat(synonyms[key]);
+      synonyms[key].forEach(s => { if(query.includes(s)){ terms.push(key); terms=terms.concat(synonyms[key]); }});
+    }
+    return [...new Set(terms.map(t=>t.toLowerCase()))];
+  }
+
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const input = document.getElementById('searchBox');
+    const btn = document.getElementById('searchBtn');
+    const resultsBox = document.getElementById('searchResults');
+    if(!input || !btn || !resultsBox) return;
+
+    const escapeHtml = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const nodeSelectors = 'h1,h2,h3,p,li,a,.game-title,.game-box';
+    const rawNodes = Array.from(document.querySelectorAll(nodeSelectors)).filter(n => n && n.innerText.trim().length>0);
+    const nodes = rawNodes.map(n=>{
+      let title = '';
+      if(/H[1-6]/.test(n.tagName)) title=n.innerText.trim();
+      else if(n.classList && n.classList.contains('game-title')) title=n.innerText.trim();
+      else if(n.closest && n.closest('section')){
+        const secHead = n.closest('section').querySelector('h2,h1');
+        if(secHead) title=secHead.innerText.trim();
+      }
+      if(!title) title=n.innerText.trim().slice(0,50);
+      return {el:n,text:n.innerText.trim(),title:title};
+    });
+    document.querySelectorAll('#nav-menu a').forEach(a=>{ if(a.innerText.trim()) nodes.push({el:a,text:a.innerText.trim(),title:a.innerText.trim()}); });
+
+    try {
+      const jsonLdEl = document.getElementById('json-ld-script');
+      if(jsonLdEl){
+        const j = JSON.parse(jsonLdEl.textContent);
+        if(j && j['@graph']){
+          const wp = j['@graph'].find(x=>x['@type']==='WebPage'||x['@type']==='WebSite');
+          if(wp && wp.keywords){ 
+            const kw = Array.isArray(wp.keywords)?wp.keywords.join(' '):String(wp.keywords);
+            nodes.push({el:document.body,text:kw,title:'Page keywords'});
+          }
+        }
+      }
+    } catch(e){}
+
+    function findMatches(query){
+      const queries = expandQuery(query);
+      const matches = nodes.map(n=>{
+        const t = n.text.toLowerCase();
+        let idx=-1,matchedTerm='';
+        queries.forEach(q=>{ const i=t.indexOf(q); if(i>=0&&(idx===-1||i<idx)){idx=i;matchedTerm=q;} });
+        return idx>=0?{node:n,index:idx,term:matchedTerm}:null;
+      }).filter(Boolean).sort((a,b)=>(a.index-b.index)||(a.node.text.length-b.node.text.length)).slice(0,40);
+      return matches;
+    }
+
+    function renderResults(matches,q){
+      resultsBox.style.display = matches.length?'block':'none';
+      resultsBox.innerHTML='';
+      if(!matches.length){ resultsBox.innerHTML='<div class="no-results">No results found</div>'; return; }
+      const ul=document.createElement('ul');
+      matches.forEach(m=>{
+        const li=document.createElement('li');
+        li.className='search-result'; li.tabIndex=0;
+        const text=m.node.text; const start=Math.max(0,m.index-40);
+        const snippet=escapeHtml(text.substring(start,start+140));
+        const qEsc=escapeHtml(q);
+        const highlighted=snippet.replace(new RegExp(qEsc,'ig'),match=>`<mark>${match}</mark>`);
+        li.innerHTML=`<strong>${escapeHtml(m.node.title)}</strong><div class="snippet">${highlighted}...</div>`;
+        li.addEventListener('click',()=>{ try{ m.node.el.scrollIntoView({behavior:'smooth',block:'center'}); }catch(e){} const prev=m.node.el.style.backgroundColor; m.node.el.style.transition='background-color 0.25s'; m.node.el.style.backgroundColor='#fff59d'; setTimeout(()=>m.node.el.style.backgroundColor=prev||'',3500); resultsBox.style.display='none'; });
+        li.addEventListener('keydown',ev=>{if(ev.key==='Enter') li.click();});
+        ul.appendChild(li);
+      });
+      resultsBox.appendChild(ul);
+    }
+
+    input.addEventListener('input',()=>{ const q=input.value.trim(); if(!q){resultsBox.style.display='none';resultsBox.innerHTML='';return;} renderResults(findMatches(q),q); });
+    btn.addEventListener('click',()=>{ const q=input.value.trim(); if(!q){input.focus();return;} const matches=findMatches(q); renderResults(matches,q); if(matches.length){ try{matches[0].node.el.scrollIntoView({behavior:'smooth',block:'center'});}catch(e){} const el=matches[0].node.el; const prev=el.style.backgroundColor; el.style.backgroundColor='#fff59d'; setTimeout(()=>el.style.backgroundColor=prev||'',3500); } });
+    window.addEventListener('keydown',e=>{ if(e.key==='/' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ e.preventDefault(); input.focus(); } });
+    document.addEventListener('click',ev=>{ if(!document.getElementById('site-search').contains(ev.target) && !resultsBox.contains(ev.target)) resultsBox.style.display='none'; });
+  });
+
+  // --- Firebase Reviews & JSON-LD ---
+  window.addEventListener('load', async ()=>{
+    const [{initializeApp},{getAnalytics},{getFirestore,collection,addDoc,query,orderBy,serverTimestamp,onSnapshot}]=await Promise.all([
+      import("https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js"),
+      import("https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js"),
+      import("https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js")
+    ]);
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBdaQY4L4xQIy-Dyl8Tqntxi3dFhh50Bns",
+      authDomain: "bharatclub-rating.firebaseapp.com",
+      projectId: "bharatclub-rating",
+      storageBucket: "bharatclub-rating.firebasestorage.app",
+      messagingSenderId: "602055039598",
+      appId: "1:602055039598:web:e509acc2c4806f1822247f",
+      measurementId: "G-M2S2LZ6MX1"
+    };
+    const app=initializeApp(firebaseConfig);
+    const analytics=getAnalytics(app);
+    const db=getFirestore();
+    const reviewsCol=collection(db,'reviews');
+
+    const stars=document.querySelectorAll('#rating-widget .star');
+    const submitBtn=document.getElementById('submit-review');
+    const reviewText=document.getElementById('review-text');
+    const reviewsContainer=document.getElementById('reviews-container');
+    let selectedRating=0;
+
+    stars.forEach((star,idx)=>{ star.addEventListener('click',()=>{ selectedRating=idx+1; stars.forEach((s,i)=>s.textContent=i<selectedRating?'★':'☆'); }); });
+    submitBtn?.addEventListener('click',async()=>{
+      const comment=reviewText.value.trim();
+      if(selectedRating===0 || comment===''){ alert('Please select a rating and write your review.'); return; }
+      try{ await addDoc(reviewsCol,{username:'Anonymous',comment,rating:selectedRating,timestamp:serverTimestamp()});
+        alert('Review submitted!'); reviewText.value=''; selectedRating=0; stars.forEach(s=>s.textContent='☆'); } 
+      catch(e){ console.error(e); alert('Failed to submit review.'); }
+    });
+
+    onSnapshot(query(reviewsCol,orderBy('timestamp','desc')),snapshot=>{
+      reviewsContainer.innerHTML='';
+      const reviewsForJsonLD=[]; let totalRating=0;
+      snapshot.forEach(doc=>{
+        const data=doc.data();
+        const li=document.createElement('li');
+        li.style.borderBottom='1px solid #ccc'; li.style.padding='8px 0';
+        li.textContent='★'.repeat(data.rating)+' - '+data.comment;
+        reviewsContainer.appendChild(li);
+        reviewsForJsonLD.push({
+          "@type":"Review",
+          "author":{"@type":"Person","name":data.username||"Anonymous"},
+          "reviewBody":data.comment,
+          "reviewRating":{"@type":"Rating","ratingValue":data.rating,"bestRating":5},
+          "datePublished":data.timestamp?data.timestamp.toDate().toISOString():new Date().toISOString()
+        });
+        totalRating+=data.rating;
+      });
+      const reviewCount=reviewsForJsonLD.length;
+      const avgRating=reviewCount>0?parseFloat((totalRating/reviewCount).toFixed(1)):0;
+      const jsonLdScript=document.getElementById('json-ld-script');
+      if(jsonLdScript){
+        const jsonLd=JSON.parse(jsonLdScript.textContent);
+        const product=jsonLd['@graph'].find(item=>item['@type']==='Product');
+        if(product){
+          product.review=reviewsForJsonLD;
+          if(reviewCount>0) product.aggregateRating={
+            "@type":"AggregateRating",
+            "ratingValue":avgRating,
+            "reviewCount":reviewCount,
+            "bestRating":5,
+            "worstRating":1
+          };
+          else delete product.aggregateRating;
+        }
+        jsonLdScript.textContent=JSON.stringify(jsonLd,null,2);
+      }
+    });
+  });
+</script>
+
 <style>
 html { scroll-behavior: smooth; }
 .age-btn { padding: 12px 24px; font-size: 16px; border: none; border-radius: 6px; color: white; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
@@ -107,26 +327,6 @@ footer a { color:white; text-decoration:underline; margin:0 10px; }
 @media (max-width: 500px) { .blog-cards-grid { grid-template-columns: 1fr; } }
 </style>
 
-<script>
-function toggleMenu() {
-  const menu = document.getElementById('nav-menu');
-  const icon = document.getElementById('menu-btn');
-  menu.classList.toggle('show');
-  icon.classList.toggle('open');
-  icon.setAttribute('aria-expanded', menu.classList.contains('show'));
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('#nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.getElementById('nav-menu').classList.remove('show');
-      document.getElementById('menu-btn').classList.remove('open');
-    });
-  });
-});
-</script>
-
-<script src="https://analytics.ahrefs.com/analytics.js" data-key="bq6qIwydQuDh/f6aKZVPkQ" async></script>
 </head>
 <body>
 <div id="age-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.95);color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;text-align:center;">
@@ -137,11 +337,6 @@ document.addEventListener("DOMContentLoaded", () => {
     <button onclick="rejectAge()" class="age-btn no-btn">No</button>
   </div>
 </div>
-
-<script>
-function acceptAge() { document.getElementById('age-gate').style.display = 'none'; document.getElementById('menu-btn').style.display = 'block'; }
-function rejectAge() { alert('You must be 18+ to access this site.'); window.location.href = 'https://www.google.com'; }
-</script>
 <header style="background-color:#000000;">
   <div class="header-container">
     <button id="menu-btn" class="nav-toggle" aria-label="Menu" onclick="toggleMenu()">☰</button>
@@ -170,7 +365,7 @@ function rejectAge() { alert('You must be 18+ to access this site.'); window.loc
  </div>
 
 <section id="top-intro" class="container" style="text-align: center;">
-  <img src="bharatclublogo.webp" alt="BHT Club Logo" style="max-width: 70%; height: auto; display: block; margin: 0 auto; border-radius: 15px;" loading="eager" fetchpriority="high">
+  <img src="bharatclublogo.webp" alt="BHT Club Logo" width="952" height="844" style="max-width:70%; height:auto; display:block; margin:0 auto;" loading="eager" fetchpriority="high">
   <h1>Play & Earn on BHT Club (Bharatclub Official)</h1>
   <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
   <a href="https://www.bhdfiejand.com/#/register?invitationCode=818553846140"  rel="nofollow noopener" target="_blank" class="btn" aria-label="Register to BHT Club" >Register Now</a>
@@ -664,285 +859,5 @@ function rejectAge() { alert('You must be 18+ to access this site.'); window.loc
   ]
 }
 </script>
-<script>
-const synonyms = {
-  "register": ["signup", "sign up", "join", "create account"],
-  "login": ["sign in", "log in", "enter"],
-  "deposit": ["add money", "top up", "recharge", "fund"],
-  "withdraw": ["cashout", "payout", "redeem"],
-  "bht": ["bharatclub", "club"],
-  "wingo": ["game", "lottery", "play wingo"],
-  "Frequently Asked Questions": ["FAQ", "faq", "questions"]
-};
-function expandQuery(query) {
-  let terms = [query];
-  for (let key in synonyms) {
-    if (query.includes(key)) {
-      terms = terms.concat(synonyms[key]);
-    }
-    synonyms[key].forEach(s => {
-      if (query.includes(s)) {
-        terms.push(key);
-        terms = terms.concat(synonyms[key]);
-      }
-    });
-  }
-  return [...new Set(terms.map(t => t.toLowerCase()))];
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const input = document.getElementById('searchBox');
-  const btn = document.getElementById('searchBtn');
-  const resultsBox = document.getElementById('searchResults');
-
-  const escapeHtml = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-
-  const nodeSelectors = 'h1,h2,h3,p,li,a,.game-title,.game-box';
-  const rawNodes = Array.from(document.querySelectorAll(nodeSelectors))
-    .filter(n => n && n.innerText && n.innerText.trim().length > 0);
-
-  const nodes = rawNodes.map(n => {
-    let title = '';
-    if (/H[1-6]/.test(n.tagName)) title = n.innerText.trim();
-    else if (n.classList && n.classList.contains('game-title')) title = n.innerText.trim();
-    else if (n.closest && n.closest('section')) {
-      const secHead = n.closest('section').querySelector('h2, h1');
-      if (secHead) title = secHead.innerText.trim();
-    }
-    if (!title) title = (n.innerText.trim().slice(0,50));
-    return { el: n, text: n.innerText.trim(), title: title };
-  });
-
-  document.querySelectorAll('#nav-menu a').forEach(a => {
-    if (a.innerText && a.innerText.trim()) nodes.push({ el: a, text: a.innerText.trim(), title: a.innerText.trim() });
-  });
-
-  try {
-    const jsonLdEl = document.getElementById('json-ld-script');
-    if (jsonLdEl) {
-      const j = JSON.parse(jsonLdEl.textContent);
-      if (j && j['@graph']) {
-        const wp = j['@graph'].find(x => x['@type']==='WebPage' || x['@type']==='WebSite');
-        if (wp && wp.keywords) {
-          const kw = Array.isArray(wp.keywords) ? wp.keywords.join(' ') : String(wp.keywords);
-          nodes.push({ el: document.body, text: kw, title: 'Page keywords' });
-        }
-      }
-    }
-  } catch(e) { /* ignore JSON-LD parse errors */ }
-
-function findMatches(query) {
-  const queries = expandQuery(query);
-  const matches = nodes.map(n => {
-    const t = n.text.toLowerCase();
-    let idx = -1;
-    let matchedTerm = "";
-    queries.forEach(q => {
-      const i = t.indexOf(q);
-      if (i >= 0 && (idx === -1 || i < idx)) {
-        idx = i;
-        matchedTerm = q;
-      }
-    });
-    return idx >= 0 ? { node: n, index: idx, term: matchedTerm } : null;
-  }).filter(Boolean)
-    .sort((a,b) => (a.index - b.index) || (a.node.text.length - b.node.text.length))
-    .slice(0, 40);
-  return matches;
-}
-
-  function renderResults(matches, q) {
-    resultsBox.style.display = matches.length ? 'block' : 'none';
-    resultsBox.innerHTML = '';
-    if (!matches.length) {
-      resultsBox.innerHTML = '<div class="no-results">No results found</div>';
-      return;
-    }
-    const ul = document.createElement('ul');
-    matches.forEach(m => {
-      const li = document.createElement('li');
-      li.className = 'search-result';
-      li.tabIndex = 0;
-      const text = m.node.text;
-      const start = Math.max(0, m.index - 40);
-      const snippet = escapeHtml(text.substring(start, start + 140));
-      const qEsc = escapeHtml(q);
-      const highlighted = snippet.replace(new RegExp(qEsc, 'ig'), match => `<mark>${match}</mark>`);
-      li.innerHTML = `<strong>${escapeHtml(m.node.title)}</strong><div class="snippet">${highlighted}...</div>`;
-      li.addEventListener('click', () => {
-        try { m.node.el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(e){}
-        const prev = m.node.el.style.backgroundColor;
-        m.node.el.style.transition = 'background-color 0.25s';
-        m.node.el.style.backgroundColor = '#fff59d';
-        setTimeout(()=> m.node.el.style.backgroundColor = prev || '', 3500);
-        resultsBox.style.display = 'none';
-      });
-      li.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') li.click(); });
-      ul.appendChild(li);
-    });
-    resultsBox.appendChild(ul);
-  }
-
-  input.addEventListener('input', () => {
-    const q = input.value.trim();
-    if (!q) { resultsBox.style.display = 'none'; resultsBox.innerHTML = ''; return; }
-    const matches = findMatches(q);
-    renderResults(matches, q);
-  });
-
-  btn.addEventListener('click', () => {
-    const q = input.value.trim();
-    if (!q) { input.focus(); return; }
-    const matches = findMatches(q);
-    renderResults(matches, q);
-    if (matches.length) {
-      try { matches[0].node.el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(e){}
-      const el = matches[0].node.el;
-      const prev = el.style.backgroundColor;
-      el.style.backgroundColor = '#fff59d';
-      setTimeout(()=> el.style.backgroundColor = prev || '', 3500);
-    }
-  });
-
-  window.addEventListener('keydown', e => {
-    if (e.key === '/' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
-      e.preventDefault();
-      input.focus();
-    }
-  });
-
-  document.addEventListener('click', (ev) => {
-    if (!document.getElementById('site-search').contains(ev.target) && !resultsBox.contains(ev.target)) {
-      resultsBox.style.display = 'none';
-    }
-  });
-
-});
-</script>
-
-<script type="module">
-  window.addEventListener('load', async () => {
-    const [
-      { initializeApp },
-      { getAnalytics },
-      { getFirestore, collection, addDoc, query, orderBy, serverTimestamp, onSnapshot }
-    ] = await Promise.all([
-      import("https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js"),
-      import("https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js"),
-      import("https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js")
-    ]);
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyBdaQY4L4xQIy-Dyl8Tqntxi3dFhh50Bns",
-      authDomain: "bharatclub-rating.firebaseapp.com",
-      projectId: "bharatclub-rating",
-      storageBucket: "bharatclub-rating.firebasestorage.app",
-      messagingSenderId: "602055039598",
-      appId: "1:602055039598:web:e509acc2c4806f1822247f",
-      measurementId: "G-M2S2LZ6MX1"
-    };
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    
-    const db = getFirestore();
-    const reviewsCol = collection(db, 'reviews');
-
-    const stars = document.querySelectorAll('#rating-widget .star');
-    const submitBtn = document.getElementById('submit-review');
-    const reviewText = document.getElementById('review-text');
-    const reviewsContainer = document.getElementById('reviews-container');
-    let selectedRating = 0;
-
-    stars.forEach((star, idx) => {
-      star.addEventListener('click', () => {
-        selectedRating = idx + 1;
-        stars.forEach((s, i) => s.textContent = i < selectedRating ? '★' : '☆');
-      });
-    });
-
-    submitBtn.addEventListener('click', async () => {
-      const comment = reviewText.value.trim();
-      if (selectedRating === 0 || comment === '') {
-        alert('Please select a rating and write your review.');
-        return;
-      }
-      try {
-        await addDoc(reviewsCol, {
-          username: 'Anonymous',
-          comment,
-          rating: selectedRating,
-          timestamp: serverTimestamp()
-        });
-        alert('Review submitted!');
-        reviewText.value = '';
-        selectedRating = 0;
-        stars.forEach(s => s.textContent = '☆');
-      } catch (e) {
-        console.error(e);
-        alert('Failed to submit review.');
-      }
-    });
-
-    onSnapshot(query(reviewsCol, orderBy('timestamp', 'desc')), snapshot => {
-      reviewsContainer.innerHTML = '';
-      const reviewsForJsonLD = [];
-      let totalRating = 0;
-
-      snapshot.forEach(doc => {
-        const data = doc.data();
-        const li = document.createElement('li');
-        li.style.borderBottom = '1px solid #ccc';
-        li.style.padding = '8px 0';
-        li.textContent = '★'.repeat(data.rating) + ' - ' + data.comment;
-        reviewsContainer.appendChild(li);
-
-        reviewsForJsonLD.push({
-          "@type": "Review",
-          "author": { "@type": "Person", "name": data.username || "Anonymous" },
-          "reviewBody": data.comment,
-          "reviewRating": { "@type": "Rating", "ratingValue": data.rating, "bestRating": 5 },
-          "datePublished": data.timestamp ? data.timestamp.toDate().toISOString() : new Date().toISOString()
-        });
-
-        totalRating += data.rating;
-      });
-
-      const reviewCount = reviewsForJsonLD.length;
-      const avgRating = reviewCount > 0 ? parseFloat((totalRating / reviewCount).toFixed(1)) : 0;
-      const jsonLdScript = document.getElementById('json-ld-script');
-      const jsonLd = JSON.parse(jsonLdScript.textContent);
-      const product = jsonLd['@graph'].find(item => item['@type'] === 'Product');
-
-      if (product) {
-        product.review = reviewsForJsonLD;
-        if (reviewCount > 0) {
-          product.aggregateRating = {
-            "@type": "AggregateRating",
-            "ratingValue": avgRating,
-            "reviewCount": reviewCount,
-            "bestRating": 5,
-            "worstRating": 1
-          };
-        } else {
-          delete product.aggregateRating;
-        }
-      }
-      jsonLdScript.textContent = JSON.stringify(jsonLd, null, 2);
-    });
-  });
-</script>
-  <script>
-  const isBot = /bot|crawl|slurp|spider|mediapartners/i.test(navigator.userAgent);
-  if (isBot) {
-    document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("age-gate").style.display = "none";
-    });
-  }
-</script>
 </body>
 </html>
-
-
-
-
-
