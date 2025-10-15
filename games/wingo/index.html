@@ -11,7 +11,7 @@
   <meta property="og:title" content="BHT Club Wingo - Play Wingo Online & Win Rewards" />
   <meta property="og:description" content="Play BHT Club Wingo online! Fast-paced skill-based gameplay, daily challenges, and a vibrant Indian gaming community." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tinyurl.com/bhtclubs" />
+  <meta property="og:url" content="https://bharatclubs.netlify.app/games/wingo/" />
   <meta property="og:image" content="https://bharatclubs.netlify.app/games/wingo/wingo.webp" />
   <meta property="og:site_name" content="Bharat Clubs" />
 
@@ -34,6 +34,7 @@
       "inLanguage": "en-IN",
       "isPartOf": { "@id": "https://bharatclubs.netlify.app/#website" },
       "breadcrumb": { "@id": "https://bharatclubs.netlify.app/games/wingo/#breadcrumb" },
+      "about": { "@id": "https://bharatclubs.netlify.app/games/wingo/#game" },
       "publisher": { "@id": "https://bharatclubs.netlify.app/#organization" }
     },
     {
@@ -41,7 +42,8 @@
       "@id": "https://bharatclubs.netlify.app/#website",
       "url": "https://bharatclubs.netlify.app/",
       "name": "Bharat Clubs",
-      "publisher": { "@id": "https://bharatclubs.netlify.app/#organization" }
+      "publisher": { "@id": "https://bharatclubs.netlify.app/#organization" },
+      "inLanguage": "en-IN"
     },
     {
       "@type": "Organization",
@@ -50,7 +52,9 @@
       "url": "https://bharatclubs.netlify.app/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://bharatclubs.netlify.app/logo.webp"
+        "url": "https://bharatclubs.netlify.app/logo.webp",
+        "width": 512,
+        "height": 512
       },
       "sameAs": [
         "https://t.me/bhtclubs"
@@ -58,22 +62,24 @@
     },
     {
       "@type": "SoftwareApplication",
+      "@id": "https://bharatclubs.netlify.app/games/wingo/#app",
       "name": "BHT Club Wingo",
-      "applicationCategory": "GameApplication",
       "operatingSystem": "Android, Web",
+      "applicationCategory": "GameApplication",
       "description": "BHT Club Wingo is a fast-paced skill-based online prediction game with daily and weekly bonuses, leaderboards, and community features.",
       "url": "https://tinyurl.com/bhtclubs",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "INR",
-        "category": "Free"
+        "availability": "https://schema.org/InStock"
       },
       "author": { "@id": "https://bharatclubs.netlify.app/#organization" },
       "publisher": { "@id": "https://bharatclubs.netlify.app/#organization" }
     },
     {
       "@type": "Game",
+      "@id": "https://bharatclubs.netlify.app/games/wingo/#game",
       "name": "BHT Club Wingo",
       "url": "https://tinyurl.com/bhtclubs",
       "applicationCategory": "Game",
@@ -82,7 +88,8 @@
       "inLanguage": "en-IN",
       "description": "Play BHT Club Wingo online in India. A fast-paced skill-based prediction game with multipliers, secure deposits, daily rebates, and leaderboard rewards.",
       "author": { "@id": "https://bharatclubs.netlify.app/#organization" },
-      "publisher": { "@id": "https://bharatclubs.netlify.app/#organization" }
+      "publisher": { "@id": "https://bharatclubs.netlify.app/#organization" },
+      "isPartOf": { "@id": "https://bharatclubs.netlify.app/games/wingo/#webpage" }
     },
     {
       "@type": "BreadcrumbList",
@@ -109,17 +116,17 @@
     },
     {
       "@type": "ItemList",
+      "@id": "https://bharatclubs.netlify.app/games/wingo/#related",
       "name": "Related Games",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "url": "https://bharatclubs.netlify.app/games/chickenroad2/index.html", "name": "Chicken Road 2" },
-        { "@type": "ListItem", "position": 2, "url": "https://bharatclubs.netlify.app/games/aviator/index.html", "name": "Aviator" },
-        { "@type": "ListItem", "position": 3, "url": "https://bharatclubs.netlify.app/games/rummy/index.html", "name": "Rummy" }
+        { "@type": "ListItem", "position": 1, "name": "Chicken Road 2", "url": "https://bharatclubs.netlify.app/games/chickenroad2/" },
+        { "@type": "ListItem", "position": 2, "name": "Aviator", "url": "https://bharatclubs.netlify.app/games/aviator/" },
+        { "@type": "ListItem", "position": 3, "name": "Rummy", "url": "https://bharatclubs.netlify.app/games/rummy/" }
       ]
     }
   ]
 }
 </script>
-
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
   <style>
   * { box-sizing: border-box; }
@@ -191,7 +198,7 @@ table th, table td { padding: 6px; }
 .section-block ol li, .section-block ul li { font-size: 0.9em; }
 .btn { font-size: 1em; }
 }
-  </style>
+</style>
 </head>
 <body>
 
@@ -343,7 +350,7 @@ table th, table td { padding: 6px; }
     <h2>Device Compatibility & App</h2>
     <p>BHT Club Wingo works seamlessly on all of android devices. As for other mobile such as IOS device, tablet, and desktop, you will need to use browser to access on BHT Club Wingo as currently only android are supported to install the app. For a better experience, download the <strong>BHT Club App</strong> and enjoy ongoing bonuses where you can earn 100₹ once you have install the app and deposit on your account through there, you can download it through this link over here for easier access to BHT Club in the future:</p>
     <div class="cta-buttons">
-    <a href="https://bharatclubs.netlify.app/download.html" class="btn-play" target="_blank" rel="noopener noreferrer">📱 Download the App & Get ₹100 Bonus</a>
+    <a href="https://bharatclubs.netlify.app/bhtclubapp" class="btn-play" target="_blank" rel="noopener noreferrer">📱 Download the App & Get ₹100 Bonus</a>
     </div>
     </section>
 
@@ -410,21 +417,21 @@ table th, table td { padding: 6px; }
   <h2>You Might Also Like</h2>
   <div class="related-list">
     <article>
-      <a href="/games/chickenroad2/index.html">
+      <a href="/games/chickenroad2/">
         <img src="/games/chickenroad2/chickenroad2.webp" width="225" height="225" alt="Play Chicken Road 2 on BHT Club" class="related-thumb" />
         <h3>Chicken Road 2</h3>
         <p>Help your chicken cross the road and win the games by reaching certain step without dying .</p>
       </a>
     </article>
     <article>
-      <a href="/games/aviator/index.html">
+      <a href="/games/aviator/">
         <img src="/games/aviator/aviator.webp" width="225" height="225" alt="Play Aviator game on BHT Club" class="related-thumb" />
         <h3>Aviator</h3>
         <p>Test your timing skills by cashing out before the plane flies away.</p>
       </a>
     </article>
     <article>
-      <a href="/games/rummy/index.html">
+      <a href="/games/rummy/">
         <img src="/games/rummy/rummy.webp" width="225" height="225" alt="Play Rummy on BHT Club" class="related-thumb" />
         <h3>Rummy</h3>
         <p>Classic Indian card game with secure online multiplayer matches.</p>
@@ -434,29 +441,24 @@ table th, table td { padding: 6px; }
 </section>
 </main>
 <nav class="hamburger-menu" id="hamburgerMenu" role="navigation">
-  <a href="/index.html">Home</a>
-  <a href="/games/wingo/index.html" class="active" >Wingo</a>
-  <a href="/games/aviator/index.html">Aviator</a>
-  <a href="/games/chickenroad2/index.html">Chicken Road 2</a>
-  <a href="/games/slot/index.html">Slot Online</a>
-  <a href="/games/sports/index.html">Sport Betting</a>
-  <a href="/games/casino/index.html">Casino Games</a>
-  <a href="/games/rummy/index.html">Rummy</a>
-  <a href="/games/fishing/index.html">Fishing</a>
-  <a href="/games/cricket/index.html">Cricket</a>
-  <a href="/games/mines/index.html">Mines</a>
+  <a href="/">Home</a>
+  <a href="/games/wingo/" class="active" >Wingo</a>
+  <a href="/games/aviator/">Aviator</a>
+  <a href="/games/chickenroad2/">Chicken Road 2</a>
+  <a href="/games/slot/">Slot Online</a>
+  <a href="/games/sports/">Sport Betting</a>
+  <a href="/games/casino/">Casino Games</a>
+  <a href="/games/rummy/">Rummy</a>
+  <a href="/games/fishing/">Fishing</a>
+  <a href="/games/cricket/">Cricket</a>
+  <a href="/games/mines/">Mines</a>
   </nav>
   <script> function toggleMenu() { const menu = document.getElementById("hamburgerMenu"); const icon = document.querySelector(".hamburger-icon"); menu.classList.toggle("show"); icon.setAttribute("aria-expanded", menu.classList.contains("show")); icon.classList.toggle("open"); } </script>
 
 <footer>
   <p>&copy; 2025 BharatClub. All Rights Reserved.</p>
-  <p><a href="/terms.html">Terms & Condition</a> <a href="/privacy.html">Privacy Policy</a></p>
+  <p><a href="/terms">Terms & Condition</a> <a href="/privacy">Privacy Policy</a></p>
   <p>Follow us: <a href="https://t.me/bhtclubs">Telegram</a></p>
 </footer>
 </body>
 </html>
-
-
-
-
-
