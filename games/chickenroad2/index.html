@@ -266,11 +266,13 @@ table th, table td { padding: 6px; }
 .section-block ol li, .section-block ul li { font-size: 0.9em; }
 .btn { font-size: 1em; }
 }
-
+.floating-games-btn { position: fixed; top: 20px; left: 20px; background-color: #000; color: #fff; font-weight: bold; text-decoration: none; padding: 10px 18px; border-radius: 8px; font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); z-index: 10000; transition: all 0.3s ease; }
+.floating-games-btn:hover { background-color: #ff3b3b; color: #fff; transform: scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.5); }
 </style>
 </head>
 <body>
 <header>
+  <a href="/games/" class="floating-games-btn">🎮 All Games</a>
     <div class="hamburger-container">
       <div class="hamburger-icon" aria-label="Menu" onclick="toggleMenu()">☰</div>
     </div>
@@ -497,4 +499,5 @@ table th, table td { padding: 6px; }
   </footer>
 </body>
 </html>
+
 
