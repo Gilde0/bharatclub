@@ -195,10 +195,14 @@ table th, table td { padding: 6px; }
 .section-block ol li, .section-block ul li { font-size: 0.9em; }
 .btn { font-size: 1em; }
 }
+.floating-games-btn { position: fixed; top: 20px; left: 20px; background-color: #000; color: #fff; font-weight: bold; text-decoration: none; padding: 10px 18px; border-radius: 8px; font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); z-index: 10000; transition: all 0.3s ease; }
+.floating-games-btn:hover { background-color: #ff3b3b; color: #fff; transform: scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.5); }
 </style>
 </head>
 <body>
 <header>
+<a href="/games/" class="floating-games-btn">🎮 All Games</a>
+
    <div class="hamburger-container">
     <div class="hamburger-icon" aria-label="Menu" onclick="toggleMenu()">☰</div>
   </div>
@@ -400,11 +404,11 @@ table th, table td { padding: 6px; }
   All bonuses are credited directly to your account balance and can be used for further play or withdrawals, depending on the promotion terms.</p>
 </section>
 
-    <section class="section-block cta-buttons">
+<section class="section-block cta-buttons">
       <a href="https://www.bhdfiejand.com/#/register?invitationCode=818553846140" class="btn-play" target="_blank" rel="noopener noreferrer">🎮 Play BHT Club Wingo Now</a>
       <a href="https://t.me/bhtclubs" class="btn-support" target="_blank" rel="noopener noreferrer">💬 Contact Support on Telegram</a>
-    </section>
-  </div>
+</section>
+</div>
 
 <section class="section-block related-games">
   <h2>You Might Also Like</h2>
