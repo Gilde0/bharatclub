@@ -45,7 +45,6 @@
     document.head.appendChild(ahrefsScript);
   })();
 
-  // --- Age-gate & Bot detection ---
   const isBot = /bot|crawl|slurp|spider|mediapartners/i.test(navigator.userAgent);
   document.addEventListener('DOMContentLoaded', () => {
     const ageGate = document.getElementById('age-gate');
@@ -57,7 +56,6 @@
     window.rejectAge = function() { alert('You must be 18+ to access this site.'); window.location.href='https://www.google.com'; }
   });
 
-  // --- Hamburger Menu ---
   window.toggleMenu = function() {
     const menu = document.getElementById('nav-menu');
     const icon = document.getElementById('menu-btn');
@@ -78,7 +76,6 @@
     });
   });
 
-  // --- In-page Search with Synonyms ---
   const synonyms = {
     "register": ["signup","sign up","join","create account"],
     "login": ["sign in","log in","enter"],
@@ -170,7 +167,6 @@
     document.addEventListener('click',ev=>{ if(!document.getElementById('site-search').contains(ev.target) && !resultsBox.contains(ev.target)) resultsBox.style.display='none'; });
   });
 
-  // --- Firebase Reviews & JSON-LD ---
   window.addEventListener('load', async ()=>{
     const [{initializeApp},{getAnalytics},{getFirestore,collection,addDoc,query,orderBy,serverTimestamp,onSnapshot}]=await Promise.all([
       import("https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js"),
@@ -735,7 +731,7 @@ footer a { color:white; text-decoration:underline; margin:0 10px; }
           "name": "How do I add funds to my account?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Log in to your account. Go to the "Wallet" or "Deposit" section. Select your preferred payment method (UPI, USDT, AR Wallet, etc.). Enter the amount you wish to add. Confirm the transaction to fund your wallet securely."
+            "text": "Log in to your account. Go to the \"Wallet\" or \"Deposit\" section. Select your preferred payment method (UPI, USDT, AR Wallet, etc.). Enter the amount you wish to add. Confirm the transaction to fund your wallet securely."
           }
         },
         {
@@ -865,6 +861,4 @@ footer a { color:white; text-decoration:underline; margin:0 10px; }
 </script>
 </body>
 </html>
-
-
 
