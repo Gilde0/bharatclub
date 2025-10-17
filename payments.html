@@ -19,7 +19,7 @@
 <meta property="twitter:description" content="Deposit & withdraw on BHT Club via UPI, Paytm, Bank, USDT & AR Wallet. Fast, secure, step-by-step guide.">
 <meta property="twitter:image" content="https://bharatclubs.netlify.app/bharatclublogo.webp">
 <link rel="canonical" href="https://bharatclubs.netlify.app/payments">
-<link rel="preload" href="../../fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/Roboto-Bold.woff2" as="font" type="font/woff2" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"></noscript>
@@ -39,34 +39,35 @@
       "url": "https://bharatclubs.netlify.app/bharatclublogo.webp"
     }
   },
- "@type": "HowTo",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://bharatclubs.netlify.app/payments"
-  },
-  "name": "Deposit & Withdraw on BHT Club",
-  "description": "Step-by-step guide on how to deposit and withdraw using BHT Club via UPI, Paytm, Bank, USDT, and AR Wallet.",
-  "totalTime": "PT5M",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Login to your account",
-      "text": "Go to BHT Club and log in with your registered number."
+  "mainEntity": {
+    "@type": "HowTo",
+    "name": "Deposit & Withdraw on BHT Club",
+    "description": "Step-by-step guide on how to deposit and withdraw using BHT Club via UPI, Paytm, Bank, USDT, and AR Wallet.",
+    "totalTime": "PT5M",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bharatclubs.netlify.app/payments"
     },
-    {
-      "@type": "HowToStep",
-      "name": "Select Deposit or Withdraw",
-      "text": "Choose the payment method such as UPI, Paytm, Bank, USDT, or AR Wallet."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Follow the on-screen steps",
-      "text": "Complete the transaction and confirm once done."
-    }
-  ]
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Login to your account",
+        "text": "Go to BHT Club and log in with your registered number."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Select Deposit or Withdraw",
+        "text": "Choose the payment method such as UPI, Paytm, Bank, USDT, or AR Wallet."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Follow the on-screen steps",
+        "text": "Complete the transaction and confirm once done."
+      }
+    ]
+  }
 }
 </script>
-
 <style>
 * { box-sizing: border-box; }
 @font-face { font-family: 'Roboto'; src: url('/fonts/Roboto-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
@@ -468,7 +469,3 @@ table th, table td { padding: 6px; }
 </footer>
 </body>
 </html>
-
-
-
-
