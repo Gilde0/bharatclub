@@ -267,6 +267,38 @@ table th, table td { padding: 6px; }
 }
 .floating-games-btn { position: fixed; top: 20px; left: 20px; background-color: #000; color: #fff; font-weight: bold; text-decoration: none; padding: 10px 18px; border-radius: 8px; font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); z-index: 10000; transition: all 0.3s ease; }
 .floating-games-btn:hover { background-color: #ff3b3b; color: #fff; transform: scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.5); }
+.demo-section {
+  text-align: center;
+}
+
+.demo-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.demo-frame {
+  background-color: #000;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 360px;
+}
+
+.demo-frame:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.demo-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 </style>
 </head>
 <body>
@@ -512,4 +544,5 @@ table th, table td { padding: 6px; }
   </footer>
 </body>
 </html>
+
 
